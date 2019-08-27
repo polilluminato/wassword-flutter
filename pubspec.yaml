@@ -1,7 +1,7 @@
 name: wassword
 description: Wassword - Wonderful Password Generator
 
-version: 0.0.1+1
+version: 0.0.2+2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -19,6 +19,7 @@ dependencies:
 
 dev_dependencies:
   flutter_launcher_icons: ^0.7.2+1
+  flutter_native_splash: ^0.1.6
   flutter_test:
     sdk: flutter
 
@@ -29,6 +30,10 @@ flutter_icons:
   image_path_ios: assets/icona/icona.png
   adaptive_icon_background: assets/icona/ic_background.png
   adaptive_icon_foreground: assets/icona/ic_foreground.png
+
+flutter_native_splash:
+  image: assets/icona/ic_splash.png
+  color: 2d3848
 
 
 # For information on the generic Dart part of this file, see the

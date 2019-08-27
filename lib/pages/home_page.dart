@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           // action button
           IconButton(
-            icon: Icon(Icons.assistant), //pages //local_play //assistant
+            icon: Icon(Icons.local_play), //pages //local_play //assistant
             onPressed: () {
               Navigator.push(
                 context,
