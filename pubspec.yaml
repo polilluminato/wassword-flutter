@@ -1,7 +1,7 @@
 name: wassword
 description: Wassword - Wonderful Password Generator
 
-version: 0.0.2+2
+version: 1.0.0+3
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fluttertoast: ^3.1.0
+  fluttertoast: ^3.1.2
   share: ^0.6.2+1
-  url_launcher: ^5.1.1 #Liberia per aprire il browser
+  url_launcher: ^5.1.2 #Liberia per aprire il browser
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -19,7 +19,7 @@ dependencies:
 
 dev_dependencies:
   flutter_launcher_icons: ^0.7.2+1
-  flutter_native_splash: ^0.1.6
+  flutter_native_splash: ^0.1.7
   flutter_test:
     sdk: flutter
 
@@ -35,11 +35,6 @@ flutter_native_splash:
   image: assets/icona/ic_splash.png
   color: 2d3848
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
 
   # The following line ensures that the Material Icons font is
