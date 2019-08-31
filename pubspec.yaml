@@ -33,7 +33,7 @@ flutter_icons:
 
 flutter_native_splash:
   image: assets/icona/ic_splash.png
-  color: 2d3848
+  color: '202124'
 
 flutter:
 
