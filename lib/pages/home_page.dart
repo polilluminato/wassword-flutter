@@ -1,13 +1,13 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 
-import '../pages/credits_page.dart';
+import '../pages/about_page.dart';
 import '../styles/my_colors.dart';
+import '../types/custom_popup_menu.dart';
+import '../utils/password_generator.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -21,55 +21,33 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _generatedPassword = "";
   bool _isWithLetters = false;
-  final String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
   bool _isWithUppercase = false;
-  final String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   bool _isWithNumbers = false;
-  final String numbers = "0123456789";
   bool _isWithSpecial = false;
-  final String special = "@#=+!£\$%&?[](){}";
   double _numberCharPassword = 8.0;
 
   /*Funzione per generare le password*/
   void _generatePassword() {
-    setState(() {
-      //print("Genero password");
+    if (!_isWithLetters &&
+        !_isWithUppercase &&
+        !_isWithNumbers &&
+        !_isWithSpecial) {
+      //Resetto la password
+      setState(() {
+        _generatedPassword = "";
+      });
 
-      String allowedChars = "";
-      int i = 0;
-      String result = "";
-      if (_isWithLetters) {
-        allowedChars += lowerCaseLetters;
-      }
-      if (_isWithUppercase) {
-        allowedChars += upperCaseLetters;
-      }
-      if (_isWithNumbers) {
-        allowedChars += numbers;
-      }
-      if (_isWithSpecial) {
-        allowedChars += special;
-      }
-
-      if (allowedChars.length == 0) {
-        Fluttertoast.showToast(
-            msg: "There aren't allowed chars, no possible password",
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIos: 1);
-      } else {
-        while (i < _numberCharPassword.round()) {
-          var rng = new Random();
-          //https://stackoverflow.com/a/28614409/7483183
-          int randomInt = rng.nextInt(allowedChars.length);
-          result += allowedChars[randomInt];
-          i++;
-        }
-        //print(result);
-        _generatedPassword = result;
-        //showInterstitialAd();
-      }
-    });
+      Fluttertoast.showToast(
+          msg: "There aren't allowed chars, no possible password",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIos: 1);
+    } else {
+      setState(() {
+        _generatedPassword = generaPassword(_isWithLetters, _isWithUppercase,
+            _isWithNumbers, _isWithSpecial, _numberCharPassword);
+      });
+    }
   }
 
   //Funzione per copiare la password che ho generato e metterla nella clipboard
@@ -90,11 +68,22 @@ class _HomePageState extends State<HomePage> {
     Share.share(_generatedPassword);
   }
 
-  /*Parte per gli admob*/
   initState() {
     super.initState();
   }
-  /*Parte per gli admob*/
+
+  static List<CustomPopupMenu> choices = <CustomPopupMenu>[
+    CustomPopupMenu(title: 'About', icon: Icons.info_outline),
+  ];
+
+  void _selectPopUpMenu(CustomPopupMenu choice) {
+    if (choice.title == 'About') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AboutPage()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,16 +99,18 @@ class _HomePageState extends State<HomePage> {
               fontSize: 20,
             )),
         actions: <Widget>[
-          // action button
-          IconButton(
-            icon: Icon(Icons.local_play), //pages //local_play //assistant
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CreditsPage()),
-              );
+          PopupMenuButton<CustomPopupMenu>(
+            elevation: 4,
+            onSelected: _selectPopUpMenu,
+            itemBuilder: (BuildContext context) {
+              return choices.map((CustomPopupMenu choice) {
+                return PopupMenuItem<CustomPopupMenu>(
+                  value: choice,
+                  child: Text(choice.title),
+                );
+              }).toList();
             },
-          ),
+          )
         ],
       ),
       body: new Column(children: <Widget>[
@@ -204,12 +195,6 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-
-              /*new SwitchListTile(
-                  title: const Text('Use special chars (@£*)'),
-                  value: _isWithSpecial,
-                  onChanged: (bool value) { setState(() { _isWithSpecial = value; }); },
-                ),*/
               new SizedBox(height: 12),
               new Row(
                 mainAxisSize: MainAxisSize.max,
