@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../styles/my_colors.dart';
 
-class CreditsPage extends StatelessWidget {
+class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Lancio il browser con l'url che devo aprire
@@ -16,7 +16,7 @@ class CreditsPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: colorGreyDark,
+      backgroundColor: colorGreyLight,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: colorGreyDark,
@@ -26,7 +26,7 @@ class CreditsPage extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             }),
-        title: new Text("Credits"),
+        title: new Text("About"),
       ),
       body: SingleChildScrollView(
         child: Column(
