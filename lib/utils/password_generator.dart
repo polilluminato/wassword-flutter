@@ -1,33 +1,33 @@
 import 'dart:math';
 
-String generaPassword(bool _isWithLetters, bool _isWithUppercase,
-    bool _isWithNumbers, bool _isWithSpecial, double _numberCharPassword) {
-  const String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-  const String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const String numbers = "0123456789";
-  const String special = "@#=+!£\$%&?[](){}";
+/**
+ * @desc Function to generate passwords based on some criteria
+ * @param bool _isWithLetters: password must contain letters
+ * @param bool _isWithUppercase: password must contain uppercase letters
+ * @param bool _isWithNumbers: password must contain numbers
+ * @param bool _isWithSpecial: password must contain special chars
+ * @param int _numberCharPassword: password length
+ * @return string: new password
+ */
+String generatePassword(bool _isWithLetters, bool _isWithUppercase,
+    bool _isWithNumbers, bool _isWithSpecial, int _numberCharPassword) {
+  String _lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+  String _upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  String _numbers = "0123456789";
+  String _special = "@#=+!£\$%&?[](){}";
 
   String _allowedChars = "";
 
-  if (_isWithLetters) {
-    _allowedChars += lowerCaseLetters;
-  }
-  if (_isWithUppercase) {
-    _allowedChars += upperCaseLetters;
-  }
-  if (_isWithNumbers) {
-    _allowedChars += numbers;
-  }
-  if (_isWithSpecial) {
-    _allowedChars += special;
-  }
+  _allowedChars += (_isWithLetters ? _lowerCaseLetters : '');
+  _allowedChars += (_isWithUppercase ? _upperCaseLetters : '');
+  _allowedChars += (_isWithNumbers ? _numbers : '');
+  _allowedChars += (_isWithSpecial ? _special : '');
 
   int i = 0;
   String _result = "";
-  while (i < _numberCharPassword.round()) {
-    var rng = new Random();
+  while (i < _numberCharPassword) {
     //https://stackoverflow.com/a/28614409/7483183
-    int randomInt = rng.nextInt(_allowedChars.length);
+    int randomInt = Random.secure().nextInt(_allowedChars.length);
     _result += _allowedChars[randomInt];
     i++;
   }

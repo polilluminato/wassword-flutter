@@ -44,8 +44,8 @@ class _HomePageState extends State<HomePage> {
           timeInSecForIos: 1);
     } else {
       setState(() {
-        _generatedPassword = generaPassword(_isWithLetters, _isWithUppercase,
-            _isWithNumbers, _isWithSpecial, _numberCharPassword);
+        _generatedPassword = generatePassword(_isWithLetters, _isWithUppercase,
+            _isWithNumbers, _isWithSpecial, _numberCharPassword.round());
       });
     }
   }
@@ -53,7 +53,6 @@ class _HomePageState extends State<HomePage> {
   //Funzione per copiare la password che ho generato e metterla nella clipboard
   //  in modo che io possa condividerla con altre app
   void _copyToClipboard() {
-    print("_copyToClipboard");
     Clipboard.setData(new ClipboardData(text: _generatedPassword));
 
     //Faccio vedere il toast per far capire che ho copiato la password
