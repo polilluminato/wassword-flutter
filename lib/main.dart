@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 void main() => runApp(new MyApp());
 
@@ -12,7 +14,11 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Wassword',
       debugShowCheckedModeBanner: false,
-      theme: new ThemeData(fontFamily: 'NotoSans'),
+      theme: ThemeData(
+        textTheme: GoogleFonts.notoSansTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
       home: new HomePage(title: 'Wassword'),
     );
   }
