@@ -1,16 +1,20 @@
-# wassword
+# Wassword
 
 Wassword - Wonderful Password Generator
 
-## Getting Started
+## Donations
 
-This project is a starting point for a Flutter application.
+If you think that any information you obtained here is worth of some money and are willing to pay for it, feel free to send any amount through PayPal, Bitcoin, Ethereum, Litecoin and BAT.
 
-A few resources to get you started if this is your first Flutter project:
+| Service  | Link                                       |
+|----------|--------------------------------------------|
+| Paypal   | [PayPal.Me](https://paypal.me/polilluminato)            |
+| Bitcoin  | 3Pm9jw4E7t5jd3nhWp8ZAohMsSBdxdXuNY         |
+| Ethereum | 0xdf65F5beBAa9c0d3F979fA8935671d7dCD1Ae363 |
+| Litecoin | MNdUw3w7Vn3fwx2dJEdxQ7Rw4jzSVjAohh         |
+| BAT      | 0xbbF164847aAc7E226e4EC0195fF734AD314C9422 |
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Contributing
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you have any idea, feel free to fork it and submit your changes back to me.
+
