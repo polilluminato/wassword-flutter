@@ -1,7 +1,7 @@
 name: wassword
 description: Wassword - Wonderful Password Generator
 
-version: 1.0.1+4
+version: 1.0.2+5
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
