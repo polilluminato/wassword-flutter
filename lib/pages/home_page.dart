@@ -40,8 +40,7 @@ class _HomePageState extends State<HomePage> {
       Fluttertoast.showToast(
           msg: "There aren't allowed chars, no possible password",
           toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIos: 1);
+          gravity: ToastGravity.BOTTOM);
     } else {
       setState(() {
         _generatedPassword = generatePassword(_isWithLetters, _isWithUppercase,
@@ -59,8 +58,7 @@ class _HomePageState extends State<HomePage> {
     Fluttertoast.showToast(
         msg: "Password copied correctly",
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIos: 1);
+        gravity: ToastGravity.BOTTOM);
   }
 
   void _shareGeneratedPassword() {
