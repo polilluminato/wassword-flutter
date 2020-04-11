@@ -28,6 +28,11 @@ String generatePassword({
   _allowedChars += (isWithNumbers ? _numbers : '');
   _allowedChars += (isWithSpecial ? _special : '');
 
+  if(_allowedChars.length == 0) {
+    return '';
+  }
+
+  //If I can create a password because I've got some char to use
   int i = 0;
   String _result = "";
   while (i < numberCharPassword) {
