@@ -2,15 +2,20 @@ import 'dart:math';
 
 /**
  * @desc Function to generate passwords based on some criteria
- * @param bool _isWithLetters: password must contain letters
- * @param bool _isWithUppercase: password must contain uppercase letters
- * @param bool _isWithNumbers: password must contain numbers
- * @param bool _isWithSpecial: password must contain special chars
+ * @param bool isWithLetters: password must contain letters
+ * @param bool isWithUppercase: password must contain uppercase letters
+ * @param bool isWithNumbers: password must contain numbers
+ * @param bool isWithSpecial: password must contain special chars
  * @param int _numberCharPassword: password length
  * @return string: new password
  */
-String generatePassword(bool _isWithLetters, bool _isWithUppercase,
-    bool _isWithNumbers, bool _isWithSpecial, int _numberCharPassword) {
+String generatePassword({
+    bool isWithLetters, 
+    bool isWithUppercase,
+    bool isWithNumbers, 
+    bool isWithSpecial, 
+    double numberCharPassword}) {
+  
   String _lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
   String _upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   String _numbers = "0123456789";
@@ -18,14 +23,14 @@ String generatePassword(bool _isWithLetters, bool _isWithUppercase,
 
   String _allowedChars = "";
 
-  _allowedChars += (_isWithLetters ? _lowerCaseLetters : '');
-  _allowedChars += (_isWithUppercase ? _upperCaseLetters : '');
-  _allowedChars += (_isWithNumbers ? _numbers : '');
-  _allowedChars += (_isWithSpecial ? _special : '');
+  _allowedChars += (isWithLetters ? _lowerCaseLetters : '');
+  _allowedChars += (isWithUppercase ? _upperCaseLetters : '');
+  _allowedChars += (isWithNumbers ? _numbers : '');
+  _allowedChars += (isWithSpecial ? _special : '');
 
   int i = 0;
   String _result = "";
-  while (i < _numberCharPassword) {
+  while (i < numberCharPassword) {
     //https://stackoverflow.com/a/28614409/7483183
     int randomInt = Random.secure().nextInt(_allowedChars.length);
     _result += _allowedChars[randomInt];
