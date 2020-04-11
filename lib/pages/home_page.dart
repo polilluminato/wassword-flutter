@@ -23,7 +23,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   //Funzione per copiare la password che ho generato e metterla nella clipboard
   //  in modo che io possa condividerla con altre app
   void _copyToClipboard() {
@@ -60,58 +59,83 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: colorGreyLight,
+      backgroundColor: colorGreyDark,
       appBar: new AppBar(
         elevation: 0,
-        backgroundColor: colorGreyLight,
+        backgroundColor: colorGreyDark,
         title: Text(widget.title,
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
             )),
         actions: <Widget>[
-          IconButton(
-            iconSize: 32,
-            color: Colors.white,
-            icon: Icon(Icons.person_outline),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutPage(),
-                  ));
-            },
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: IconButton(
+              iconSize: 32,
+              color: Colors.white,
+              icon: Icon(Icons.person_outline),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutPage(),
+                    ));
+              },
+            ),
           ),
         ],
       ),
       body: new Column(children: <Widget>[
         new Expanded(
-          child: new Container(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            constraints: BoxConstraints.expand(),
-            alignment: Alignment(0.0, 0.0),
-            color: colorGreyLight,
-            child: Observer(
-              builder: (_) => Text(
-                passwordStore.password,
-                textAlign: TextAlign.center,
-                style: new TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
-                    color: colorWhite),
+          child: Stack(
+            children: [
+              Container(
+                decoration: new BoxDecoration(
+                  color: colorGreyLight,
+                  shape: BoxShape.rectangle,
+                  borderRadius: new BorderRadius.all(Radius.circular(8)),
+                ),
+                margin: EdgeInsets.all(16),
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                constraints: BoxConstraints.expand(),
+                alignment: Alignment(0, 0),
+                child: Observer(
+                  builder: (_) => Text(
+                    passwordStore.password,
+                    textAlign: TextAlign.center,
+                    style: new TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36,
+                        color: colorWhite),
+                  ),
+                ),
               ),
-            ),
+              Positioned(
+                bottom: 28,
+                right: 72,
+                child: IconButton(
+                  iconSize: 24,
+                  icon: Icon(Icons.content_copy),
+                  color: Colors.white,
+                  onPressed: _copyToClipboard,
+                ),
+              ),
+              Positioned(
+                bottom: 28,
+                right: 28,
+                child: IconButton(
+                  iconSize: 24,
+                  icon: Icon(Icons.share),
+                  color: Colors.white,
+                  onPressed: _shareGeneratedPassword,
+                ),
+              )
+            ],
           ),
         ),
         new Container(
             padding: EdgeInsets.only(top: 20, left: 12, right: 12),
-            decoration: new BoxDecoration(
-              color: colorGreyDark,
-              shape: BoxShape.rectangle,
-              borderRadius: new BorderRadius.vertical(
-                top: new Radius.circular(24),
-              ),
-            ),
             child:
                 new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               new ListTile(
@@ -122,7 +146,9 @@ class _HomePageState extends State<HomePage> {
                     activeColor: Colors.white,
                     value: passwordStore.isWithLetters,
                     onChanged: (bool value) {
-                      passwordStore.changeLetters(value);
+                      passwordStore
+                        ..changeLetters(value)
+                        ..generateNew();
                     },
                   ),
                 ),
@@ -135,7 +161,9 @@ class _HomePageState extends State<HomePage> {
                     activeColor: Colors.white,
                     value: passwordStore.isWithUppercase,
                     onChanged: (bool value) {
-                      passwordStore.changeUppercase(value);
+                      passwordStore
+                        ..changeUppercase(value)
+                        ..generateNew();
                     },
                   ),
                 ),
@@ -148,7 +176,9 @@ class _HomePageState extends State<HomePage> {
                     activeColor: Colors.white,
                     value: passwordStore.isWithNumbers,
                     onChanged: (bool value) {
-                      passwordStore.changeNumbers(value);
+                      passwordStore
+                        ..changeNumbers(value)
+                        ..generateNew();
                     },
                   ),
                 ),
@@ -161,12 +191,14 @@ class _HomePageState extends State<HomePage> {
                     activeColor: Colors.white,
                     value: passwordStore.isWithSpecial,
                     onChanged: (bool value) {
-                      passwordStore.changeSpecial(value);
+                      passwordStore
+                        ..changeSpecial(value)
+                        ..generateNew();
                     },
                   ),
                 ),
               ),
-              new SizedBox(height: 12),
+              new SizedBox(height: 4),
               new Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -192,53 +224,27 @@ class _HomePageState extends State<HomePage> {
                           //label: '${_numberCharPassword.round()}',
                           onChanged: (double value) {
                             setState(() {
-                              passwordStore.changeLenght(value);
+                              passwordStore
+                                ..changeLenght(value)
+                                ..generateNew();
                             });
                           })),
                 ],
               ),
               new Container(
                 margin: EdgeInsets.only(top: 48, bottom: 36),
-                child: new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Ink(
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: CircleBorder(),
-                      ),
-                      child: IconButton(
-                        icon: Icon(Icons.content_copy),
-                        color: Colors.white,
-                        onPressed: _copyToClipboard,
-                      ),
-                    ),
-                    new RaisedButton(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 48, vertical: 12),
-                        color: colorGreyLight,
-                        onPressed: () => {passwordStore.generateNew()},
-                        textColor: colorAccent,
-                        child: new Text("Generate",
-                            style: new TextStyle(
-                                color: colorWhite,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold)),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(20))),
-                    Ink(
-                      decoration: ShapeDecoration(
-                        color: colorAccent,
-                        shape: CircleBorder(),
-                      ),
-                      child: IconButton(
-                        icon: Icon(Icons.share),
-                        color: Colors.white,
-                        onPressed: _shareGeneratedPassword,
-                      ),
-                    ),
-                  ],
-                ),
+                child: new RaisedButton(
+                    padding: EdgeInsets.symmetric(horizontal: 48, vertical: 12),
+                    color: colorGreyLight,
+                    onPressed: () => {passwordStore.generateNew()},
+                    textColor: colorAccent,
+                    child: new Text("Generate",
+                        style: new TextStyle(
+                            color: colorWhite,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(8))),
               )
             ]))
       ]),
