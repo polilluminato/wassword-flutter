@@ -78,9 +78,16 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 decoration: new BoxDecoration(
-                  color: colorGreyLight,
+                  gradient: LinearGradient(
+                    begin: FractionalOffset.topLeft,
+                    end: FractionalOffset.bottomRight,
+                    colors: [
+                      colorAccentDark,
+                      colorAccentLight
+                    ]
+                  ),
                   shape: BoxShape.rectangle,
-                  borderRadius: new BorderRadius.all(Radius.circular(8)),
+                  borderRadius: new BorderRadius.all(Radius.circular(16)),
                 ),
                 margin: EdgeInsets.all(16),
                 padding: EdgeInsets.symmetric(horizontal: 24),
@@ -221,16 +228,16 @@ class _HomePageState extends State<HomePage> {
                 margin: EdgeInsets.only(top: 48, bottom: 36),
                 child: new RaisedButton(
                     padding: EdgeInsets.symmetric(horizontal: 48, vertical: 12),
-                    color: colorGreyLight,
+                    color: colorAccentDark,
                     onPressed: () => {passwordStore.generateNew()},
-                    textColor: colorAccent,
+                    textColor: colorWhite,
                     child: new Text("Generate",
                         style: new TextStyle(
                             color: colorWhite,
                             fontSize: 20,
                             fontWeight: FontWeight.bold)),
                     shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(8))),
+                        borderRadius: new BorderRadius.circular(50))),
               )
             ]))
       ]),
