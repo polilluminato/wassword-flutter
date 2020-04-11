@@ -7,7 +7,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../pages/about_page.dart';
 import '../styles/my_colors.dart';
-import '../types/custom_popup_menu.dart';
 
 import '../stores/password.dart';
 
@@ -41,19 +40,6 @@ class _HomePageState extends State<HomePage> {
 
   initState() {
     super.initState();
-  }
-
-  static List<CustomPopupMenu> choices = <CustomPopupMenu>[
-    CustomPopupMenu(title: 'About', icon: Icons.info_outline),
-  ];
-
-  void _selectPopUpMenu(CustomPopupMenu choice) {
-    if (choice.title == 'About') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => AboutPage()),
-      );
-    }
   }
 
   @override
