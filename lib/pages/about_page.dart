@@ -16,9 +16,8 @@ class AboutPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: colorGreyLight,
+      backgroundColor: colorGreyDark,
       appBar: AppBar(
-        elevation: 0,
         backgroundColor: colorGreyDark,
         leading: IconButton(
             color: Colors.white,
