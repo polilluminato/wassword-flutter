@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:share/share.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: colorGreyDark,
         title: Text(widget.title,
-            style: TextStyle(
+            style: GoogleFonts.ubuntu(
               color: Colors.white,
               fontSize: 28,
             )),
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white)),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: Colors.white,
+                    activeColor: colorAccentLight,
                     value: passwordStore.isWithLetters,
                     onChanged: (bool value) {
                       passwordStore
@@ -151,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white)),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: Colors.white,
+                    activeColor: colorAccentLight,
                     value: passwordStore.isWithUppercase,
                     onChanged: (bool value) {
                       passwordStore
@@ -166,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white)),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: Colors.white,
+                    activeColor: colorAccentLight,
                     value: passwordStore.isWithNumbers,
                     onChanged: (bool value) {
                       passwordStore
@@ -181,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white)),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: Colors.white,
+                    activeColor: colorAccentLight,
                     value: passwordStore.isWithSpecial,
                     onChanged: (bool value) {
                       passwordStore
@@ -228,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                 margin: EdgeInsets.only(top: 48, bottom: 36),
                 child: new RaisedButton(
                     padding: EdgeInsets.symmetric(horizontal: 48, vertical: 12),
-                    color: colorAccentDark,
+                    color: colorAccentLight,
                     onPressed: () => {passwordStore.generateNew()},
                     textColor: colorWhite,
                     child: new Text("Generate",

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../styles/my_colors.dart';
 
@@ -25,7 +26,9 @@ class AboutPage extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             }),
-        title: new Text("About"),
+        title: new Text("About",style: GoogleFonts.ubuntu(
+              color: Colors.white,
+            )),
       ),
       body: SingleChildScrollView(
         child: Column(

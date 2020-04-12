@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Wassword',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.notoSansTextTheme(
+        textTheme: GoogleFonts.ubuntuTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
