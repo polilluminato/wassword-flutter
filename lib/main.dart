@@ -1,11 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-void main() => runApp(new MyApp());
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp])
+      .then((_) => runApp(new MyApp()));
+
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
