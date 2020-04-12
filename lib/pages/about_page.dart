@@ -1,20 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 import '../styles/my_colors.dart';
 
-class AboutPage extends StatelessWidget {
+class AboutPage extends StatefulWidget {
+  @override
+  _AboutPageState createState() => _AboutPageState();
+}
+
+class _AboutPageState extends State<AboutPage> {
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
+
+  //Custom Widget for the ListTile
+  ListTile customListTile({String text, IconData icon, String url}) {
+    return ListTile(
+      leading: Icon( icon,color: Colors.white,),
+      title: Text(text,style: TextStyle(color: Colors.white),),
+      onTap: () {
+        _launchURL(url);
+      },
+    );
+  }
+
+  //Open the browser with the url provided
+  void _launchURL(String urlToLaunch) async {
+    if (await canLaunch(urlToLaunch)) {
+      await launch(urlToLaunch);
+    } else {
+      throw 'Could not launch $urlToLaunch';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    //Lancio il browser con l'url che devo aprire
-    void _launchURL(String urlToLaunch) async {
-      if (await canLaunch(urlToLaunch)) {
-        await launch(urlToLaunch);
-      } else {
-        throw 'Could not launch $urlToLaunch';
-      }
-    }
+    
 
     return Scaffold(
       backgroundColor: colorGreyDark,
@@ -26,95 +66,64 @@ class AboutPage extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             }),
-        title: new Text("About",style: GoogleFonts.ubuntu(
+        title: new Text("About",
+            style: GoogleFonts.ubuntu(
               color: Colors.white,
             )),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Text(
-                "DEVELOPER",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 14, color: colorWhite),
-              ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, top: 8, right: 16),
-                  child: Image.asset(
-                    "assets/images/logo.png",
-                    width: 48,
-                    height: 48,
-                  ),
+      body: ListView(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 8),
+                child: Text(
+                  "Wassword",
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text("Alberto Bonacina",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(fontSize: 18, color: colorWhite)),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text("bonacina.alberto@gmail.com",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(fontSize: 16, color: colorWhite)),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        IconButton(
-                          icon: Image.asset("assets/icons/ic_github.png"),
-                          onPressed: () {
-                            _launchURL("https://github.com/polilluminato");
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset("assets/icons/ic_twitter.png"),
-                          onPressed: () {
-                            _launchURL("https://twitter.com/polilluminato");
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset("assets/icons/ic_linkedin.png"),
-                          onPressed: () {
-                            _launchURL(
-                                "https://it.linkedin.com/in/bonacinaalberto");
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset("assets/icons/ic_website.png"),
-                          onPressed: () {
-                            _launchURL("https://www.albertobonacina.com/");
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset("assets/icons/ic_email.png"),
-                          onPressed: () {
-                            _launchURL("mailto:<bonacina.alberto@gmail.com>");
-                          },
-                        )
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
-            //An open list of apps built with Flutter
-          ],
-        ),
+              ),
+              Text(
+                "v.${_packageInfo.version}+${_packageInfo.buildNumber}",
+                style: TextStyle(fontSize: 15, color: Colors.white),
+              ),
+              SizedBox(
+                height: 48,
+              ),
+              ListTile(
+                title: Text(
+                  "DEVELOPER",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 14, color: colorAccentLight),
+                ),
+              ),
+              customListTile(
+                  icon: MaterialCommunityIcons.web,
+                  text: "AlbertoBonacina.com",
+                  url: "https://www.albertobonacina.com/"),
+              customListTile(
+                  icon: Entypo.email,
+                  text: "Contact",
+                  url: "mailto:bonacina.alberto@gmail.com"),
+              customListTile(
+                  icon: FontAwesome.github,
+                  text: "Github",
+                  url: "https://github.com/polilluminato"),
+              customListTile(
+                  icon: FontAwesome.twitter,
+                  text: "Twitter",
+                  url: "https://twitter.com/polilluminato"),
+              customListTile(
+                  icon: FontAwesome.linkedin,
+                  text: "Linkedin",
+                  url: "https://it.linkedin.com/in/bonacinaalberto"),
+            ],
+          ),
+          //An open list of apps built with Flutter
+        ],
       ),
     );
   }
