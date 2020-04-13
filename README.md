@@ -21,6 +21,12 @@ Wassword only creates password!
 - Copy generated passwords
 - Share generated passwords
 
+### Screenshot
+
+| Splash | Empty Home | Home Password |
+|-|-|-|
+| ![Splash Screen](/screenshot/splash.jpg) | ![Home Empty](/screenshot/home_empty.jpg) | ![Home Password](/screenshot/home_password.jpg) |
+
 ## Donate
 
 If you think that code is worth of some money and are willing to pay for it, feel free to send any amount through PayPal, Bitcoin, Ethereum, Litecoin and BAT.
