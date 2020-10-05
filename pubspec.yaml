@@ -9,34 +9,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fluttertoast: ^6.0.1
-  share: ^0.6.4+3
-  url_launcher: ^5.5.0
+  fluttertoast: ^7.1.1
+  share: ^0.6.5+2
+  url_launcher: ^5.7.2
   google_fonts: ^1.1.0
-  mobx: ^1.2.1+1
-  flutter_mobx: ^1.1.0+1
-  package_info: ^0.4.1
+  mobx: ^1.2.1+2
+  flutter_mobx: ^1.1.0+2
+  package_info: ^0.4.3
   flutter_icons: ^1.1.0
 
 dev_dependencies:
   build_runner: ^1.10.0
   mobx_codegen: ^1.1.0+1
-  flutter_launcher_icons: ^0.7.5
+  flutter_launcher_icons: ^0.8.1
   flutter_native_splash: ^0.1.9
   flutter_test:
     sdk: flutter
-
-flutter_icons:
-  android: true
-  ios: true
-  image_path_android: assets/icona/icona.png
-  image_path_ios: assets/icona/icona.png
-  adaptive_icon_background: assets/icona/ic_background.png
-  adaptive_icon_foreground: assets/icona/ic_foreground.png
-
-flutter_native_splash:
-  image: assets/icona/ic_splash.png
-  color: '050607'
 
 flutter:
 
