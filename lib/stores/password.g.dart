@@ -72,13 +72,13 @@ mixin _$Password on _Password, Store {
   final _$numberCharPasswordAtom = Atom(name: '_Password.numberCharPassword');
 
   @override
-  int get numberCharPassword {
+  double get numberCharPassword {
     _$numberCharPasswordAtom.reportRead();
     return super.numberCharPassword;
   }
 
   @override
-  set numberCharPassword(int value) {
+  set numberCharPassword(double value) {
     _$numberCharPasswordAtom.reportWrite(value, super.numberCharPassword, () {
       super.numberCharPassword = value;
     });

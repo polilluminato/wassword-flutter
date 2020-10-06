@@ -22,7 +22,7 @@ abstract class _Password with Store {
   bool isWithSpecial = false;
 
   @observable
-  int numberCharPassword = 8;
+  double numberCharPassword = 8;
 
   @observable
   String password = '';
@@ -34,7 +34,7 @@ abstract class _Password with Store {
         isWithUppercase: isWithUppercase,
         isWithNumbers: isWithNumbers,
         isWithSpecial: isWithSpecial,
-        numberCharPassword: numberCharPassword);
+        numberCharPassword: numberCharPassword.toInt());
   }
 
   @action
@@ -57,7 +57,7 @@ abstract class _Password with Store {
     isWithSpecial = newValue;
   }
 
-  void changeLenght(int newLength) {
+  void changeLenght(double newLength) {
     numberCharPassword = newLength;
   }
 }
