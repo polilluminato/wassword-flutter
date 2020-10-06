@@ -22,7 +22,7 @@ abstract class _Password with Store {
   bool isWithSpecial = false;
 
   @observable
-  double numberCharPassword = 8;
+  int numberCharPassword = 8;
 
   @observable
   String password = '';
@@ -30,35 +30,34 @@ abstract class _Password with Store {
   @action
   void generateNew() {
     password = pg.generatePassword(
-      isWithLetters: isWithLetters, 
-      isWithUppercase: isWithUppercase, 
-      isWithNumbers: isWithNumbers, 
-      isWithSpecial: isWithSpecial, 
-      numberCharPassword: numberCharPassword);
+        isWithLetters: isWithLetters,
+        isWithUppercase: isWithUppercase,
+        isWithNumbers: isWithNumbers,
+        isWithSpecial: isWithSpecial,
+        numberCharPassword: numberCharPassword);
   }
 
   @action
-  void changeLetters(bool newValue){
+  void changeLetters(bool newValue) {
     isWithLetters = newValue;
   }
 
   @action
-  void changeUppercase(bool newValue){
+  void changeUppercase(bool newValue) {
     isWithUppercase = newValue;
   }
 
   @action
-  void changeNumbers(bool newValue){
+  void changeNumbers(bool newValue) {
     isWithNumbers = newValue;
   }
 
   @action
-  void changeSpecial(bool newValue){
+  void changeSpecial(bool newValue) {
     isWithSpecial = newValue;
   }
 
-  void changeLenght(double newLength){
+  void changeLenght(int newLength) {
     numberCharPassword = newLength;
   }
-
 }

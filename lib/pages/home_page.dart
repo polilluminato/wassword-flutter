@@ -215,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                           onChanged: (double value) {
                             setState(() {
                               passwordStore
-                                ..changeLenght(value)
+                                ..changeLenght(value.toInt())
                                 ..generateNew();
                             });
                           })),
