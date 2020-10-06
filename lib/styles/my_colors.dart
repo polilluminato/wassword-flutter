@@ -6,5 +6,5 @@ Color colorLightGrey = const Color(0xFFE0E0E0);
 Color colorGreyLight = const Color(0xFF585A5E);
 Color colorGreyDark = const Color(0xFF050607);
 
-Color colorAccentDark = const Color(0xFF013698);
-Color colorAccentLight = const Color(0xFF5f99d7);
+Color colorAccentDark = const Color(0xFF509FED);
+Color colorAccentLight = const Color(0xFF509FED);

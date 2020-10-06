@@ -51,15 +51,14 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: colorGreyDark,
         title: Text(widget.title,
-            style: GoogleFonts.ubuntu(
+            style: GoogleFonts.notoSans(
               color: Colors.white,
-              fontSize: 28,
             )),
         actions: <Widget>[
           Padding(
             padding: EdgeInsets.only(right: 8),
             child: IconButton(
-              iconSize: 32,
+              iconSize: 24,
               color: Colors.white,
               icon: Icon(Icons.person_outline),
               onPressed: () {
@@ -96,26 +95,26 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 36,
+                        fontSize: 24,
                         color: colorWhite),
                   ),
                 ),
               ),
               Positioned(
-                bottom: 28,
-                right: 72,
+                bottom: 18,
+                right: 56,
                 child: IconButton(
-                  iconSize: 24,
+                  iconSize: 20,
                   icon: Icon(Icons.content_copy),
                   color: Colors.white,
                   onPressed: _copyToClipboard,
                 ),
               ),
               Positioned(
-                bottom: 28,
-                right: 28,
+                bottom: 18,
+                right: 24,
                 child: IconButton(
-                  iconSize: 24,
+                  iconSize: 20,
                   icon: Icon(Icons.share),
                   color: Colors.white,
                   onPressed: _shareGeneratedPassword,
@@ -129,8 +128,10 @@ class _HomePageState extends State<HomePage> {
             child:
                 new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               new ListTile(
-                title: Text('Lower case letters (a-z)',
-                    style: TextStyle(color: Colors.white)),
+                title: Text(
+                  'Lower case letters (a-z)',
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
                     activeColor: colorAccentLight,
@@ -144,8 +145,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               new ListTile(
-                title: Text('Uppercase letters (A-Z)',
-                    style: TextStyle(color: Colors.white)),
+                title: Text(
+                  'Uppercase letters (A-Z)',
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
                     activeColor: colorAccentLight,
@@ -160,7 +163,10 @@ class _HomePageState extends State<HomePage> {
               ),
               new ListTile(
                 title: Text('Numbers (0-9)',
-                    style: TextStyle(color: Colors.white)),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    )),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
                     activeColor: colorAccentLight,
@@ -174,8 +180,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               new ListTile(
-                title: Text('Special chars (@£*)',
-                    style: TextStyle(color: Colors.white)),
+                title: Text(
+                  'Special chars (@£*)',
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
                     activeColor: colorAccentLight,
@@ -199,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                         child: new Text(
                           "Length: ${passwordStore.numberCharPassword.toInt()}",
                           style: new TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 14,
                               fontWeight: FontWeight.normal,
                               color: Colors.white),
                         )),
@@ -224,14 +232,14 @@ class _HomePageState extends State<HomePage> {
               new Container(
                 margin: EdgeInsets.only(top: 48, bottom: 36),
                 child: new RaisedButton(
-                    padding: EdgeInsets.symmetric(horizontal: 48, vertical: 12),
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                     color: colorAccentLight,
                     onPressed: () => passwordStore.generateNew(),
                     textColor: colorWhite,
                     child: new Text("Generate",
                         style: new TextStyle(
                             color: colorWhite,
-                            fontSize: 20,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold)),
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(50))),

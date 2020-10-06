@@ -4,15 +4,11 @@ import 'package:flutter/services.dart';
 import 'pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setPreferredOrientations(
-          [DeviceOrientation.portraitUp])
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) => runApp(new MyApp()));
-
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Wassword',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.ubuntuTextTheme(
+        textTheme: GoogleFonts.notoSansTextTheme(
           Theme.of(context).textTheme,
         ),
       ),

@@ -35,8 +35,15 @@ class _AboutPageState extends State<AboutPage> {
   //Custom Widget for the ListTile
   ListTile customListTile({String text, IconData icon, String url}) {
     return ListTile(
-      leading: Icon( icon,color: Colors.white,),
-      title: Text(text,style: TextStyle(color: Colors.white),),
+      leading: Icon(
+        icon,
+        color: Colors.white,
+        size: 23,
+      ),
+      title: Text(
+        text,
+        style: TextStyle(color: Colors.white, fontSize: 14),
+      ),
       onTap: () {
         _launchURL(url);
       },
@@ -54,8 +61,6 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       backgroundColor: colorGreyDark,
       appBar: AppBar(
@@ -67,7 +72,7 @@ class _AboutPageState extends State<AboutPage> {
               Navigator.pop(context);
             }),
         title: new Text("About",
-            style: GoogleFonts.ubuntu(
+            style: GoogleFonts.notoSans(
               color: Colors.white,
             )),
       ),
@@ -77,18 +82,18 @@ class _AboutPageState extends State<AboutPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 8),
+                padding: const EdgeInsets.only(top: 32, bottom: 0),
                 child: Text(
                   "Wassword",
                   style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 32,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
               ),
               Text(
                 "v.${_packageInfo.version}+${_packageInfo.buildNumber}",
-                style: TextStyle(fontSize: 15, color: Colors.white),
+                style: TextStyle(fontSize: 14, color: Colors.white),
               ),
               SizedBox(
                 height: 48,
@@ -97,7 +102,7 @@ class _AboutPageState extends State<AboutPage> {
                 title: Text(
                   "DEVELOPER",
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 14, color: colorAccentLight),
+                  style: TextStyle(fontSize: 12, color: colorAccentLight),
                 ),
               ),
               customListTile(
