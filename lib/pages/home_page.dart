@@ -80,13 +80,9 @@ class _HomePageState extends State<HomePage> {
               Container(
                 decoration: new BoxDecoration(
                   gradient: LinearGradient(
-                    begin: FractionalOffset.topLeft,
-                    end: FractionalOffset.bottomRight,
-                    colors: [
-                      colorAccentDark,
-                      colorAccentLight
-                    ]
-                  ),
+                      begin: FractionalOffset.topLeft,
+                      end: FractionalOffset.bottomRight,
+                      colors: [colorAccentDark, colorAccentLight]),
                   shape: BoxShape.rectangle,
                   borderRadius: new BorderRadius.all(Radius.circular(16)),
                 ),
@@ -230,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                 child: new RaisedButton(
                     padding: EdgeInsets.symmetric(horizontal: 48, vertical: 12),
                     color: colorAccentLight,
-                    onPressed: () => {passwordStore.generateNew()},
+                    onPressed: () => passwordStore.generateNew(),
                     textColor: colorWhite,
                     child: new Text("Generate",
                         style: new TextStyle(
