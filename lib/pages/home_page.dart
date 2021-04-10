@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share/share.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -27,12 +26,6 @@ class _HomePageState extends State<HomePage> {
   //  in modo che io possa condividerla con altre app
   void _copyToClipboard() {
     Clipboard.setData(new ClipboardData(text: passwordStore.password));
-
-    //Faccio vedere il toast per far capire che ho copiato la password
-    Fluttertoast.showToast(
-        msg: "Password copied correctly",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM);
   }
 
   void _shareGeneratedPassword() {
@@ -56,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             )),
         actions: <Widget>[
           Padding(
-            padding: EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: 10),
             child: IconButton(
               iconSize: 24,
               color: Colors.white,
@@ -83,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                       end: FractionalOffset.bottomRight,
                       colors: [colorAccentDark, colorAccentLight]),
                   shape: BoxShape.rectangle,
-                  borderRadius: new BorderRadius.all(Radius.circular(16)),
+                  borderRadius: new BorderRadius.all(Radius.circular(12)),
                 ),
                 margin: EdgeInsets.all(16),
                 padding: EdgeInsets.symmetric(horizontal: 24),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 import '../styles/my_colors.dart';
 
@@ -106,23 +106,23 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
               customListTile(
-                  icon: MaterialCommunityIcons.web,
+                  icon: FluentIcons.access_time_24_regular,
                   text: "AlbertoBonacina.com",
                   url: "https://www.albertobonacina.com/"),
               customListTile(
-                  icon: Entypo.email,
+                  icon: FluentIcons.access_time_24_regular,
                   text: "Contact",
                   url: "mailto:bonacina.alberto@gmail.com"),
               customListTile(
-                  icon: FontAwesome.github,
+                  icon: FluentIcons.access_time_24_regular,
                   text: "Github",
                   url: "https://github.com/polilluminato"),
               customListTile(
-                  icon: FontAwesome.twitter,
+                  icon: FluentIcons.access_time_24_regular,
                   text: "Twitter",
                   url: "https://twitter.com/polilluminato"),
               customListTile(
-                  icon: FontAwesome.linkedin,
+                  icon: FluentIcons.accessibility_16_filled,
                   text: "Linkedin",
                   url: "https://it.linkedin.com/in/bonacinaalberto"),
             ],
