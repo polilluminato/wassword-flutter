@@ -4,11 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share/share.dart';
-
-import '../pages/about_page.dart';
-import '../stores/password.dart';
-import '../styles/my_colors.dart' as mColors;
-import '../styles/my_dimens.dart' as mDimens;
+import 'package:wassword/pages/about_page.dart';
+import 'package:wassword/stores/password.dart';
+import 'package:wassword/styles/my_colors.dart' as mColors;
+import 'package:wassword/styles/my_dimens.dart' as mDimens;
+import 'package:wassword/ui/option_button.dart';
 
 final passwordStore = Password();
 

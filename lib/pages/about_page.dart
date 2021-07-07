@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../styles/my_colors.dart' as mColors;
+import 'package:wassword/styles/my_colors.dart' as mColors;
 
 class AboutPage extends StatefulWidget {
   @override
