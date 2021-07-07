@@ -1,21 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share/share.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../pages/about_page.dart';
-import '../styles/my_colors.dart';
-
 import '../stores/password.dart';
+import '../styles/my_colors.dart';
 
 final passwordStore = Password();
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _HomePageState createState() => new _HomePageState();
@@ -43,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       appBar: new AppBar(
         elevation: 0,
         backgroundColor: colorGreyDark,
-        title: Text(widget.title,
+        title: Text(widget.title!,
             style: GoogleFonts.notoSans(
               color: Colors.white,
             )),

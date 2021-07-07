@@ -1,8 +1,8 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 import '../styles/my_colors.dart';
 
@@ -33,7 +33,7 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   //Custom Widget for the ListTile
-  ListTile customListTile({String text, IconData icon, String url}) {
+  ListTile customListTile({required String text, IconData? icon, String? url}) {
     return ListTile(
       leading: Icon(
         icon,
@@ -45,7 +45,7 @@ class _AboutPageState extends State<AboutPage> {
         style: TextStyle(color: Colors.white, fontSize: 14),
       ),
       onTap: () {
-        _launchURL(url);
+        _launchURL(url!);
       },
     );
   }
