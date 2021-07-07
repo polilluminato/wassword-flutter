@@ -1,0 +1,1 @@
+double roundedCorner = 28;
