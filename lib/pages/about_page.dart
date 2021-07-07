@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../styles/my_colors.dart';
+import '../styles/my_colors.dart' as mColors;
 
 class AboutPage extends StatefulWidget {
   @override
@@ -62,9 +62,7 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorGreyDark,
       appBar: AppBar(
-        backgroundColor: colorGreyDark,
         leading: IconButton(
             color: Colors.white,
             icon: Icon(Icons.arrow_back),
@@ -72,7 +70,7 @@ class _AboutPageState extends State<AboutPage> {
               Navigator.pop(context);
             }),
         title: new Text("About",
-            style: GoogleFonts.notoSans(
+            style: GoogleFonts.roboto(
               color: Colors.white,
             )),
       ),
@@ -102,7 +100,7 @@ class _AboutPageState extends State<AboutPage> {
                 title: Text(
                   "DEVELOPER",
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 12, color: colorAccentLight),
+                  style: TextStyle(fontSize: 12, color: mColors.colorEnabled),
                 ),
               ),
               customListTile(

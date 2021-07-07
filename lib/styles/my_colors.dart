@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
+Color backgroundView = const Color(0xFF202125);
+
 Color colorWhite = const Color(0xFFFFFFFF);
 Color colorLightGrey = const Color(0xFFE0E0E0);
 
-Color colorGreyLight = const Color(0xFF585A5E);
-Color colorGreyDark = const Color(0xFF050607);
-
-Color colorAccentDark = const Color(0xFF509FED);
-Color colorAccentLight = const Color(0xFF509FED);
+Color colorEnabled = const Color(0xFF88A1F5);
+Color colorDisabled = const Color(0xFF30312c);

@@ -7,14 +7,14 @@ import 'package:share/share.dart';
 
 import '../pages/about_page.dart';
 import '../stores/password.dart';
-import '../styles/my_colors.dart';
+import '../styles/my_colors.dart' as mColors;
 
 final passwordStore = Password();
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key, this.title}) : super(key: key);
+  HomePage({Key? key, required this.title}) : super(key: key);
 
-  final String? title;
+  final String title;
 
   @override
   _HomePageState createState() => new _HomePageState();
@@ -38,12 +38,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: colorGreyDark,
       appBar: new AppBar(
-        elevation: 0,
-        backgroundColor: colorGreyDark,
-        title: Text(widget.title!,
-            style: GoogleFonts.notoSans(
+        title: Text(widget.title,
+            style: GoogleFonts.roboto(
               color: Colors.white,
             )),
         actions: <Widget>[
@@ -70,10 +67,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 decoration: new BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: FractionalOffset.topLeft,
-                      end: FractionalOffset.bottomRight,
-                      colors: [colorAccentDark, colorAccentLight]),
+                  color: mColors.colorEnabled,
                   shape: BoxShape.rectangle,
                   borderRadius: new BorderRadius.all(Radius.circular(12)),
                 ),
@@ -88,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     style: new TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
-                        color: colorWhite),
+                        color: mColors.colorWhite),
                   ),
                 ),
               ),
@@ -126,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: colorAccentLight,
+                    activeColor: mColors.colorEnabled,
                     value: passwordStore.isWithLetters,
                     onChanged: (bool value) {
                       passwordStore
@@ -143,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: colorAccentLight,
+                    activeColor: mColors.colorEnabled,
                     value: passwordStore.isWithUppercase,
                     onChanged: (bool value) {
                       passwordStore
@@ -161,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: colorAccentLight,
+                    activeColor: mColors.colorEnabled,
                     value: passwordStore.isWithNumbers,
                     onChanged: (bool value) {
                       passwordStore
@@ -178,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 trailing: Observer(
                   builder: (_) => CupertinoSwitch(
-                    activeColor: colorAccentLight,
+                    activeColor: mColors.colorEnabled,
                     value: passwordStore.isWithSpecial,
                     onChanged: (bool value) {
                       passwordStore
@@ -225,12 +219,12 @@ class _HomePageState extends State<HomePage> {
                 margin: EdgeInsets.only(top: 48, bottom: 36),
                 child: new RaisedButton(
                     padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                    color: colorAccentLight,
+                    color: mColors.colorEnabled,
                     onPressed: () => passwordStore.generateNew(),
-                    textColor: colorWhite,
+                    textColor: mColors.colorWhite,
                     child: new Text("Generate",
                         style: new TextStyle(
-                            color: colorWhite,
+                            color: mColors.colorWhite,
                             fontSize: 16,
                             fontWeight: FontWeight.bold)),
                     shape: new RoundedRectangleBorder(
