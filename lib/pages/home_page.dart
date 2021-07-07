@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: new AppBar(
         title: Text(widget.title,
             style: GoogleFonts.roboto(
@@ -62,19 +62,18 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          Flexible(
-            flex: 2,
-            child: Container(
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 200,
               decoration: new BoxDecoration(
                 color: mColors.colorEnabled,
                 borderRadius: new BorderRadius.all(
                     Radius.circular(mDimens.roundedCorner)),
               ),
-              margin: EdgeInsets.all(16),
               padding: EdgeInsets.symmetric(horizontal: 24),
-              constraints: BoxConstraints.expand(),
               alignment: Alignment(0, 0),
               child: Observer(
                 builder: (_) => Text(
@@ -87,10 +86,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-          ),
-          Flexible(
-            flex: 1,
-            child: Observer(
+            Observer(
               builder: (_) => Slider(
                 min: 8.0,
                 max: 32.0,
@@ -108,200 +104,173 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-          ),
-          Flexible(
-            flex: 1,
-            child: Row(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    decoration: new BoxDecoration(
-                      color: mColors.colorEnabled,
-                      borderRadius: new BorderRadius.all(
-                          Radius.circular(mDimens.roundedCorner)),
-                    ),
-                    margin: EdgeInsets.all(16),
-                    constraints: BoxConstraints.expand(),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 12, right: 12),
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Uppercase",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: mColors.colorTextDark,
-                                )),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Text("ABC",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  color: mColors.colorTextDarkLight,
-                                ))
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                OptionButton(
+                  title: "Uppercase",
+                  description: "ABC",
+                  icon: Icons.arrow_back,
+                  active: false,
                 ),
-                Flexible(
-                  flex: 1,
-                  child: Container(),
+                SizedBox(
+                  width: 16,
+                ),
+                OptionButton(
+                  title: "Lowercase",
+                  description: "abc",
+                  icon: Icons.arrow_back,
+                  active: true,
                 ),
               ],
             ),
-          ),
-          Flexible(
-            flex: 1,
-            child: Row(
+            SizedBox(
+              height: 16,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(),
+                OptionButton(
+                  title: "Numbers",
+                  description: "123",
+                  icon: Icons.arrow_back,
+                  active: true,
                 ),
-                Flexible(
-                  flex: 1,
-                  child: Container(),
+                SizedBox(
+                  width: 16,
+                ),
+                OptionButton(
+                  title: "Special",
+                  description: "@£*",
+                  icon: Icons.arrow_back,
+                  active: true,
                 ),
               ],
             ),
-          ),
-          Flexible(
-            flex: 1,
-            child: Container(),
-          ),
-          // Container(
-          //   padding: EdgeInsets.only(top: 20, left: 12, right: 12),
-          //   child: new Column(
-          //     mainAxisSize: MainAxisSize.min,
-          //     children: <Widget>[
-          //       new ListTile(
-          //         title: Text(
-          //           'Lower case letters (a-z)',
-          //           style: TextStyle(color: Colors.white, fontSize: 14),
-          //         ),
-          //         trailing: Observer(
-          //           builder: (_) => CupertinoSwitch(
-          //             activeColor: mColors.colorEnabled,
-          //             value: passwordStore.isWithLetters,
-          //             onChanged: (bool value) {
-          //               passwordStore
-          //                 ..changeLetters(value)
-          //                 ..generateNew();
-          //             },
-          //           ),
-          //         ),
-          //       ),
-          //       new ListTile(
-          //         title: Text(
-          //           'Uppercase letters (A-Z)',
-          //           style: TextStyle(color: Colors.white, fontSize: 14),
-          //         ),
-          //         trailing: Observer(
-          //           builder: (_) => CupertinoSwitch(
-          //             activeColor: mColors.colorEnabled,
-          //             value: passwordStore.isWithUppercase,
-          //             onChanged: (bool value) {
-          //               passwordStore
-          //                 ..changeUppercase(value)
-          //                 ..generateNew();
-          //             },
-          //           ),
-          //         ),
-          //       ),
-          //       new ListTile(
-          //         title: Text('Numbers (0-9)',
-          //             style: TextStyle(
-          //               color: Colors.white,
-          //               fontSize: 14,
-          //             )),
-          //         trailing: Observer(
-          //           builder: (_) => CupertinoSwitch(
-          //             activeColor: mColors.colorEnabled,
-          //             value: passwordStore.isWithNumbers,
-          //             onChanged: (bool value) {
-          //               passwordStore
-          //                 ..changeNumbers(value)
-          //                 ..generateNew();
-          //             },
-          //           ),
-          //         ),
-          //       ),
-          //       new ListTile(
-          //         title: Text(
-          //           'Special chars (@£*)',
-          //           style: TextStyle(color: Colors.white, fontSize: 14),
-          //         ),
-          //         trailing: Observer(
-          //           builder: (_) => CupertinoSwitch(
-          //             activeColor: mColors.colorEnabled,
-          //             value: passwordStore.isWithSpecial,
-          //             onChanged: (bool value) {
-          //               passwordStore
-          //                 ..changeSpecial(value)
-          //                 ..generateNew();
-          //             },
-          //           ),
-          //         ),
-          //       ),
-          //       new SizedBox(height: 4),
-          //       new Row(
-          //         mainAxisSize: MainAxisSize.max,
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: <Widget>[
-          //           Observer(
-          //             builder: (_) => Padding(
-          //               padding: EdgeInsets.only(left: 16.0),
-          //               child: new Text(
-          //                 "Length: ${passwordStore.numberCharPassword.toInt()}",
-          //                 style: new TextStyle(
-          //                     fontSize: 14,
-          //                     fontWeight: FontWeight.normal,
-          //                     color: Colors.white),
-          //               ),
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //       new Container(
-          //         margin: EdgeInsets.only(top: 48, bottom: 36),
-          //         child: new RaisedButton(
-          //           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-          //           color: mColors.colorEnabled,
-          //           onPressed: () => passwordStore.generateNew(),
-          //           textColor: mColors.colorWhite,
-          //           child: new Text("Generate",
-          //               style: new TextStyle(
-          //                   color: mColors.colorWhite,
-          //                   fontSize: 16,
-          //                   fontWeight: FontWeight.bold)),
-          //           shape: new RoundedRectangleBorder(
-          //             borderRadius: new BorderRadius.circular(50),
-          //           ),
-          //         ),
-          //       )
-          //     ],
-          //   ),
-          // )
-        ],
+            Container(),
+            // Container(
+            //   padding: EdgeInsets.only(top: 20, left: 12, right: 12),
+            //   child: new Column(
+            //     mainAxisSize: MainAxisSize.min,
+            //     children: <Widget>[
+            //       new ListTile(
+            //         title: Text(
+            //           'Lower case letters (a-z)',
+            //           style: TextStyle(color: Colors.white, fontSize: 14),
+            //         ),
+            //         trailing: Observer(
+            //           builder: (_) => CupertinoSwitch(
+            //             activeColor: mColors.colorEnabled,
+            //             value: passwordStore.isWithLetters,
+            //             onChanged: (bool value) {
+            //               passwordStore
+            //                 ..changeLetters(value)
+            //                 ..generateNew();
+            //             },
+            //           ),
+            //         ),
+            //       ),
+            //       new ListTile(
+            //         title: Text(
+            //           'Uppercase letters (A-Z)',
+            //           style: TextStyle(color: Colors.white, fontSize: 14),
+            //         ),
+            //         trailing: Observer(
+            //           builder: (_) => CupertinoSwitch(
+            //             activeColor: mColors.colorEnabled,
+            //             value: passwordStore.isWithUppercase,
+            //             onChanged: (bool value) {
+            //               passwordStore
+            //                 ..changeUppercase(value)
+            //                 ..generateNew();
+            //             },
+            //           ),
+            //         ),
+            //       ),
+            //       new ListTile(
+            //         title: Text('Numbers (0-9)',
+            //             style: TextStyle(
+            //               color: Colors.white,
+            //               fontSize: 14,
+            //             )),
+            //         trailing: Observer(
+            //           builder: (_) => CupertinoSwitch(
+            //             activeColor: mColors.colorEnabled,
+            //             value: passwordStore.isWithNumbers,
+            //             onChanged: (bool value) {
+            //               passwordStore
+            //                 ..changeNumbers(value)
+            //                 ..generateNew();
+            //             },
+            //           ),
+            //         ),
+            //       ),
+            //       new ListTile(
+            //         title: Text(
+            //           'Special chars (@£*)',
+            //           style: TextStyle(color: Colors.white, fontSize: 14),
+            //         ),
+            //         trailing: Observer(
+            //           builder: (_) => CupertinoSwitch(
+            //             activeColor: mColors.colorEnabled,
+            //             value: passwordStore.isWithSpecial,
+            //             onChanged: (bool value) {
+            //               passwordStore
+            //                 ..changeSpecial(value)
+            //                 ..generateNew();
+            //             },
+            //           ),
+            //         ),
+            //       ),
+            //       new SizedBox(height: 4),
+            //       new Row(
+            //         mainAxisSize: MainAxisSize.max,
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: <Widget>[
+            //           Observer(
+            //             builder: (_) => Padding(
+            //               padding: EdgeInsets.only(left: 16.0),
+            //               child: new Text(
+            //                 "Length: ${passwordStore.numberCharPassword.toInt()}",
+            //                 style: new TextStyle(
+            //                     fontSize: 14,
+            //                     fontWeight: FontWeight.normal,
+            //                     color: Colors.white),
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //       new Container(
+            //         margin: EdgeInsets.only(top: 48, bottom: 36),
+            //         child: new RaisedButton(
+            //           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+            //           color: mColors.colorEnabled,
+            //           onPressed: () => passwordStore.generateNew(),
+            //           textColor: mColors.colorWhite,
+            //           child: new Text("Generate",
+            //               style: new TextStyle(
+            //                   color: mColors.colorWhite,
+            //                   fontSize: 16,
+            //                   fontWeight: FontWeight.bold)),
+            //           shape: new RoundedRectangleBorder(
+            //             borderRadius: new BorderRadius.circular(50),
+            //           ),
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // )
+          ],
+        ),
       ),
     );
   }
 }
+
+
 
 
 
