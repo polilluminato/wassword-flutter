@@ -46,6 +46,7 @@ class OptionButton extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: active ? mColors.colorTextDark : mColors.colorTextLight,
                   ),
@@ -56,6 +57,7 @@ class OptionButton extends StatelessWidget {
                 Text(
                   description,
                   style: TextStyle(
+                    fontSize: 15,
                     fontWeight: FontWeight.w400,
                     color: active ? mColors.colorTextDarkLight : mColors.colorTextLightDark,
                   ),

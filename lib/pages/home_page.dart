@@ -78,12 +78,13 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment(0, 0),
               child: Observer(
                 builder: (_) => Text(
-                  passwordStore.password,
+                  "\$f\$vbjbs!6g4!%+6",
+                  // passwordStore.password,
                   textAlign: TextAlign.center,
                   style: new TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: mColors.colorWhite),
+                      fontSize: 32,
+                      color: mColors.colorBlack),
                 ),
               ),
             ),
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               builder: (_) => SliderTheme(
                 data: SliderTheme.of(context).copyWith(
                   activeTrackColor: mColors.colorEnabled,
-                  trackHeight: mDimens.heightSlider,
+                  trackHeight: mDimens.heightSlider*1.2,
                   inactiveTrackColor: mColors.colorDisabled,
                   thumbColor: mColors.colorEnabled,
                   thumbShape: RoundSliderThumbShape(
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                   OptionButton(
                     title: "Uppercase",
                     description: "ABC",
-                    icon: Icons.arrow_back,
+                    icon: Icons.title,
                     active: false,
                   ),
                   SizedBox(
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                   OptionButton(
                     title: "Lowercase",
                     description: "abc",
-                    icon: Icons.arrow_back,
+                    icon: Icons.format_size,
                     active: true,
                   ),
                 ],
@@ -154,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                   OptionButton(
                     title: "Numbers",
                     description: "123",
-                    icon: Icons.arrow_back,
+                    icon: Icons.looks_one,
                     active: true,
                   ),
                   SizedBox(
@@ -163,14 +164,14 @@ class _HomePageState extends State<HomePage> {
                   OptionButton(
                     title: "Special",
                     description: "@£*",
-                    icon: Icons.arrow_back,
+                    icon: Icons.star,
                     active: true,
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 64,
+            Expanded(
+              child: Container(),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
@@ -198,6 +199,9 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 32,
             ),
             // Container(
             //   padding: EdgeInsets.only(top: 20, left: 12, right: 12),
