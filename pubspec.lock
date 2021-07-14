@@ -197,13 +197,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  fluentui_system_icons:
-    dependency: "direct main"
-    description:
-      name: fluentui_system_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.134"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -366,13 +359,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  package_info:
-    dependency: "direct main"
-    description:
-      name: package_info
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
   path:
     dependency: transitive
     description:

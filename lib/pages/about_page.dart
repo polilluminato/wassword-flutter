@@ -1,10 +1,8 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../styles/my_colors.dart' as mColors;
+import 'package:wassword/styles/my_colors.dart' as mColors;
+import 'package:wassword/ui/about_row.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -12,43 +10,12 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  PackageInfo _packageInfo = PackageInfo(
-    appName: 'Unknown',
-    packageName: 'Unknown',
-    version: 'Unknown',
-    buildNumber: 'Unknown',
-  );
-
   @override
   void initState() {
     super.initState();
-    _initPackageInfo();
-  }
-
-  Future<void> _initPackageInfo() async {
-    final PackageInfo info = await PackageInfo.fromPlatform();
-    setState(() {
-      _packageInfo = info;
-    });
   }
 
   //Custom Widget for the ListTile
-  ListTile customListTile({required String text, IconData? icon, String? url}) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        color: Colors.white,
-        size: 23,
-      ),
-      title: Text(
-        text,
-        style: TextStyle(color: Colors.white, fontSize: 14),
-      ),
-      onTap: () {
-        _launchURL(url!);
-      },
-    );
-  }
 
   //Open the browser with the url provided
   void _launchURL(String urlToLaunch) async {
@@ -64,65 +31,66 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
+          color: Colors.white,
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: new Text(
+          "About",
+          style: GoogleFonts.roboto(
             color: Colors.white,
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-        title: new Text("About",
-            style: GoogleFonts.roboto(
-              color: Colors.white,
-            )),
+          ),
+        ),
       ),
       body: ListView(
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 0),
-                child: Text(
-                  "Wassword",
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              Text(
-                "v.${_packageInfo.version}+${_packageInfo.buildNumber}",
-                style: TextStyle(fontSize: 14, color: Colors.white),
-              ),
               SizedBox(
-                height: 48,
+                height: 8,
               ),
               ListTile(
                 title: Text(
                   "DEVELOPER",
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 12, color: mColors.colorEnabled),
+                  style: TextStyle(fontSize: 14, color: mColors.colorEnabled),
                 ),
               ),
-              customListTile(
-                  icon: FluentIcons.access_time_24_regular,
-                  text: "AlbertoBonacina.com",
-                  url: "https://www.albertobonacina.com/"),
-              customListTile(
-                  icon: FluentIcons.access_time_24_regular,
-                  text: "Contact",
-                  url: "mailto:bonacina.alberto@gmail.com"),
-              customListTile(
-                  icon: FluentIcons.access_time_24_regular,
-                  text: "Github",
-                  url: "https://github.com/polilluminato"),
-              customListTile(
-                  icon: FluentIcons.access_time_24_regular,
-                  text: "Twitter",
-                  url: "https://twitter.com/polilluminato"),
-              customListTile(
-                  icon: FluentIcons.accessibility_16_filled,
-                  text: "Linkedin",
-                  url: "https://it.linkedin.com/in/bonacinaalberto"),
+              AboutRow(
+                icon: Icons.language,
+                title: "AlbertoBonacina.com",
+                subtitle: "Website",
+                callback: () {
+                  _launchURL("https://www.albertobonacina.com/");
+                },
+              ),
+              AboutRow(
+                icon: Icons.code,
+                title: "@polilluminato",
+                subtitle: "Github",
+                callback: () {
+                  _launchURL("https://github.com/polilluminato");
+                },
+              ),
+              AboutRow(
+                icon: Icons.campaign,
+                title: "@polilluminato",
+                subtitle: "Twitter",
+                callback: () {
+                  _launchURL("https://twitter.com/polilluminato");
+                },
+              ),
+              AboutRow(
+                icon: Icons.business,
+                title: "bonacinaalberto",
+                subtitle: "Linkedin",
+                callback: () {
+                  _launchURL("https://it.linkedin.com/in/bonacinaalberto");
+                },
+              ),
             ],
           ),
           //An open list of apps built with Flutter
