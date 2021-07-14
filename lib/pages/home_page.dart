@@ -1,17 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share/share.dart';
 import 'package:wassword/pages/about_page.dart';
-import 'package:wassword/stores/password.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 import 'package:wassword/styles/my_dimens.dart' as mDimens;
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/option_button.dart';
-
-final passwordStore = Password();
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
@@ -26,11 +22,11 @@ class _HomePageState extends State<HomePage> {
   //Funzione per copiare la password che ho generato e metterla nella clipboard
   //  in modo che io possa condividerla con altre app
   void _copyToClipboard() {
-    Clipboard.setData(new ClipboardData(text: passwordStore.password));
+    Clipboard.setData(new ClipboardData(text: ""));
   }
 
   void _shareGeneratedPassword() {
-    Share.share(passwordStore.password);
+    Share.share("");
   }
 
   initState() {
@@ -76,44 +72,41 @@ class _HomePageState extends State<HomePage> {
               ),
               padding: EdgeInsets.symmetric(horizontal: 24),
               alignment: Alignment(0, 0),
-              child: Observer(
-                builder: (_) => Text(
-                  "\$f\$vbjbs!6g4!%+6",
-                  // passwordStore.password,
-                  textAlign: TextAlign.center,
-                  style: new TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 32,
-                      color: mColors.colorBlack),
-                ),
+              child: Text(
+                "\$f\$vbjbs!6g4!%+6",
+                // passwordStore.password,
+                textAlign: TextAlign.center,
+                style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
+                    color: mColors.colorBlack),
               ),
             ),
             //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
-            Observer(
-              builder: (_) => SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: mColors.colorEnabled,
-                  trackHeight: mDimens.heightSlider*1.2,
-                  inactiveTrackColor: mColors.colorDisabled,
-                  thumbColor: mColors.colorEnabled,
-                  thumbShape: RoundSliderThumbShape(
-                      enabledThumbRadius: mDimens.heightSlider),
-                ),
-                child: Slider(
-                  min: 8.0,
-                  max: 32.0,
-                  divisions: 20,
-                  value: passwordStore.numberCharPassword,
-                  onChanged: (double value) {
-                    setState(
-                      () {
-                        passwordStore
-                          ..changeLenght(value)
-                          ..generateNew();
-                      },
-                    );
-                  },
-                ),
+            SliderTheme(
+              data: SliderTheme.of(context).copyWith(
+                activeTrackColor: mColors.colorEnabled,
+                trackHeight: mDimens.heightSlider * 1.2,
+                inactiveTrackColor: mColors.colorDisabled,
+                thumbColor: mColors.colorEnabled,
+                thumbShape: RoundSliderThumbShape(
+                    enabledThumbRadius: mDimens.heightSlider),
+              ),
+              child: Slider(
+                min: 8.0,
+                max: 32.0,
+                divisions: 20,
+                value: 20,
+                // value: passwordStore.numberCharPassword,
+                onChanged: (double value) {
+                  setState(
+                    () {
+                      // passwordStore
+                      //   ..changeLenght(value)
+                      //   ..generateNew();
+                    },
+                  );
+                },
               ),
             ),
             SizedBox(
@@ -323,11 +316,45 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// Observer(
+//   builder: (_) => SliderTheme(
+//     data: SliderTheme.of(context).copyWith(
+//       activeTrackColor: mColors.colorEnabled,
+//       trackHeight: mDimens.heightSlider*1.2,
+//       inactiveTrackColor: mColors.colorDisabled,
+//       thumbColor: mColors.colorEnabled,
+//       thumbShape: RoundSliderThumbShape(
+//           enabledThumbRadius: mDimens.heightSlider),
+//     ),
+//     child: Slider(
+//       min: 8.0,
+//       max: 32.0,
+//       divisions: 20,
+//       value: passwordStore.numberCharPassword,
+//       onChanged: (double value) {
+//         setState(
+//           () {
+//             passwordStore
+//               ..changeLenght(value)
+//               ..generateNew();
+//           },
+//         );
+//       },
+//     ),
+//   ),
+// ),
 
-
-
-
-
+// Observer(
+//   builder: (_) => Text(
+//     "\$f\$vbjbs!6g4!%+6",
+//     // passwordStore.password,
+//     textAlign: TextAlign.center,
+//     style: new TextStyle(
+//         fontWeight: FontWeight.bold,
+//         fontSize: 32,
+//         color: mColors.colorBlack),
+//   ),
+// ),
 
 // Positioned(
 //   bottom: 18,
