@@ -5,34 +5,42 @@ class PasswordState {
   bool withUppercase;
   bool withNumbers;
   bool withSpecial;
-  int number;
+  int length;
+  String password = "";
 
-  PasswordState({
-    required this.withLetters,
-    required this.withUppercase,
-    required this.withNumbers,
-    required this.withSpecial,
-    required this.number,
-  });
+  PasswordState(
+      {required this.withLetters,
+      required this.withUppercase,
+      required this.withNumbers,
+      required this.withSpecial,
+      required this.length});
 
-  void setWithLetters(bool newValue){
-    this.withLetters = newValue;
+  void updateLetters() {
+    this.withLetters = !this.withLetters;
   }
 
-  void setWithUppercase(bool newValue){
-    this.withUppercase = newValue;
+  void updateUppercase() {
+    this.withUppercase = !this.withUppercase;
   }
 
-  void setWithNunbers(bool newValue){
-    this.withNumbers = newValue;
+  void updateNumbers() {
+    this.withNumbers = !this.withNumbers;
   }
 
-  void setWithSpecial(bool newValue){
-    this.withSpecial = newValue;
+  void updateSpecial() {
+    this.withSpecial = !this.withSpecial;
   }
 
-  void setNumber(int newValue){
-    this.number = newValue;
+  void updateLength(int newValue) {
+    this.length = newValue;
   }
 
+  void updatePassword() {
+    this.password = generatePassword(
+        isWithLetters: this.withLetters,
+        isWithUppercase: this.withUppercase,
+        isWithNumbers: this.withNumbers,
+        isWithSpecial: this.withSpecial,
+        numberCharPassword: this.length);
+  }
 }
