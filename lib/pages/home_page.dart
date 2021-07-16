@@ -10,9 +10,7 @@ import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/option_button.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => new _HomePageState();
@@ -37,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Text(widget.title,
+        title: Text("Wassword",
             style: GoogleFonts.roboto(
               color: Colors.white,
             )),
