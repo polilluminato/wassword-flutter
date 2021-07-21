@@ -5,12 +5,12 @@ abstract class MyPasswordState extends Equatable {
 }
 
 class PasswordState extends MyPasswordState {
-  bool withLowercase;
-  bool withUppercase;
-  bool withNumbers;
-  bool withSpecial;
-  int length;
-  String password;
+  final bool withLowercase;
+  final bool withUppercase;
+  final bool withNumbers;
+  final bool withSpecial;
+  final int length;
+  final String password;
 
   PasswordState(
       {required this.withLowercase,
@@ -29,33 +29,4 @@ class PasswordState extends MyPasswordState {
         length,
         password
       ];
-
-  void updateLowercase() {
-    this.withLowercase = !this.withLowercase;
-  }
-
-  void updateUppercase() {
-    this.withUppercase = !this.withUppercase;
-  }
-
-  void updateNumbers() {
-    this.withNumbers = !this.withNumbers;
-  }
-
-  void updateSpecial() {
-    this.withSpecial = !this.withSpecial;
-  }
-
-  void updateLength(int newValue) {
-    this.length = newValue;
-  }
-
-  void updatePassword() {
-    this.password = generatePassword(
-        isWithLowercase: this.withLowercase,
-        isWithUppercase: this.withUppercase,
-        isWithNumbers: this.withNumbers,
-        isWithSpecial: this.withSpecial,
-        numberCharPassword: this.length);
-  }
 }

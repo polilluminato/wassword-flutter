@@ -6,41 +6,107 @@ part 'password_state.dart';
 
 class PasswordCubit extends Cubit<PasswordState> {
   PasswordCubit()
-      : super(PasswordState(
-            withLowercase: false,
-            withUppercase: false,
-            withNumbers: false,
-            withSpecial: false,
-            length: 16,
-            password: "password"));
+      : super(
+          PasswordState(
+              withLowercase: true,
+              withUppercase: false,
+              withNumbers: false,
+              withSpecial: false,
+              length: 8,
+              password: "password"),
+        );
+
+  void updatePassword(){
+    emit(
+      PasswordState(
+        withLowercase: state.withLowercase,
+        withUppercase: state.withUppercase,
+        withNumbers: state.withNumbers,
+        withSpecial: state.withSpecial,
+        length: state.length,
+        password: generateNewPassword(state.withLowercase, state.withUppercase,
+            state.withNumbers, state.withSpecial, state.length),
+      ),
+    );
+  }
 
   void changeLowercase() {
-    state.updateLowercase();
-    state.updatePassword();
-    emit(state);
+    emit(
+      PasswordState(
+        withLowercase: !state.withLowercase,
+        withUppercase: state.withUppercase,
+        withNumbers: state.withNumbers,
+        withSpecial: state.withSpecial,
+        length: state.length,
+        password: generateNewPassword(!state.withLowercase, state.withUppercase,
+            state.withNumbers, state.withSpecial, state.length),
+      ),
+    );
   }
 
   void changeUppercase() {
-    state.updateUppercase();
-    state.updatePassword();
-    emit(state);
+    emit(
+      PasswordState(
+        withLowercase: state.withLowercase,
+        withUppercase: !state.withUppercase,
+        withNumbers: state.withNumbers,
+        withSpecial: state.withSpecial,
+        length: state.length,
+        password: generateNewPassword(state.withLowercase, !state.withUppercase,
+            state.withNumbers, state.withSpecial, state.length),
+      ),
+    );
   }
 
   void changeNumbers() {
-    state.updateNumbers();
-    state.updatePassword();
-    emit(state);
+    emit(
+      PasswordState(
+        withLowercase: state.withLowercase,
+        withUppercase: state.withUppercase,
+        withNumbers: !state.withNumbers,
+        withSpecial: state.withSpecial,
+        length: state.length,
+        password: generateNewPassword(state.withLowercase, state.withUppercase,
+            !state.withNumbers, state.withSpecial, state.length),
+      ),
+    );
   }
 
   void changeSpecial() {
-    state.updateSpecial();
-    state.updatePassword();
-    emit(state);
+    emit(
+      PasswordState(
+        withLowercase: state.withLowercase,
+        withUppercase: state.withUppercase,
+        withNumbers: state.withNumbers,
+        withSpecial: !state.withSpecial,
+        length: state.length,
+        password: generateNewPassword(state.withLowercase, state.withUppercase,
+            state.withNumbers, !state.withSpecial, state.length),
+      ),
+    );
   }
 
   void changeLength(int newLength) {
-    state.updateLength(newLength);
-    state.updatePassword();
-    emit(state);
+    emit(
+      PasswordState(
+        withLowercase: state.withLowercase,
+        withUppercase: state.withUppercase,
+        withNumbers: state.withNumbers,
+        withSpecial: state.withSpecial,
+        length: newLength,
+        password: generateNewPassword(state.withLowercase, state.withUppercase,
+            state.withNumbers, state.withSpecial, newLength),
+      ),
+    );
+  }
+
+  String generateNewPassword(bool withLowercase, bool withUppercase,
+      bool withNumbers, bool withSpecial, int length) {
+    return generatePassword(
+        isWithLowercase: withLowercase,
+        isWithUppercase: withUppercase,
+        isWithNumbers: withNumbers,
+        isWithSpecial: withSpecial,
+        numberCharPassword: length);
   }
 }

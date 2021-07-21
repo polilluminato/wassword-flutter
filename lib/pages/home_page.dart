@@ -81,13 +81,14 @@ class HomeView extends StatelessWidget {
                     enabledThumbRadius: mDimens.heightSlider),
               ),
               child: Slider(
-                min: 8.0,
-                max: 32.0,
-                divisions: 20,
-                value: context.select((PasswordCubit cubit) => cubit.state.length.toDouble()),
-                // value: passwordStore.numberCharPassword,
-                onChanged: (double value) => context.read<PasswordCubit>().changeLength(value.toInt())
-              ),
+                  min: 8.0,
+                  max: 32.0,
+                  divisions: 20,
+                  value: context.select(
+                      (PasswordCubit cubit) => cubit.state.length.toDouble()),
+                  onChanged: (double value) => context
+                      .read<PasswordCubit>()
+                      .changeLength(value.toInt())),
             ),
             SizedBox(
               height: 16,
@@ -102,20 +103,22 @@ class HomeView extends StatelessWidget {
                     title: "Uppercase",
                     description: "ABC",
                     icon: Icons.title,
-                    active: context.select((PasswordCubit cubit) => cubit.state.withUppercase),
-                    onPressed: () => context.read<PasswordCubit>().changeUppercase()
-                    ,
+                    active: context.select(
+                        (PasswordCubit cubit) => cubit.state.withUppercase),
+                    onPressed: () =>
+                        context.read<PasswordCubit>().changeUppercase(),
                   ),
                   SizedBox(
                     width: 16,
                   ),
                   OptionButton(
-                    title: "Lowercase",
-                    description: "abc",
-                    icon: Icons.format_size,
-                    active: context.select((PasswordCubit cubit) => cubit.state.withLowercase),
-                    onPressed: () => context.read<PasswordCubit>().changeLowercase()
-                  ),
+                      title: "Lowercase",
+                      description: "abc",
+                      icon: Icons.format_size,
+                      active: context.select(
+                          (PasswordCubit cubit) => cubit.state.withLowercase),
+                      onPressed: () =>
+                          context.read<PasswordCubit>().changeLowercase()),
                 ],
               ),
             ),
@@ -129,22 +132,24 @@ class HomeView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   OptionButton(
-                    title: "Numbers",
-                    description: "123",
-                    icon: Icons.looks_one,
-                    active: context.select((PasswordCubit cubit) => cubit.state.withNumbers),
-                    onPressed: () => context.read<PasswordCubit>().changeNumbers()
-                  ),
+                      title: "Numbers",
+                      description: "123",
+                      icon: Icons.looks_one,
+                      active: context.select(
+                          (PasswordCubit cubit) => cubit.state.withNumbers),
+                      onPressed: () =>
+                          context.read<PasswordCubit>().changeNumbers()),
                   SizedBox(
                     width: 16,
                   ),
                   OptionButton(
-                    title: "Special",
-                    description: "@£*",
-                    icon: Icons.star,
-                    active: context.select((PasswordCubit cubit) => cubit.state.withSpecial),
-                    onPressed: () => context.read<PasswordCubit>().changeSpecial()
-                  ),
+                      title: "Special",
+                      description: "@£*",
+                      icon: Icons.star,
+                      active: context.select(
+                          (PasswordCubit cubit) => cubit.state.withSpecial),
+                      onPressed: () =>
+                          context.read<PasswordCubit>().changeSpecial()),
                 ],
               ),
             ),
@@ -167,7 +172,8 @@ class HomeView extends StatelessWidget {
                     text: "Generate",
                     icon: Icons.settings,
                     isMain: true,
-                    callback: () {},
+                    callback: () =>
+                        context.read<PasswordCubit>().updatePassword(),
                   ),
                   ActionButton(
                     text: "Share",
