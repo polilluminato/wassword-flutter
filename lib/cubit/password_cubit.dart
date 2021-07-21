@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:wassword/utils/password_generator.dart';
 
 part 'password_state.dart';
@@ -6,14 +7,15 @@ part 'password_state.dart';
 class PasswordCubit extends Cubit<PasswordState> {
   PasswordCubit()
       : super(PasswordState(
-            withLetters: false,
+            withLowercase: false,
             withUppercase: false,
             withNumbers: false,
             withSpecial: false,
-            length: 0));
+            length: 16,
+            password: "password"));
 
-  void changeLetters() {
-    state.updateLetters();
+  void changeLowercase() {
+    state.updateLowercase();
     state.updatePassword();
     emit(state);
   }

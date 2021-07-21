@@ -10,7 +10,7 @@ import 'dart:math';
  * @return string: new password
  */
 String generatePassword(
-    {required bool isWithLetters,
+    {required bool isWithLowercase,
     required bool isWithUppercase,
     required bool isWithNumbers,
     required bool isWithSpecial,
@@ -22,7 +22,7 @@ String generatePassword(
 
   String _allowedChars = "";
 
-  _allowedChars += (isWithLetters ? _lowerCaseLetters : '');
+  _allowedChars += (isWithLowercase ? _lowerCaseLetters : '');
   _allowedChars += (isWithUppercase ? _upperCaseLetters : '');
   _allowedChars += (isWithNumbers ? _numbers : '');
   _allowedChars += (isWithSpecial ? _special : '');

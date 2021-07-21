@@ -1,36 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:share/share.dart';
+import 'package:wassword/cubit/password_cubit.dart';
 import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 import 'package:wassword/styles/my_dimens.dart' as mDimens;
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/option_button.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => new _HomePageState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => PasswordCubit(),
+      child: HomeView(),
+    );
+  }
 }
 
-class _HomePageState extends State<HomePage> {
-  //Funzione per copiare la password che ho generato e metterla nella clipboard
-  //  in modo che io possa condividerla con altre app
-  void _copyToClipboard() {
-    Clipboard.setData(new ClipboardData(text: ""));
-  }
-
-  void _shareGeneratedPassword() {
-    Share.share("");
-  }
-
-  initState() {
-    super.initState();
-  }
-
+class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.symmetric(horizontal: 24),
               alignment: Alignment(0, 0),
               child: Text(
-                "\$f\$vbjbs!6g4!%+6",
+                context.select((PasswordCubit cubit) => cubit.state.password),
                 // passwordStore.password,
                 textAlign: TextAlign.center,
                 style: new TextStyle(
@@ -94,17 +85,9 @@ class _HomePageState extends State<HomePage> {
                 min: 8.0,
                 max: 32.0,
                 divisions: 20,
-                value: 20,
+                value: context.select((PasswordCubit cubit) => cubit.state.length.toDouble()),
                 // value: passwordStore.numberCharPassword,
-                onChanged: (double value) {
-                  setState(
-                    () {
-                      // passwordStore
-                      //   ..changeLenght(value)
-                      //   ..generateNew();
-                    },
-                  );
-                },
+                onChanged: (double value) => context.read<PasswordCubit>().changeLength(value.toInt())
               ),
             ),
             SizedBox(
@@ -120,7 +103,9 @@ class _HomePageState extends State<HomePage> {
                     title: "Uppercase",
                     description: "ABC",
                     icon: Icons.title,
-                    active: false,
+                    active: context.select((PasswordCubit cubit) => cubit.state.withUppercase),
+                    onPressed: () => context.read<PasswordCubit>().changeUppercase()
+                    ,
                   ),
                   SizedBox(
                     width: 16,
@@ -129,7 +114,8 @@ class _HomePageState extends State<HomePage> {
                     title: "Lowercase",
                     description: "abc",
                     icon: Icons.format_size,
-                    active: true,
+                    active: context.select((PasswordCubit cubit) => cubit.state.withLowercase),
+                    onPressed: () => context.read<PasswordCubit>().changeLowercase()
                   ),
                 ],
               ),
@@ -147,7 +133,8 @@ class _HomePageState extends State<HomePage> {
                     title: "Numbers",
                     description: "123",
                     icon: Icons.looks_one,
-                    active: true,
+                    active: context.select((PasswordCubit cubit) => cubit.state.withNumbers),
+                    onPressed: () => context.read<PasswordCubit>().changeNumbers()
                   ),
                   SizedBox(
                     width: 16,
@@ -156,7 +143,8 @@ class _HomePageState extends State<HomePage> {
                     title: "Special",
                     description: "@£*",
                     icon: Icons.star,
-                    active: true,
+                    active: context.select((PasswordCubit cubit) => cubit.state.withSpecial),
+                    onPressed: () => context.read<PasswordCubit>().changeSpecial()
                   ),
                 ],
               ),
@@ -313,6 +301,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+//Funzione per copiare la password che ho generato e metterla nella clipboard
+//  in modo che io possa condividerla con altre app
+// void _copyToClipboard() {
+//   Clipboard.setData(new ClipboardData(text: ""));
+// }
+
+// void _shareGeneratedPassword() {
+//   Share.share("");
+// }
 
 // Observer(
 //   builder: (_) => SliderTheme(

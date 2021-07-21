@@ -1,22 +1,37 @@
 part of 'password_cubit.dart';
 
-class PasswordState {
-  bool withLetters;
+abstract class MyPasswordState extends Equatable {
+  MyPasswordState();
+}
+
+class PasswordState extends MyPasswordState {
+  bool withLowercase;
   bool withUppercase;
   bool withNumbers;
   bool withSpecial;
   int length;
-  String password = "";
+  String password;
 
   PasswordState(
-      {required this.withLetters,
+      {required this.withLowercase,
       required this.withUppercase,
       required this.withNumbers,
       required this.withSpecial,
-      required this.length});
+      required this.length,
+      required this.password});
 
-  void updateLetters() {
-    this.withLetters = !this.withLetters;
+  @override
+  List<Object> get props => [
+        withLowercase,
+        withUppercase,
+        withNumbers,
+        withSpecial,
+        length,
+        password
+      ];
+
+  void updateLowercase() {
+    this.withLowercase = !this.withLowercase;
   }
 
   void updateUppercase() {
@@ -37,7 +52,7 @@ class PasswordState {
 
   void updatePassword() {
     this.password = generatePassword(
-        isWithLetters: this.withLetters,
+        isWithLowercase: this.withLowercase,
         isWithUppercase: this.withUppercase,
         isWithNumbers: this.withNumbers,
         isWithSpecial: this.withSpecial,
