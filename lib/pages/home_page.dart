@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:wassword/cubit/password_cubit.dart';
 import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
@@ -22,6 +27,21 @@ class HomePage extends StatelessWidget {
 }
 
 class HomeView extends StatelessWidget {
+  void _copyToClipboard(String newPassword) {
+    Clipboard.setData(new ClipboardData(text: newPassword));
+
+    if (Platform.isAndroid || Platform.isIOS) {
+      Fluttertoast.showToast(
+          msg: "Password copied to clipboard",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER);
+    }
+  }
+
+  void _shareGeneratedPassword(String newPassword) {
+    Share.share("This is my new password generated with Wassord: $newPassword");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,7 +125,7 @@ class HomeView extends StatelessWidget {
                     icon: Icons.title,
                     active: context.select(
                         (PasswordCubit cubit) => cubit.state.withUppercase),
-                    onPressed: () =>
+                    callback: () =>
                         context.read<PasswordCubit>().changeUppercase(),
                   ),
                   SizedBox(
@@ -117,7 +137,7 @@ class HomeView extends StatelessWidget {
                       icon: Icons.format_size,
                       active: context.select(
                           (PasswordCubit cubit) => cubit.state.withLowercase),
-                      onPressed: () =>
+                      callback: () =>
                           context.read<PasswordCubit>().changeLowercase()),
                 ],
               ),
@@ -137,7 +157,7 @@ class HomeView extends StatelessWidget {
                       icon: Icons.looks_one,
                       active: context.select(
                           (PasswordCubit cubit) => cubit.state.withNumbers),
-                      onPressed: () =>
+                      callback: () =>
                           context.read<PasswordCubit>().changeNumbers()),
                   SizedBox(
                     width: 16,
@@ -148,7 +168,7 @@ class HomeView extends StatelessWidget {
                       icon: Icons.star,
                       active: context.select(
                           (PasswordCubit cubit) => cubit.state.withSpecial),
-                      onPressed: () =>
+                      callback: () =>
                           context.read<PasswordCubit>().changeSpecial()),
                 ],
               ),
@@ -156,33 +176,37 @@ class HomeView extends StatelessWidget {
             Expanded(
               child: Container(),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  ActionButton(
-                    text: "Copy",
-                    icon: Icons.copy,
-                    isMain: false,
-                    callback: () {},
+            BlocConsumer<PasswordCubit, PasswordState>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      ActionButton(
+                          text: "Copy",
+                          icon: Icons.copy,
+                          isMain: false,
+                          callback: () => _copyToClipboard(state.password)),
+                      ActionButton(
+                        text: "Generate",
+                        icon: Icons.settings,
+                        isMain: true,
+                        callback: () =>
+                            context.read<PasswordCubit>().updatePassword(),
+                      ),
+                      ActionButton(
+                        text: "Share",
+                        icon: Icons.share,
+                        isMain: false,
+                        callback: () => _shareGeneratedPassword(state.password),
+                      )
+                    ],
                   ),
-                  ActionButton(
-                    text: "Generate",
-                    icon: Icons.settings,
-                    isMain: true,
-                    callback: () =>
-                        context.read<PasswordCubit>().updatePassword(),
-                  ),
-                  ActionButton(
-                    text: "Share",
-                    icon: Icons.share,
-                    isMain: false,
-                    callback: () {},
-                  )
-                ],
-              ),
+                );
+              },
             ),
             SizedBox(
               height: 32,
@@ -193,14 +217,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-
-//Funzione per copiare la password che ho generato e metterla nella clipboard
-//  in modo che io possa condividerla con altre app
-// void _copyToClipboard() {
-//   Clipboard.setData(new ClipboardData(text: ""));
-// }
-
-// void _shareGeneratedPassword() {
-//   Share.share("");
-// }

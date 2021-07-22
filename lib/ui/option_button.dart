@@ -9,20 +9,20 @@ class OptionButton extends StatelessWidget {
     required this.description,
     required this.icon,
     required this.active,
-    required this.onPressed,
+    required this.callback,
   }) : super(key: key);
 
   final String title;
   final String description;
   final IconData icon;
   final bool active;
-  final VoidCallback onPressed;
+  final VoidCallback callback;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: onPressed,
+        onTap: callback,
         child: Container(
           height: 100,
           decoration: new BoxDecoration(

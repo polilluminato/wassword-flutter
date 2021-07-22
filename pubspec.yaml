@@ -12,8 +12,9 @@ dependencies:
   bloc: ^7.0.0
   equatable: ^2.0.3
   flutter_bloc: ^7.0.0
+  fluttertoast: ^8.0.7
   google_fonts: ^2.1.0
-  share: ^2.0.4
+  share_plus: ^2.1.4
   url_launcher: ^6.0.9
 
 dev_dependencies:
