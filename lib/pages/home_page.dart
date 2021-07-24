@@ -72,14 +72,14 @@ class HomeView extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(24),
+              margin: EdgeInsets.all(mDimens.defaultSpace),
               height: 200,
               decoration: new BoxDecoration(
                 color: mColors.colorEnabled,
                 borderRadius: new BorderRadius.all(
                     Radius.circular(mDimens.roundedCorner)),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
               alignment: Alignment(0, 0),
               child: Text(
                 context.select((PasswordCubit cubit) => cubit.state.password),
@@ -111,10 +111,10 @@ class HomeView extends StatelessWidget {
                       .changeLength(value.toInt())),
             ),
             SizedBox(
-              height: 16,
+              height: mDimens.defaultSpace,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
@@ -129,7 +129,7 @@ class HomeView extends StatelessWidget {
                         context.read<PasswordCubit>().changeUppercase(),
                   ),
                   SizedBox(
-                    width: 16,
+                    width: mDimens.defaultSpace,
                   ),
                   OptionButton(
                       title: "Lowercase",
@@ -143,10 +143,10 @@ class HomeView extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: mDimens.defaultSpace,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
@@ -160,7 +160,7 @@ class HomeView extends StatelessWidget {
                       callback: () =>
                           context.read<PasswordCubit>().changeNumbers()),
                   SizedBox(
-                    width: 16,
+                    width: mDimens.defaultSpace,
                   ),
                   OptionButton(
                       title: "Special",
@@ -180,7 +180,7 @@ class HomeView extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
@@ -209,7 +209,7 @@ class HomeView extends StatelessWidget {
               },
             ),
             SizedBox(
-              height: 32,
+              height: mDimens.defaultSpace*2,
             ),
           ],
         ),

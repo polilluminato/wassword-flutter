@@ -1,6 +1,9 @@
-double roundedCorner = 28;
+double roundedCorner = 24;
 
-double paddingButtonBig = 28;
-double paddingButton = 24;
+double paddingButtonBig = 20;
+double paddingButton = 16;
+double paddingHorizontal = 20;
+
+double defaultSpace = 16;
 
 double heightSlider = 16;
