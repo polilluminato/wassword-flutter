@@ -12,6 +12,7 @@ import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 import 'package:wassword/styles/my_dimens.dart' as mDimens;
 import 'package:wassword/ui/action_button.dart';
+import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/option_button.dart';
 
 class HomePage extends StatelessWidget {
@@ -97,8 +98,11 @@ class HomeView extends StatelessWidget {
                 trackHeight: mDimens.heightSlider * 1.2,
                 inactiveTrackColor: mColors.colorDisabled,
                 thumbColor: mColors.colorEnabled,
-                thumbShape: RoundSliderThumbShape(
-                    enabledThumbRadius: mDimens.heightSlider),
+                thumbShape: CustomSliderThumbCircle(
+                  thumbRadius: mDimens.heightSlider,
+                  value: context.select(
+                      (PasswordCubit cubit) => cubit.state.length)
+                )
               ),
               child: Slider(
                   min: 8.0,
