@@ -18,50 +18,53 @@ class AboutRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      height: 100,
-      decoration: new BoxDecoration(
-        color: mColors.colorDisabled,
-        borderRadius: new BorderRadius.all(
-          Radius.circular(mDimens.roundedCorner),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            child: Icon(
-              icon,
-              size: 32,
-              color: mColors.colorWhite,
-            ),
+    return InkWell(
+      onTap: callback,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        height: 100,
+        decoration: new BoxDecoration(
+          color: mColors.colorDisabled,
+          borderRadius: new BorderRadius.all(
+            Radius.circular(mDimens.roundedCorner),
           ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: mColors.colorTextLight,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Icon(
+                icon,
+                size: 32,
+                color: mColors.colorWhite,
+              ),
+            ),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: mColors.colorTextLight,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: mColors.colorTextLightDark,
+                  SizedBox(
+                    height: 6,
                   ),
-                )
-              ])
-        ],
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: mColors.colorTextLightDark,
+                    ),
+                  )
+                ])
+          ],
+        ),
       ),
     );
 
