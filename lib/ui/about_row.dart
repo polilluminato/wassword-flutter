@@ -18,7 +18,7 @@ class AboutRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: callback,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),

@@ -21,15 +21,13 @@ class OptionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: InkWell(
+      child: GestureDetector(
         onTap: callback,
         child: Container(
           height: 100,
           decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(mDimens.roundedCorner),
             color: active ? mColors.colorEnabled : mColors.colorDisabled,
-            borderRadius: new BorderRadius.all(
-              Radius.circular(mDimens.roundedCorner),
-            ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
