@@ -30,6 +30,8 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: mColors.backgroundView, // status bar color
+        brightness: Brightness.dark, // status ba
         leading: IconButton(
           color: Colors.white,
           icon: Icon(Icons.arrow_back),

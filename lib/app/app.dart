@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:wassword/styles/my_colors.dart' as mColors;
 import 'package:wassword/pages/home_page.dart';
+import 'package:wassword/styles/my_colors.dart' as mColors;
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

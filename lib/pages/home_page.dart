@@ -47,6 +47,8 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        backgroundColor: mColors.backgroundView, // status bar color
+        brightness: Brightness.dark, // status bar brightness
         title: Text("Wassword",
             style: GoogleFonts.roboto(
               color: Colors.white,
