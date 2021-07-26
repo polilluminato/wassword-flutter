@@ -16,6 +16,7 @@ void main() {
   };
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: mColors.backgroundView, // navigation bar color
       statusBarColor: mColors.backgroundView, //top bar color
       statusBarIconBrightness: Brightness.light, // status bar icons' color
       statusBarBrightness: Brightness.dark));
