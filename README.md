@@ -1,7 +1,5 @@
 <div align="center">
-  <h1>Wassword</h1>
-  <h3>Wassword - Wonderful Password Generator</h3>
-  <hr>
+  <h1>Wassword<br>Wonderful Password Generator</h1>
 </div>
 
 
