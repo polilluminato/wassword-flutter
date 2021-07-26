@@ -1,6 +1,9 @@
-# Wassword
+<div align="center">
+  <h1>Wassword</h1>
+  <h3>Wassword - Wonderful Password Generator</h3>
+  <hr>
+</div>
 
-Wassword - Wonderful Password Generator
 
 [![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)](https://play.google.com/store/apps/details?id=com.albertobonacina.wassword)
 
@@ -8,30 +11,30 @@ With Wassword you can easily generate complex passwords and use them for your on
 
 Everything works offline and nothing is shared, your safety comes first.
 
-Wassword isn't a password manager, it doesn't store generated password.
-Wassword only creates password!
+**Wassword isn't a password manager, it doesn't store generated password. Wassword only creates password!**
 
-### Features
+### 🔒 Features
 
-- Create password with:
-  - Numbers
-  - Lower case letters
-  - Upper case letter
-  - Symbols
-- Copy generated passwords
-- Share generated passwords
+- Create password with
+  - **Numbers**
+  - **Lower case letters**
+  - **Upper case letter**
+  - **Symbols**
+- **Copy** generated passwords
+- **Share** generated passwords
+- **Generate** as many passwords as you want
 
-### Screenshot
+### 📱 Screenshot
 
-| Splash | Empty Home | Home Password |
+| Home | Simple Password | Complex Password |
 |-|-|-|
-| ![Splash Screen](/screenshot/splash.jpg) | ![Home Empty](/screenshot/home_empty.jpg) | ![Home Password](/screenshot/home_password.jpg) |
+| ![Home Empty](/screenshot/home_empty.jpg) | ![Home Password Simple](/screenshot/home_password_simple.jpg) |  ![Home Password Complex](/screenshot/home_password_complex.jpg) |
 
-## Contributing
+## 💎 Contributing
 
 If you have any idea, feel free to fork it and submit your changes back to me.
 
-## License
+## 📋 License
 
 Wassword is released under the [MIT license](LICENSE.md). You can use the code for any purpose, including commercial projects.
 
