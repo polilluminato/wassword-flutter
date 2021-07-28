@@ -4,19 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 import 'package:wassword/ui/about_row.dart';
 
-class AboutPage extends StatefulWidget {
-  @override
-  _AboutPageState createState() => _AboutPageState();
-}
-
-class _AboutPageState extends State<AboutPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  //Custom Widget for the ListTile
-
+class AboutPage extends StatelessWidget {
   //Open the browser with the url provided
   void _launchURL(String urlToLaunch) async {
     if (await canLaunch(urlToLaunch)) {
