@@ -1,0 +1,10 @@
+With Wassword you can easily generate complex passwords and use them for your online accounts. Choose length and chars to be used and generate your passwords safely.
+
+Everything works offline and nothing is shared, your safety comes first.
+
+Wassword isn't a password manager, it doesn't store generated password. 
+Wassword only creates password!
+
+Wassword is released under the MIT license. You can use the code for any purpose, including commercial projects. 
+You can check the source code here: 
+https://github.com/polilluminato/wassword-flutter

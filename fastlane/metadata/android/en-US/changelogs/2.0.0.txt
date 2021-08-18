@@ -1,0 +1,2 @@
+- Use of Bloc as State Management
+- New app graphics with Material You
