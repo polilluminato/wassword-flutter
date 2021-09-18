@@ -28,7 +28,7 @@ Everything works offline and nothing is shared, your safety comes first.
 
 | Home | Simple Password | Complex Password |
 |-|-|-|
-| ![Home Empty](/screenshot/home_empty.jpg) | ![Home Password Simple](/screenshot/home_password_simple.jpg) | ![Home Password Complex](/screenshot/home_password_complex.jpg) |
+| <img src="screenshot/home_empty.png" width="300"> | <img src="screenshot/home_password_simple.png" width="300"> | <img src="screenshot/home_password_complex.png" width="300"> |
 
 ## 💎 Contributing
 
