@@ -30,7 +30,7 @@ class AboutPage extends StatelessWidget {
         title: new Text(
           "About",
           style: GoogleFonts.roboto(
-            color: Colors.white,
+            color: mColors.colorTextLight,
           ),
         ),
       ),
@@ -46,7 +46,7 @@ class AboutPage extends StatelessWidget {
                 title: Text(
                   "DEVELOPER",
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 14, color: mColors.colorEnabled),
+                  style: TextStyle(fontSize: 14, color: mColors.colorTextLight),
                 ),
               ),
               AboutRow(

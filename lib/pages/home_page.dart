@@ -51,14 +51,14 @@ class HomeView extends StatelessWidget {
         brightness: Brightness.dark, // status bar brightness
         title: Text("Wassword",
             style: GoogleFonts.roboto(
-              color: Colors.white,
+              color: mColors.colorTextLight,
             )),
         actions: <Widget>[
           Padding(
-            padding: EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 16),
             child: IconButton(
               iconSize: 24,
-              color: Colors.white,
+              color: mColors.colorTextLight,
               icon: Icon(Icons.person_outline),
               onPressed: () {
                 Navigator.push(
@@ -89,8 +89,8 @@ class HomeView extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 32,
-                    color: mColors.colorBlack),
+                    fontSize: 34,
+                    color: mColors.colorTextLight),
               ),
             ),
             //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
@@ -188,7 +188,7 @@ class HomeView extends StatelessWidget {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       ActionButton(
@@ -198,7 +198,7 @@ class HomeView extends StatelessWidget {
                           callback: () => _copyToClipboard(state.password)),
                       ActionButton(
                         text: "Generate",
-                        icon: Icons.settings,
+                        icon: Icons.sync,
                         isMain: true,
                         callback: () =>
                             context.read<PasswordCubit>().updatePassword(),
@@ -215,7 +215,7 @@ class HomeView extends StatelessWidget {
               },
             ),
             SizedBox(
-              height: mDimens.defaultSpace*2,
+              height: mDimens.defaultSpace,
             ),
           ],
         ),

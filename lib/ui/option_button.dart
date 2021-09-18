@@ -38,7 +38,7 @@ class OptionButton extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 24,
-                  color: active ? mColors.colorBlack : mColors.colorWhite,
+                  color: active ? mColors.colorTextLight : mColors.colorTextLight,
                 ),
               ),
               Column(
@@ -51,7 +51,7 @@ class OptionButton extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color:
-                          active ? mColors.colorTextDark : mColors.colorTextLight,
+                          active ? mColors.colorTextLight : mColors.colorTextLight,
                     ),
                   ),
                   SizedBox(
@@ -63,8 +63,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: active
-                          ? mColors.colorTextDarkLight
-                          : mColors.colorTextLightDark,
+                          ? mColors.colorTextLight
+                          : mColors.colorTextLight,
                     ),
                   )
                 ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
-import 'package:wassword/styles/my_dimens.dart' as mDimens;
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
@@ -16,31 +15,40 @@ class ActionButton extends StatelessWidget {
   final VoidCallback callback;
   final bool isMain;
 
+  final double actionButtonSizeBig = 80;
+  final double actionButtonSizeSmall = 52;
+
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      icon: Icon(
-        icon,
-        color: isMain ? mColors.colorBlack : mColors.colorWhite,
-      ),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-            isMain ? mColors.colorEnabled : mColors.colorDisabled),
-        padding: MaterialStateProperty.all(
-            EdgeInsets.all(isMain ? mDimens.paddingButtonBig : mDimens.paddingButton)),
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(mDimens.roundedCorner),
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: callback,
+          child: Container(
+            height: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
+            width: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
+            decoration: new BoxDecoration(
+              borderRadius: BorderRadius.circular(actionButtonSizeBig / 2),
+              color: mColors.colorEnabled,
+            ),
+            child: Icon(
+              icon,
+              color: isMain ? mColors.colorTextLight : mColors.colorTextLight,
+              size: isMain ? actionButtonSizeBig / 2 : actionButtonSizeSmall / 2.5,
+            ),
           ),
         ),
-      ),
-      onPressed: callback,
-      label: Text(
-        text,
-        style: TextStyle(
-          color: isMain ? mColors.colorTextDark : mColors.colorTextLight,
-        ),
-      ),
+        SizedBox(height: isMain ? 25 : 12),
+        !isMain
+            ? Text(
+                text,
+                style: TextStyle(
+                  color:
+                      isMain ? mColors.colorTextLight : mColors.colorTextLight,
+                ),
+              )
+            : Container()
+      ],
     );
   }
 }

@@ -38,7 +38,7 @@ class AboutRow extends StatelessWidget {
               child: Icon(
                 icon,
                 size: 32,
-                color: mColors.colorWhite,
+                color: mColors.colorTextLight,
               ),
             ),
             Column(
