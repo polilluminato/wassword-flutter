@@ -90,7 +90,7 @@ class HomeView extends StatelessWidget {
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 34,
-                    color: mColors.colorTextLight),
+                    color: mColors.colorTextDark),
               ),
             ),
             //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c

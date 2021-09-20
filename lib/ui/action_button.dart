@@ -29,11 +29,11 @@ class ActionButton extends StatelessWidget {
             width: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
             decoration: new BoxDecoration(
               borderRadius: BorderRadius.circular(actionButtonSizeBig / 2),
-              color: mColors.colorEnabled,
+              color: isMain ? mColors.colorMainButton : mColors.colorSecondaryButton,
             ),
             child: Icon(
               icon,
-              color: isMain ? mColors.colorTextLight : mColors.colorTextLight,
+              color: isMain ? mColors.colorTextDark : mColors.colorTextDark,
               size: isMain ? actionButtonSizeBig / 2 : actionButtonSizeSmall / 2.5,
             ),
           ),
