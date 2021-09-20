@@ -24,11 +24,11 @@ Everything works offline and nothing is shared, your safety comes first.
 - **Generate** as many passwords as you want
 - **[Bloc](https://bloclibrary.dev/)** as a state management library
 
-### 📱 Screenshot
+### 📱 Screenshots
 
-| Home | Simple Password | Complex Password |
+| Screenshot #1 | Screenshot #2 | Screenshot #3 |
 |-|-|-|
-| <img src="screenshot/home_empty.png" width="300"> | <img src="screenshot/home_password_simple.png" width="300"> | <img src="screenshot/home_password_complex.png" width="300"> |
+| <img src="screenshot/first.png" width="300"> | <img src="screenshot/second.png" width="300"> | <img src="screenshot/third.png" width="300"> |
 
 ## 💎 Contributing
 
