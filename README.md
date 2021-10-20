@@ -22,8 +22,9 @@ Everything works offline and nothing is shared, your safety comes first.
 - Create password with
   - **Numbers**
   - **Lower case letters**
-  - **Upper case letter**
+  - **Upper case letters**
   - **Symbols**
+  - from **8 to 32 chars**
 - **Copy** generated passwords
 - **Share** generated passwords
 - **Generate** as many passwords as you want
