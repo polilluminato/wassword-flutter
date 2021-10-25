@@ -1,7 +1,7 @@
 name: wassword
 description: Wassword - Wonderful Password Generator
 
-version: 2.0.3+12
+version: 2.0.4+13
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
@@ -9,13 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^7.1.0
+  bloc: ^7.2.1
   equatable: ^2.0.3
-  flutter_bloc: ^7.2.0
+  flutter_bloc: ^7.3.1
   fluttertoast: ^8.0.8
   google_fonts: ^2.1.0
-  share_plus: ^2.1.4
-  url_launcher: ^6.0.10
+  share_plus: ^3.0.4
+  url_launcher: ^6.0.12
 
 dev_dependencies:
   flutter_test:
