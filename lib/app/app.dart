@@ -1,30 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wassword/pages/about_page.dart';
+import 'package:wassword/pages/error_page.dart';
 import 'package:wassword/pages/home_page.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: GoogleFonts.robotoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-        appBarTheme: AppBarTheme(
+  Widget build(BuildContext context) => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routeInformationParser: _router.routeInformationParser,
+        routerDelegate: _router.routerDelegate,
+        theme: ThemeData(
+          textTheme: GoogleFonts.robotoTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          appBarTheme: AppBarTheme(
+            backgroundColor: mColors.backgroundView,
+            centerTitle: true,
+            elevation: 0,
+          ),
+          brightness: Brightness.dark,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
           backgroundColor: mColors.backgroundView,
-          centerTitle: true,
-          elevation: 0,
+          scaffoldBackgroundColor: mColors.backgroundView,
         ),
-        brightness: Brightness.dark,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        backgroundColor: mColors.backgroundView,
-        scaffoldBackgroundColor: mColors.backgroundView,
+      );
+
+  final _router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: state.pageKey,
+          child: HomePage(),
+        ),
       ),
-      home: const HomePage(),
-    );
-  }
+      GoRoute(
+        path: '/about',
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: state.pageKey,
+          child: AboutPage(),
+        ),
+      ),
+    ],
+    errorPageBuilder: (context, state) => MaterialPage<void>(
+      key: state.pageKey,
+      child: ErrorPage(state.error),
+    ),
+  );
 }
