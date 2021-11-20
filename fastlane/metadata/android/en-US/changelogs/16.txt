@@ -1,0 +1,4 @@
+- Update dependencies
+- Migrate to Bloc v8
+- Change navigation with go_router package
+- Fix crash on start on some devices
