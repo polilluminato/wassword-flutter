@@ -4,12 +4,13 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wassword/app/app.dart';
 import 'package:wassword/app/app_bloc_observer.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 
-
 void main() {
+  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   Bloc.observer = AppBlocObserver();
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
@@ -22,7 +23,7 @@ void main() {
       statusBarBrightness: Brightness.dark));
 
   runZonedGuarded(
-    () => runApp(const App()),
+    () => runApp(App()),
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }

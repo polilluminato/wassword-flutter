@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:wassword/cubit/password_cubit.dart';
@@ -47,27 +48,22 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: mColors.backgroundView, // status bar color
-        brightness: Brightness.dark, // status bar brightness
-        title: Text("Wassword",
-            style: GoogleFonts.roboto(
-              color: mColors.colorTextLight,
-            )),
+        backgroundColor:
+            mColors.backgroundView, // status bar colortatus bar brightness
+        title: Text(
+          "Wassword",
+          style: GoogleFonts.roboto(
+            color: mColors.colorTextLight,
+          ),
+        ),
         actions: <Widget>[
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: IconButton(
-              iconSize: 24,
-              color: mColors.colorTextLight,
-              icon: Icon(Icons.person_outline),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AboutPage(),
-                    ));
-              },
-            ),
+                iconSize: 24,
+                color: mColors.colorTextLight,
+                icon: Icon(Icons.person_outline),
+                onPressed: () => context.push('/about')),
           ),
         ],
       ),
@@ -82,7 +78,8 @@ class HomeView extends StatelessWidget {
                 borderRadius: new BorderRadius.all(
                     Radius.circular(mDimens.roundedCorner)),
               ),
-              padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
+              padding:
+                  EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
               alignment: Alignment(0, 0),
               child: Text(
                 context.select((PasswordCubit cubit) => cubit.state.password),
@@ -96,16 +93,14 @@ class HomeView extends StatelessWidget {
             //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
-                activeTrackColor: mColors.colorEnabled,
-                trackHeight: mDimens.heightSlider * 1.2,
-                inactiveTrackColor: mColors.colorDisabled,
-                thumbColor: mColors.colorEnabled,
-                thumbShape: CustomSliderThumbCircle(
-                  thumbRadius: mDimens.heightSlider,
-                  value: context.select(
-                      (PasswordCubit cubit) => cubit.state.length)
-                )
-              ),
+                  activeTrackColor: mColors.colorEnabled,
+                  trackHeight: mDimens.heightSlider * 1.2,
+                  inactiveTrackColor: mColors.colorDisabled,
+                  thumbColor: mColors.colorEnabled,
+                  thumbShape: CustomSliderThumbCircle(
+                      thumbRadius: mDimens.heightSlider,
+                      value: context.select(
+                          (PasswordCubit cubit) => cubit.state.length))),
               child: Slider(
                   min: 8.0,
                   max: 32.0,
@@ -120,7 +115,8 @@ class HomeView extends StatelessWidget {
               height: mDimens.defaultSpace,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
+              padding:
+                  EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
@@ -152,7 +148,8 @@ class HomeView extends StatelessWidget {
               height: mDimens.defaultSpace,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
+              padding:
+                  EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
@@ -186,7 +183,8 @@ class HomeView extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: mDimens.paddingHorizontal),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
