@@ -1,0 +1,3 @@
+- Update dependencies
+- Migrate to Bloc v8
+- Change navigation with go_router package
