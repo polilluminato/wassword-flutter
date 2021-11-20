@@ -10,7 +10,7 @@
     </queries>
 
     <application
-        android:name="${applicationName}"
+        android:name="wassword"
         android:label="Wassword"
         android:icon="@mipmap/ic_launcher">
         <activity
