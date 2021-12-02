@@ -1,0 +1,2 @@
+- Update dependencies
+- Remove bloc dependency, only flutter_bloc is used now
