@@ -9,7 +9,6 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:wassword/cubit/password_cubit.dart';
-import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/styles/my_colors.dart' as mColors;
 import 'package:wassword/styles/my_dimens.dart' as mDimens;
 import 'package:wassword/ui/action_button.dart';
