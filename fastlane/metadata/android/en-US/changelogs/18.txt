@@ -1,0 +1,3 @@
+- Update dependencies
+- Remove bloc dependency, only flutter_bloc is used now
+- Fix startup error on some device
