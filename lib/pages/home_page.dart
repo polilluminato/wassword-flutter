@@ -71,7 +71,7 @@ class HomeView extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: EdgeInsets.all(mDimens.defaultSpace),
-              height: 200,
+              height: 160,
               decoration: new BoxDecoration(
                 color: mColors.colorEnabled,
                 borderRadius: new BorderRadius.all(
@@ -85,7 +85,7 @@ class HomeView extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 34,
+                    fontSize: 30,
                     color: mColors.colorTextDark),
               ),
             ),
@@ -93,7 +93,7 @@ class HomeView extends StatelessWidget {
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                   activeTrackColor: mColors.colorEnabled,
-                  trackHeight: mDimens.heightSlider * 1.2,
+                  trackHeight: mDimens.heightSlider * 1.1,
                   inactiveTrackColor: mColors.colorDisabled,
                   thumbColor: mColors.colorEnabled,
                   thumbShape: CustomSliderThumbCircle(

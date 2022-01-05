@@ -24,7 +24,7 @@ class OptionButton extends StatelessWidget {
       child: GestureDetector(
         onTap: callback,
         child: Container(
-          height: 100,
+          height: 85,
           decoration: new BoxDecoration(
             borderRadius: BorderRadius.circular(mDimens.roundedCorner),
             color: active ? mColors.colorEnabled : mColors.colorDisabled,

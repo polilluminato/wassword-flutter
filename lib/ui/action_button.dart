@@ -15,8 +15,8 @@ class ActionButton extends StatelessWidget {
   final VoidCallback callback;
   final bool isMain;
 
-  final double actionButtonSizeBig = 80;
-  final double actionButtonSizeSmall = 52;
+  final double actionButtonSizeBig = 64;
+  final double actionButtonSizeSmall = 44;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,16 @@ class ActionButton extends StatelessWidget {
             width: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
             decoration: new BoxDecoration(
               borderRadius: BorderRadius.circular(actionButtonSizeBig / 2),
-              color: isMain ? mColors.colorMainButton : mColors.colorSecondaryButton,
+              color: isMain
+                  ? mColors.colorMainButton
+                  : mColors.colorSecondaryButton,
             ),
             child: Icon(
               icon,
               color: isMain ? mColors.colorTextDark : mColors.colorTextDark,
-              size: isMain ? actionButtonSizeBig / 2 : actionButtonSizeSmall / 2.5,
+              size: isMain
+                  ? actionButtonSizeBig / 2
+                  : actionButtonSizeSmall / 2.5,
             ),
           ),
         ),

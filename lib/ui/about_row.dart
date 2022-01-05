@@ -22,7 +22,7 @@ class AboutRow extends StatelessWidget {
       onTap: callback,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        height: 100,
+        height: 80,
         decoration: new BoxDecoration(
           color: mColors.colorDisabled,
           borderRadius: new BorderRadius.all(
