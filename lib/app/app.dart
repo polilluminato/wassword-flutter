@@ -8,6 +8,19 @@ import 'package:wassword/styles/my_colors.dart' as mColors;
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
 
+  final _router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/about',
+        builder: (context, state) => AboutPage(),
+      ),
+    ],
+  );
+
   @override
   Widget build(BuildContext context) => MaterialApp.router(
         debugShowCheckedModeBanner: false,
@@ -28,23 +41,4 @@ class App extends StatelessWidget {
           scaffoldBackgroundColor: mColors.backgroundView,
         ),
       );
-
-  final _router = GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        pageBuilder: (context, state) => MaterialPage<void>(
-          key: state.pageKey,
-          child: HomePage(),
-        ),
-      ),
-      GoRoute(
-        path: '/about',
-        pageBuilder: (context, state) => MaterialPage<void>(
-          key: state.pageKey,
-          child: AboutPage(),
-        ),
-      ),
-    ],
-  );
 }
