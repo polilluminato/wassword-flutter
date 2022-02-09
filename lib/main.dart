@@ -21,9 +21,12 @@ void main() async {
   //On Desktop I want the window to look like the mobile app,
   // so I put a custom width and height size
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    // Hide window title bar
+    if (!Platform.isLinux) {
+      await windowManager.setTitleBarStyle('hidden');
+    }
     windowManager.waitUntilReadyToShow().then((_) async {
       await windowManager.setSize(const Size(385, 835));
-      await windowManager.center();
       await windowManager.show();
       await windowManager.focus();
       await windowManager.setSkipTaskbar(true);
