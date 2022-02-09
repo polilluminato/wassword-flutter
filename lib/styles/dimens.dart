@@ -5,5 +5,6 @@ double paddingButton = 16;
 double paddingHorizontal = 16;
 
 double defaultSpace = 16;
+double hugeSpace = 32;
 
 double heightSlider = 16;

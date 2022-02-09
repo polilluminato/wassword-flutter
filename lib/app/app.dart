@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/pages/home_page.dart';
-import 'package:wassword/styles/my_colors.dart' as mColors;
+import 'package:wassword/styles/colors.dart' as mColors;
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);

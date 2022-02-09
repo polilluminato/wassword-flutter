@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wassword/app/app.dart';
 import 'package:wassword/app/app_bloc_observer.dart';
 import 'package:wassword/cubit/password_cubit.dart';
-import 'package:wassword/styles/my_colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart' as mcolors;
 import 'package:window_manager/window_manager.dart';
 
 void main() async {

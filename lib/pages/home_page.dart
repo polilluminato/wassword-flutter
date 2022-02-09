@@ -9,8 +9,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:wassword/cubit/password_cubit.dart';
-import 'package:wassword/styles/my_colors.dart' as mColors;
-import 'package:wassword/styles/my_dimens.dart' as mDimens;
+import 'package:wassword/styles/colors.dart' as mColors;
+import 'package:wassword/styles/dimens.dart' as mDimens;
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/option_button.dart';
@@ -184,15 +184,19 @@ class HomeView extends StatelessWidget {
                 return Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: mDimens.paddingHorizontal),
-                  child: Row(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       ActionButton(
-                          text: "Copy",
-                          icon: Icons.copy,
-                          isMain: false,
-                          callback: () => _copyToClipboard(state.password)),
+                        text: "Copy",
+                        icon: Icons.copy,
+                        isMain: false,
+                        callback: () => _copyToClipboard(state.password),
+                      ),
+                      SizedBox(
+                        height: mDimens.defaultSpace,
+                      ),
                       ActionButton(
                         text: "Generate",
                         icon: Icons.sync,
@@ -200,19 +204,19 @@ class HomeView extends StatelessWidget {
                         callback: () =>
                             context.read<PasswordCubit>().updatePassword(),
                       ),
-                      ActionButton(
-                        text: "Share",
-                        icon: Icons.share,
-                        isMain: false,
-                        callback: () => _shareGeneratedPassword(state.password),
-                      )
+                      // ActionButton(
+                      //   text: "Share",
+                      //   icon: Icons.share,
+                      //   isMain: false,
+                      //   callback: () => _shareGeneratedPassword(state.password),
+                      // )
                     ],
                   ),
                 );
               },
             ),
             SizedBox(
-              height: mDimens.defaultSpace,
+              height: mDimens.hugeSpace,
             ),
           ],
         ),

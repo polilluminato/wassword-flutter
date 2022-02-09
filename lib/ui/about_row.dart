@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/my_colors.dart' as mColors;
-import 'package:wassword/styles/my_dimens.dart' as mDimens;
+import 'package:wassword/styles/colors.dart' as mColors;
+import 'package:wassword/styles/dimens.dart' as mDimens;
 
 class AboutRow extends StatelessWidget {
   const AboutRow(

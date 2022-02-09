@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/my_colors.dart' as mColors;
+import 'package:wassword/styles/colors.dart' as mColors;
 
 //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
 class CustomSliderThumbCircle extends SliderComponentShape {
@@ -22,19 +22,19 @@ class CustomSliderThumbCircle extends SliderComponentShape {
 
   @override
   void paint(
-      PaintingContext context,
-      Offset center, {
-        Animation<double>? activationAnimation,
-        Animation<double>? enableAnimation,
-        bool? isDiscrete,
-        TextPainter? labelPainter,
-        RenderBox? parentBox,
-        SliderThemeData? sliderTheme,
-        TextDirection? textDirection,
-        double? value,
-        double? textScaleFactor,
-        Size? sizeWithOverflow,
-      }) {
+    PaintingContext context,
+    Offset center, {
+    Animation<double>? activationAnimation,
+    Animation<double>? enableAnimation,
+    bool? isDiscrete,
+    TextPainter? labelPainter,
+    RenderBox? parentBox,
+    SliderThemeData? sliderTheme,
+    TextDirection? textDirection,
+    double? value,
+    double? textScaleFactor,
+    Size? sizeWithOverflow,
+  }) {
     final Canvas canvas = context.canvas;
 
     final paint = Paint()
@@ -56,13 +56,13 @@ class CustomSliderThumbCircle extends SliderComponentShape {
         textDirection: TextDirection.ltr);
     tp.layout();
     Offset textCenter =
-    Offset(center.dx - (tp.width / 2), center.dy - (tp.height / 2));
+        Offset(center.dx - (tp.width / 2), center.dy - (tp.height / 2));
 
-    canvas.drawCircle(center, thumbRadius*1.1, paint);
+    canvas.drawCircle(center, thumbRadius * 1.1, paint);
     tp.paint(canvas, textCenter);
   }
 
   String getValue(double value) {
-    return ((min+(max-min)*value)/10).round().toString();
+    return ((min + (max - min) * value) / 10).round().toString();
   }
 }
