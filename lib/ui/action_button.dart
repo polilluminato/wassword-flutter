@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/my_colors.dart' as mColors;
+import 'package:wassword/styles/dimens.dart' as mDimens;
+import 'package:wassword/styles/colors.dart' as mColors;
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
@@ -15,44 +16,45 @@ class ActionButton extends StatelessWidget {
   final VoidCallback callback;
   final bool isMain;
 
-  final double actionButtonSizeBig = 64;
+  final double actionButtonSizeBig = 56;
   final double actionButtonSizeSmall = 44;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: callback,
-          child: Container(
-            height: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
-            width: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
-            decoration: new BoxDecoration(
-              borderRadius: BorderRadius.circular(actionButtonSizeBig / 2),
-              color: isMain
-                  ? mColors.colorMainButton
-                  : mColors.colorSecondaryButton,
-            ),
-            child: Icon(
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return GestureDetector(
+      onTap: callback,
+      child: Container(
+        height: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
+        width: screenWidth * .7,
+        decoration: new BoxDecoration(
+          borderRadius: BorderRadius.circular(mDimens.roundedCorner),
+          color: isMain ? mColors.colorMainButton : mColors.colorDisabled,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
               icon,
-              color: isMain ? mColors.colorTextDark : mColors.colorTextDark,
+              color: isMain ? mColors.colorTextDark : mColors.colorTextLight,
               size: isMain
                   ? actionButtonSizeBig / 2
                   : actionButtonSizeSmall / 2.5,
             ),
-          ),
-        ),
-        SizedBox(height: isMain ? 25 : 12),
-        !isMain
-            ? Text(
-                text,
-                style: TextStyle(
+            SizedBox(
+              width: mDimens.defaultSpace,
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                  fontSize: isMain ? 18 : 16,
                   color:
-                      isMain ? mColors.colorTextLight : mColors.colorTextLight,
-                ),
-              )
-            : Container()
-      ],
+                      isMain ? mColors.colorTextDark : mColors.colorTextLight),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
