@@ -1,0 +1,2 @@
+- Update dependencies
+- Changed layout on the homepage
