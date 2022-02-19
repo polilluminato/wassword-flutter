@@ -1,0 +1,2 @@
+- Fix bug on startup on web
+- Fix crash on Android
