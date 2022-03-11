@@ -23,10 +23,7 @@ void main() async {
       (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow().then((_) async {
-      // Hide window title bar
-      if (!Platform.isLinux) {
-        await windowManager.setTitleBarStyle('hidden');
-      }
+      await windowManager.setTitleBarStyle('hidden');
       await windowManager.setSize(const Size(385, 835));
     });
   }
