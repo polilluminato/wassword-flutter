@@ -1,7 +1,7 @@
 part of 'password_cubit.dart';
 
 abstract class MyPasswordState extends Equatable {
-  MyPasswordState();
+  const MyPasswordState();
 }
 
 class PasswordState extends MyPasswordState {
@@ -12,7 +12,7 @@ class PasswordState extends MyPasswordState {
   final int length;
   final String password;
 
-  PasswordState(
+  const PasswordState(
       {required this.withLowercase,
       required this.withUppercase,
       required this.withNumbers,

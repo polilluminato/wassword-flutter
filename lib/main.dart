@@ -9,8 +9,8 @@ import 'package:go_router/go_router.dart';
 import 'package:wassword/app/app.dart';
 import 'package:wassword/app/app_bloc_observer.dart';
 import 'package:wassword/cubit/password_cubit.dart';
-import 'package:wassword/styles/colors.dart' as mColors;
 import 'package:window_manager/window_manager.dart';
+import 'package:wassword/styles/colors.dart' as mcolors;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {
@@ -23,7 +23,7 @@ void main() async {
       (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow().then((_) async {
-      await windowManager.setTitleBarStyle('hidden');
+      //await windowManager.setTitleBarStyle('hidden');
       await windowManager.setSize(const Size(385, 835));
     });
   }
@@ -31,8 +31,8 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
         systemNavigationBarColor:
-            mColors.backgroundView, // navigation bar color
-        statusBarColor: mColors.backgroundView, //top bar color
+            mcolors.backgroundView, // navigation bar color
+        statusBarColor: mcolors.backgroundView, //top bar color
         statusBarIconBrightness: Brightness.light, // status bar icons' color
         statusBarBrightness: Brightness.dark),
   );

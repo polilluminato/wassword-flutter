@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mColors;
-import 'package:wassword/styles/dimens.dart' as mDimens;
+import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/dimens.dart' as mdimens;
 
 class AboutRow extends StatelessWidget {
   const AboutRow(
@@ -21,12 +21,12 @@ class AboutRow extends StatelessWidget {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         height: 80,
-        decoration: new BoxDecoration(
-          color: mColors.colorDisabled,
-          borderRadius: new BorderRadius.all(
-            Radius.circular(mDimens.roundedCorner),
+        decoration: BoxDecoration(
+          color: mcolors.colorDisabled,
+          borderRadius: BorderRadius.all(
+            Radius.circular(mdimens.roundedCorner),
           ),
         ),
         child: Row(
@@ -34,11 +34,11 @@ class AboutRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Icon(
                 icon,
                 size: 32,
-                color: mColors.colorTextLight,
+                color: mcolors.colorTextLight,
               ),
             ),
             Column(
@@ -49,17 +49,17 @@ class AboutRow extends StatelessWidget {
                     title,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: mColors.colorTextLight,
+                      color: mcolors.colorTextLight,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
                     subtitle,
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      color: mColors.colorTextLightDark,
+                      color: mcolors.colorTextLightDark,
                     ),
                   )
                 ])
@@ -71,12 +71,12 @@ class AboutRow extends StatelessWidget {
     // return ListTile(
     //   leading: Icon(
     //     icon,
-    //     color: mColors.colorTextLight,
+    //     color: mcolors.colorTextLight,
     //     size: 23,
     //   ),
     //   title: Text(
     //     subtitle,
-    //     style: TextStyle(color: mColors.colorTextLight, fontSize: 14),
+    //     style: TextStyle(color: mcolors.colorTextLight, fontSize: 14),
     //   ),
     //   onTap: callback,
     // );

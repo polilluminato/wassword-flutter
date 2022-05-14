@@ -1,16 +1,14 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:wassword/cubit/password_cubit.dart';
-import 'package:wassword/styles/colors.dart' as mColors;
-import 'package:wassword/styles/dimens.dart' as mDimens;
+import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/dimens.dart' as mdimens;
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/option_button.dart';
@@ -22,14 +20,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => PasswordCubit(),
-      child: HomeView(),
+      child: const HomeView(),
     );
   }
 }
 
 class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
+
   void _copyToClipboard(String newPassword) {
-    Clipboard.setData(new ClipboardData(text: newPassword));
+    Clipboard.setData(ClipboardData(text: newPassword));
 
     if (Platform.isAndroid || Platform.isIOS) {
       Fluttertoast.showToast(
@@ -39,187 +39,174 @@ class HomeView extends StatelessWidget {
     }
   }
 
-  void _shareGeneratedPassword(String newPassword) {
-    Share.share("This is my new password generated with Wassord: $newPassword");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: AppBar(
         backgroundColor:
-            mColors.backgroundView, // status bar colortatus bar brightness
+            mcolors.backgroundView, // status bar colortatus bar brightness
         title: Text(
           "Wassword",
           style: GoogleFonts.roboto(
-            color: mColors.colorTextLight,
+            color: mcolors.colorTextLight,
           ),
         ),
         actions: <Widget>[
           Padding(
-            padding: EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.only(right: 16),
             child: IconButton(
                 iconSize: 24,
-                color: mColors.colorTextLight,
-                icon: Icon(Icons.person_outline),
+                color: mcolors.colorTextLight,
+                icon: const Icon(Icons.person_outline),
                 onPressed: () => context.push('/about')),
           ),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(mDimens.defaultSpace),
-              height: 160,
-              decoration: new BoxDecoration(
-                color: mColors.colorEnabled,
-                borderRadius: new BorderRadius.all(
-                    Radius.circular(mDimens.roundedCorner)),
-              ),
-              padding:
-                  EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
-              alignment: Alignment(0, 0),
-              child: Text(
-                context.select((PasswordCubit cubit) => cubit.state.password),
-                textAlign: TextAlign.center,
-                style: new TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: mColors.colorTextDark),
-              ),
+      body: Column(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(mdimens.defaultSpace),
+            height: 160,
+            decoration: BoxDecoration(
+              color: mcolors.colorEnabled,
+              borderRadius:
+                  BorderRadius.all(Radius.circular(mdimens.roundedCorner)),
             ),
-            //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
-            SliderTheme(
-              data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: mColors.colorEnabled,
-                  trackHeight: mDimens.heightSlider * 1.1,
-                  inactiveTrackColor: mColors.colorDisabled,
-                  thumbColor: mColors.colorEnabled,
-                  thumbShape: CustomSliderThumbCircle(
-                      thumbRadius: mDimens.heightSlider,
-                      value: context.select(
-                          (PasswordCubit cubit) => cubit.state.length))),
-              child: Slider(
-                  min: 8.0,
-                  max: 32.0,
-                  divisions: 20,
-                  value: context.select(
-                      (PasswordCubit cubit) => cubit.state.length.toDouble()),
-                  onChanged: (double value) => context
-                      .read<PasswordCubit>()
-                      .changeLength(value.toInt())),
+            padding:
+                EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+            alignment: const Alignment(0, 0),
+            child: Text(
+              context.select((PasswordCubit cubit) => cubit.state.password),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: mcolors.colorTextDark),
             ),
-            SizedBox(
-              height: mDimens.defaultSpace,
-            ),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  OptionButton(
-                    title: "Uppercase",
-                    description: "ABC",
-                    icon: Icons.title,
+          ),
+          //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+                activeTrackColor: mcolors.colorEnabled,
+                trackHeight: mdimens.heightSlider * 1.1,
+                inactiveTrackColor: mcolors.colorDisabled,
+                thumbColor: mcolors.colorEnabled,
+                thumbShape: CustomSliderThumbCircle(
+                    thumbRadius: mdimens.heightSlider,
+                    value: context
+                        .select((PasswordCubit cubit) => cubit.state.length))),
+            child: Slider(
+                min: 8.0,
+                max: 32.0,
+                divisions: 20,
+                value: context.select(
+                    (PasswordCubit cubit) => cubit.state.length.toDouble()),
+                onChanged: (double value) =>
+                    context.read<PasswordCubit>().changeLength(value.toInt())),
+          ),
+          SizedBox(
+            height: mdimens.defaultSpace,
+          ),
+          Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                OptionButton(
+                  title: "Uppercase",
+                  description: "ABC",
+                  icon: Icons.title,
+                  active: context.select(
+                      (PasswordCubit cubit) => cubit.state.withUppercase),
+                  callback: () =>
+                      context.read<PasswordCubit>().changeUppercase(),
+                ),
+                SizedBox(
+                  width: mdimens.defaultSpace,
+                ),
+                OptionButton(
+                    title: "Lowercase",
+                    description: "abc",
+                    icon: Icons.format_size,
                     active: context.select(
-                        (PasswordCubit cubit) => cubit.state.withUppercase),
+                        (PasswordCubit cubit) => cubit.state.withLowercase),
                     callback: () =>
-                        context.read<PasswordCubit>().changeUppercase(),
-                  ),
-                  SizedBox(
-                    width: mDimens.defaultSpace,
-                  ),
-                  OptionButton(
-                      title: "Lowercase",
-                      description: "abc",
-                      icon: Icons.format_size,
-                      active: context.select(
-                          (PasswordCubit cubit) => cubit.state.withLowercase),
+                        context.read<PasswordCubit>().changeLowercase()),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: mdimens.defaultSpace,
+          ),
+          Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                OptionButton(
+                    title: "Numbers",
+                    description: "123",
+                    icon: Icons.looks_one,
+                    active: context.select(
+                        (PasswordCubit cubit) => cubit.state.withNumbers),
+                    callback: () =>
+                        context.read<PasswordCubit>().changeNumbers()),
+                SizedBox(
+                  width: mdimens.defaultSpace,
+                ),
+                OptionButton(
+                    title: "Special",
+                    description: "@£*",
+                    icon: Icons.star,
+                    active: context.select(
+                        (PasswordCubit cubit) => cubit.state.withSpecial),
+                    callback: () =>
+                        context.read<PasswordCubit>().changeSpecial()),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(),
+          ),
+          BlocConsumer<PasswordCubit, PasswordState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ActionButton(
+                      text: "Copy",
+                      icon: Icons.copy,
+                      isMain: false,
+                      callback: () => _copyToClipboard(state.password),
+                    ),
+                    SizedBox(
+                      height: mdimens.defaultSpace,
+                    ),
+                    ActionButton(
+                      text: "Generate",
+                      icon: Icons.sync,
+                      isMain: true,
                       callback: () =>
-                          context.read<PasswordCubit>().changeLowercase()),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: mDimens.defaultSpace,
-            ),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: mDimens.paddingHorizontal),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  OptionButton(
-                      title: "Numbers",
-                      description: "123",
-                      icon: Icons.looks_one,
-                      active: context.select(
-                          (PasswordCubit cubit) => cubit.state.withNumbers),
-                      callback: () =>
-                          context.read<PasswordCubit>().changeNumbers()),
-                  SizedBox(
-                    width: mDimens.defaultSpace,
-                  ),
-                  OptionButton(
-                      title: "Special",
-                      description: "@£*",
-                      icon: Icons.star,
-                      active: context.select(
-                          (PasswordCubit cubit) => cubit.state.withSpecial),
-                      callback: () =>
-                          context.read<PasswordCubit>().changeSpecial()),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            BlocConsumer<PasswordCubit, PasswordState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: mDimens.paddingHorizontal),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      ActionButton(
-                        text: "Copy",
-                        icon: Icons.copy,
-                        isMain: false,
-                        callback: () => _copyToClipboard(state.password),
-                      ),
-                      SizedBox(
-                        height: mDimens.defaultSpace,
-                      ),
-                      ActionButton(
-                        text: "Generate",
-                        icon: Icons.sync,
-                        isMain: true,
-                        callback: () =>
-                            context.read<PasswordCubit>().updatePassword(),
-                      ),
-                      // ActionButton(
-                      //   text: "Share",
-                      //   icon: Icons.share,
-                      //   isMain: false,
-                      //   callback: () => _shareGeneratedPassword(state.password),
-                      // )
-                    ],
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: mDimens.hugeSpace,
-            ),
-          ],
-        ),
+                          context.read<PasswordCubit>().updatePassword(),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: mdimens.hugeSpace,
+          ),
+        ],
       ),
     );
   }

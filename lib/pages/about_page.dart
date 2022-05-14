@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:wassword/styles/colors.dart' as mColors;
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:wassword/styles/colors.dart' as mcolors;
 import 'package:wassword/ui/about_row.dart';
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
+
   //Open the browser with the url provided
   void _launchURL(String urlToLaunch) async {
-    if (await canLaunch(urlToLaunch)) {
-      await launch(urlToLaunch);
+    if (await canLaunchUrlString(urlToLaunch)) {
+      await launchUrlString(urlToLaunch);
     } else {
       throw 'Could not launch $urlToLaunch';
     }
@@ -18,16 +20,16 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: mColors.backgroundView, // status bar colorstatus ba
+          backgroundColor: mcolors.backgroundView, // status bar colorstatus ba
           leading: IconButton(
             color: Colors.white,
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () => context.pop(),
           ),
-          title: new Text(
+          title: Text(
             "About",
             style: GoogleFonts.roboto(
-              color: mColors.colorTextLight,
+              color: mcolors.colorTextLight,
             ),
           ),
         ),
@@ -36,7 +38,7 @@ class AboutPage extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 ListTile(
@@ -44,7 +46,7 @@ class AboutPage extends StatelessWidget {
                     "DEVELOPER",
                     textAlign: TextAlign.left,
                     style:
-                        TextStyle(fontSize: 14, color: mColors.colorTextLight),
+                        TextStyle(fontSize: 14, color: mcolors.colorTextLight),
                   ),
                 ),
                 AboutRow(

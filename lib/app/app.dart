@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/pages/home_page.dart';
-import 'package:wassword/styles/colors.dart' as mColors;
+import 'package:wassword/styles/colors.dart' as mcolors;
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       ),
       GoRoute(
         path: '/about',
-        builder: (context, state) => AboutPage(),
+        builder: (context, state) => const AboutPage(),
       ),
     ],
   );
@@ -32,14 +32,14 @@ class App extends StatelessWidget {
             Theme.of(context).textTheme,
           ),
           appBarTheme: AppBarTheme(
-            backgroundColor: mColors.backgroundView,
+            backgroundColor: mcolors.backgroundView,
             centerTitle: true,
             elevation: 0,
           ),
           brightness: Brightness.dark,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          backgroundColor: mColors.backgroundView,
-          scaffoldBackgroundColor: mColors.backgroundView,
+          backgroundColor: mcolors.backgroundView,
+          scaffoldBackgroundColor: mcolors.backgroundView,
         ),
       );
 }

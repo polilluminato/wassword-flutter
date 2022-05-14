@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mColors;
-import 'package:wassword/styles/dimens.dart' as mDimens;
+import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/dimens.dart' as mdimens;
 
 class OptionButton extends StatelessWidget {
   const OptionButton({
@@ -25,21 +25,21 @@ class OptionButton extends StatelessWidget {
         onTap: callback,
         child: Container(
           height: 85,
-          decoration: new BoxDecoration(
-            borderRadius: BorderRadius.circular(mDimens.roundedCorner),
-            color: active ? mColors.colorEnabled : mColors.colorDisabled,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(mdimens.roundedCorner),
+            color: active ? mcolors.colorEnabled : mcolors.colorDisabled,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 16, right: 12),
+                padding: const EdgeInsets.only(left: 16, right: 12),
                 child: Icon(
                   icon,
                   size: 24,
                   color:
-                      active ? mColors.colorTextDark : mColors.colorTextLight,
+                      active ? mcolors.colorTextDark : mcolors.colorTextLight,
                 ),
               ),
               Column(
@@ -52,11 +52,11 @@ class OptionButton extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: active
-                          ? mColors.colorTextDark
-                          : mColors.colorTextLight,
+                          ? mcolors.colorTextDark
+                          : mcolors.colorTextLight,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
@@ -65,8 +65,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: active
-                          ? mColors.colorTextDark
-                          : mColors.colorTextLight,
+                          ? mcolors.colorTextDark
+                          : mcolors.colorTextLight,
                     ),
                   )
                 ],
