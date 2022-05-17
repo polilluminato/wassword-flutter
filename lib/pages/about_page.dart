@@ -62,7 +62,7 @@ class AboutPage extends StatelessWidget {
                   title: "@polilluminato",
                   subtitle: "Github",
                   callback: () {
-                    _launchURL("https://github.com/polilluminato");
+                    _launchURL("https://www.github.com/polilluminato");
                   },
                 ),
                 AboutRow(
@@ -70,7 +70,7 @@ class AboutPage extends StatelessWidget {
                   title: "@polilluminato",
                   subtitle: "Twitter",
                   callback: () {
-                    _launchURL("https://twitter.com/polilluminato");
+                    _launchURL("https://www.twitter.com/polilluminato");
                   },
                 ),
                 AboutRow(
@@ -78,7 +78,7 @@ class AboutPage extends StatelessWidget {
                   title: "bonacinaalberto",
                   subtitle: "Linkedin",
                   callback: () {
-                    _launchURL("https://it.linkedin.com/in/bonacinaalberto");
+                    _launchURL("https://www.linkedin.com/in/bonacinaalberto");
                   },
                 ),
               ],
