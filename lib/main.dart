@@ -10,7 +10,6 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wassword/app/app.dart';
 import 'package:wassword/app/app_bloc_observer.dart';
-import 'package:wassword/cubit/password_cubit.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:wassword/styles/colors.dart' as mcolors;
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -38,9 +37,7 @@ void main() async {
         statusBarBrightness: Brightness.dark),
   );
 
-  BlocOverrides.runZoned(() {
-    PasswordCubit();
-  }, blocObserver: AppBlocObserver());
+  Bloc.observer = AppBlocObserver();
 
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
