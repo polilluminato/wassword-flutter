@@ -1,11 +1,13 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:wassword/app/app.dart';
 import 'package:wassword/app/app_bloc_observer.dart';
 import 'package:wassword/cubit/password_cubit.dart';
@@ -15,7 +17,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
+  usePathUrlStrategy();
 
   if (!kIsWeb &&
       !Platform.isAndroid &&
@@ -23,7 +25,6 @@ void main() async {
       (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow().then((_) async {
-      //await windowManager.setTitleBarStyle('hidden');
       await windowManager.setSize(const Size(385, 835));
     });
   }
