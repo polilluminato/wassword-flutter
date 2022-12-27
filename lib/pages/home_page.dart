@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wassword/cubit/password_cubit.dart';
 import 'package:wassword/styles/colors.dart';
-import 'package:wassword/styles/dimens.dart' as mdimens;
+import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/option_button.dart';
@@ -65,15 +65,15 @@ class HomeView extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.all(mdimens.defaultSpace),
+            margin: const EdgeInsets.all(Dimens.defaultSpace),
             height: 160,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: BrandColors.colorEnabled,
               borderRadius:
-                  BorderRadius.all(Radius.circular(mdimens.roundedCorner)),
+                  BorderRadius.all(Radius.circular(Dimens.roundedCorner)),
             ),
-            padding:
-                EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Dimens.paddingHorizontal),
             alignment: const Alignment(0, 0),
             child: Text(
               context.select((PasswordCubit cubit) => cubit.state.password),
@@ -88,11 +88,11 @@ class HomeView extends StatelessWidget {
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
                 activeTrackColor: BrandColors.colorEnabled,
-                trackHeight: mdimens.heightSlider * 1.1,
+                trackHeight: Dimens.heightSlider * 1.1,
                 inactiveTrackColor: BrandColors.colorDisabled,
                 thumbColor: BrandColors.colorEnabled,
                 thumbShape: CustomSliderThumbCircle(
-                    thumbRadius: mdimens.heightSlider,
+                    thumbRadius: Dimens.heightSlider,
                     value: context
                         .select((PasswordCubit cubit) => cubit.state.length))),
             child: Slider(
@@ -104,12 +104,12 @@ class HomeView extends StatelessWidget {
                 onChanged: (double value) =>
                     context.read<PasswordCubit>().changeLength(value.toInt())),
           ),
-          SizedBox(
-            height: mdimens.defaultSpace,
+          const SizedBox(
+            height: Dimens.defaultSpace,
           ),
           Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Dimens.paddingHorizontal),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
@@ -123,8 +123,8 @@ class HomeView extends StatelessWidget {
                   callback: () =>
                       context.read<PasswordCubit>().changeUppercase(),
                 ),
-                SizedBox(
-                  width: mdimens.defaultSpace,
+                const SizedBox(
+                  width: Dimens.defaultSpace,
                 ),
                 OptionButton(
                     title: "Lowercase",
@@ -137,12 +137,12 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: mdimens.defaultSpace,
+          const SizedBox(
+            height: Dimens.defaultSpace,
           ),
           Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Dimens.paddingHorizontal),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
@@ -155,8 +155,8 @@ class HomeView extends StatelessWidget {
                         (PasswordCubit cubit) => cubit.state.withNumbers),
                     callback: () =>
                         context.read<PasswordCubit>().changeNumbers()),
-                SizedBox(
-                  width: mdimens.defaultSpace,
+                const SizedBox(
+                  width: Dimens.defaultSpace,
                 ),
                 OptionButton(
                     title: "Special",
@@ -176,8 +176,8 @@ class HomeView extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               return Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: mdimens.paddingHorizontal),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Dimens.paddingHorizontal),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   mainAxisSize: MainAxisSize.max,
@@ -188,8 +188,8 @@ class HomeView extends StatelessWidget {
                       isMain: false,
                       callback: () => _copyToClipboard(state.password),
                     ),
-                    SizedBox(
-                      height: mdimens.defaultSpace,
+                    const SizedBox(
+                      height: Dimens.defaultSpace,
                     ),
                     ActionButton(
                       text: "Generate",
@@ -203,8 +203,8 @@ class HomeView extends StatelessWidget {
               );
             },
           ),
-          SizedBox(
-            height: mdimens.hugeSpace,
+          const SizedBox(
+            height: Dimens.hugeSpace,
           ),
         ],
       ),

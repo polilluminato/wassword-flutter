@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassword/styles/colors.dart';
-import 'package:wassword/styles/dimens.dart' as mdimens;
+import 'package:wassword/styles/dimens.dart';
 
 class AboutRow extends StatelessWidget {
   const AboutRow(
@@ -23,10 +23,10 @@ class AboutRow extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         height: 80,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: BrandColors.colorDisabled,
           borderRadius: BorderRadius.all(
-            Radius.circular(mdimens.roundedCorner),
+            Radius.circular(Dimens.roundedCorner),
           ),
         ),
         child: Row(

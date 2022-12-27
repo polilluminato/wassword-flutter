@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassword/styles/colors.dart';
-import 'package:wassword/styles/dimens.dart' as mdimens;
+import 'package:wassword/styles/dimens.dart';
 
 class OptionButton extends StatelessWidget {
   const OptionButton({
@@ -26,7 +26,7 @@ class OptionButton extends StatelessWidget {
         child: Container(
           height: 85,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(mdimens.roundedCorner),
+            borderRadius: BorderRadius.circular(Dimens.roundedCorner),
             color:
                 active ? BrandColors.colorEnabled : BrandColors.colorDisabled,
           ),

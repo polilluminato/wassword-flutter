@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BrandColors {
   // add a private constructor to prevent this class being instantiated
-  // e.g. invoke `LocalStorageKey()` accidentally
+  // e.g. invoke `BrandColors()` accidentally
   BrandColors._();
 
   static const Color backgroundView = Color(0xFF1F1F1F);
