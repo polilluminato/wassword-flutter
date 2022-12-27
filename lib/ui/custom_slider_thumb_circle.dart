@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 
 //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
 class CustomSliderThumbCircle extends SliderComponentShape {
@@ -38,14 +38,14 @@ class CustomSliderThumbCircle extends SliderComponentShape {
     final Canvas canvas = context.canvas;
 
     final paint = Paint()
-      ..color = mcolors.colorEnabled //Thumb Background Color
+      ..color = BrandColors.colorEnabled //Thumb Background Color
       ..style = PaintingStyle.fill;
 
     TextSpan span = TextSpan(
       style: TextStyle(
         fontSize: thumbRadius,
         fontWeight: FontWeight.w700,
-        color: mcolors.colorTextDark, //Text Color of Value on Thumb
+        color: BrandColors.colorTextDark, //Text Color of Value on Thumb
       ),
       text: getValue(this.value.toDouble()),
     );

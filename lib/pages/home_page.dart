@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wassword/cubit/password_cubit.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart' as mdimens;
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
@@ -44,11 +44,11 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:
-            mcolors.backgroundView, // status bar colortatus bar brightness
+            BrandColors.backgroundView, // status bar colortatus bar brightness
         title: Text(
           "Wassword",
           style: GoogleFonts.roboto(
-            color: mcolors.colorTextLight,
+            color: BrandColors.colorTextLight,
           ),
         ),
         actions: <Widget>[
@@ -56,7 +56,7 @@ class HomeView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 16),
             child: IconButton(
                 iconSize: 24,
-                color: mcolors.colorTextLight,
+                color: BrandColors.colorTextLight,
                 icon: const Icon(Icons.person_outline),
                 onPressed: () => context.push('/about')),
           ),
@@ -68,7 +68,7 @@ class HomeView extends StatelessWidget {
             margin: EdgeInsets.all(mdimens.defaultSpace),
             height: 160,
             decoration: BoxDecoration(
-              color: mcolors.colorEnabled,
+              color: BrandColors.colorEnabled,
               borderRadius:
                   BorderRadius.all(Radius.circular(mdimens.roundedCorner)),
             ),
@@ -78,19 +78,19 @@ class HomeView extends StatelessWidget {
             child: Text(
               context.select((PasswordCubit cubit) => cubit.state.password),
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
-                  color: mcolors.colorTextDark),
+                  color: BrandColors.colorTextDark),
             ),
           ),
           //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
-                activeTrackColor: mcolors.colorEnabled,
+                activeTrackColor: BrandColors.colorEnabled,
                 trackHeight: mdimens.heightSlider * 1.1,
-                inactiveTrackColor: mcolors.colorDisabled,
-                thumbColor: mcolors.colorEnabled,
+                inactiveTrackColor: BrandColors.colorDisabled,
+                thumbColor: BrandColors.colorEnabled,
                 thumbShape: CustomSliderThumbCircle(
                     thumbRadius: mdimens.heightSlider,
                     value: context

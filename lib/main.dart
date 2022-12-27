@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wassword/app/app.dart';
 import 'package:wassword/app/app_bloc_observer.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {
@@ -29,10 +29,10 @@ void main() async {
   }
 
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
+    const SystemUiOverlayStyle(
         systemNavigationBarColor:
-            mcolors.backgroundView, // navigation bar color
-        statusBarColor: mcolors.backgroundView, //top bar color
+            BrandColors.backgroundView, // navigation bar color
+        statusBarColor: BrandColors.backgroundView, //top bar color
         statusBarIconBrightness: Brightness.light, // status bar icons' color
         statusBarBrightness: Brightness.dark),
   );

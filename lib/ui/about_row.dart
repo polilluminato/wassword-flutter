@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart' as mdimens;
 
 class AboutRow extends StatelessWidget {
@@ -24,7 +24,7 @@ class AboutRow extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         height: 80,
         decoration: BoxDecoration(
-          color: mcolors.colorDisabled,
+          color: BrandColors.colorDisabled,
           borderRadius: BorderRadius.all(
             Radius.circular(mdimens.roundedCorner),
           ),
@@ -38,7 +38,7 @@ class AboutRow extends StatelessWidget {
               child: Icon(
                 icon,
                 size: 32,
-                color: mcolors.colorTextLight,
+                color: BrandColors.colorTextLight,
               ),
             ),
             Column(
@@ -47,9 +47,9 @@ class AboutRow extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: mcolors.colorTextLight,
+                      color: BrandColors.colorTextLight,
                     ),
                   ),
                   const SizedBox(
@@ -57,9 +57,9 @@ class AboutRow extends StatelessWidget {
                   ),
                   Text(
                     subtitle,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w400,
-                      color: mcolors.colorTextLightDark,
+                      color: BrandColors.colorTextLightDark,
                     ),
                   )
                 ])
@@ -71,12 +71,12 @@ class AboutRow extends StatelessWidget {
     // return ListTile(
     //   leading: Icon(
     //     icon,
-    //     color: mcolors.colorTextLight,
+    //     color: BrandColors.colorTextLight,
     //     size: 23,
     //   ),
     //   title: Text(
     //     subtitle,
-    //     style: TextStyle(color: mcolors.colorTextLight, fontSize: 14),
+    //     style: TextStyle(color: BrandColors.colorTextLight, fontSize: 14),
     //   ),
     //   onTap: callback,
     // );

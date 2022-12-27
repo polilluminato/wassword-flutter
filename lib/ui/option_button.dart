@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart' as mdimens;
 
 class OptionButton extends StatelessWidget {
@@ -27,7 +27,8 @@ class OptionButton extends StatelessWidget {
           height: 85,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(mdimens.roundedCorner),
-            color: active ? mcolors.colorEnabled : mcolors.colorDisabled,
+            color:
+                active ? BrandColors.colorEnabled : BrandColors.colorDisabled,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -38,8 +39,9 @@ class OptionButton extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 24,
-                  color:
-                      active ? mcolors.colorTextDark : mcolors.colorTextLight,
+                  color: active
+                      ? BrandColors.colorTextDark
+                      : BrandColors.colorTextLight,
                 ),
               ),
               Column(
@@ -52,8 +54,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: active
-                          ? mcolors.colorTextDark
-                          : mcolors.colorTextLight,
+                          ? BrandColors.colorTextDark
+                          : BrandColors.colorTextLight,
                     ),
                   ),
                   const SizedBox(
@@ -65,8 +67,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: active
-                          ? mcolors.colorTextDark
-                          : mcolors.colorTextLight,
+                          ? BrandColors.colorTextDark
+                          : BrandColors.colorTextLight,
                     ),
                   )
                 ],

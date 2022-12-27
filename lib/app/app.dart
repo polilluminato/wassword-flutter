@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wassword/pages/about_page.dart';
 import 'package:wassword/pages/home_page.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
@@ -32,15 +32,15 @@ class App extends StatelessWidget {
           textTheme: GoogleFonts.robotoTextTheme(
             Theme.of(context).textTheme,
           ),
-          appBarTheme: AppBarTheme(
-            backgroundColor: mcolors.backgroundView,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: BrandColors.backgroundView,
             centerTitle: true,
             elevation: 0,
           ),
           brightness: Brightness.dark,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          backgroundColor: mcolors.backgroundView,
-          scaffoldBackgroundColor: mcolors.backgroundView,
+          backgroundColor: BrandColors.backgroundView,
+          scaffoldBackgroundColor: BrandColors.backgroundView,
         ),
       );
 }

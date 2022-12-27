@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart' as mdimens;
 
 class ActionButton extends StatelessWidget {
@@ -30,14 +30,17 @@ class ActionButton extends StatelessWidget {
         width: screenWidth * .7,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(mdimens.roundedCorner),
-          color: isMain ? mcolors.colorMainButton : mcolors.colorDisabled,
+          color:
+              isMain ? BrandColors.colorMainButton : BrandColors.colorDisabled,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               icon,
-              color: isMain ? mcolors.colorTextDark : mcolors.colorTextLight,
+              color: isMain
+                  ? BrandColors.colorTextDark
+                  : BrandColors.colorTextLight,
               size: isMain
                   ? actionButtonSizeBig / 2
                   : actionButtonSizeSmall / 2.5,
@@ -49,8 +52,9 @@ class ActionButton extends StatelessWidget {
               text,
               style: TextStyle(
                   fontSize: isMain ? 18 : 16,
-                  color:
-                      isMain ? mcolors.colorTextDark : mcolors.colorTextLight),
+                  color: isMain
+                      ? BrandColors.colorTextDark
+                      : BrandColors.colorTextLight),
             )
           ],
         ),

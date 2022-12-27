@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:wassword/styles/colors.dart';
 import 'package:wassword/ui/about_row.dart';
 
 class AboutPage extends StatelessWidget {
@@ -20,7 +20,8 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: mcolors.backgroundView, // status bar colorstatus ba
+          backgroundColor:
+              BrandColors.backgroundView, // status bar colorstatus ba
           leading: IconButton(
             color: Colors.white,
             icon: const Icon(Icons.arrow_back),
@@ -29,7 +30,7 @@ class AboutPage extends StatelessWidget {
           title: Text(
             "About",
             style: GoogleFonts.roboto(
-              color: mcolors.colorTextLight,
+              color: BrandColors.colorTextLight,
             ),
           ),
         ),
@@ -41,12 +42,12 @@ class AboutPage extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                ListTile(
+                const ListTile(
                   title: Text(
                     "DEVELOPER",
                     textAlign: TextAlign.left,
-                    style:
-                        TextStyle(fontSize: 14, color: mcolors.colorTextLight),
+                    style: TextStyle(
+                        fontSize: 14, color: BrandColors.colorTextLight),
                   ),
                 ),
                 AboutRow(
