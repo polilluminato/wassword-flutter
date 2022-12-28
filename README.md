@@ -42,8 +42,6 @@ Everything works offline and nothing is shared, your safety comes first.
 
 If you have any idea, feel free to fork it and submit your changes back to me.
 
-<img alt="Ask me anything" src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" />
-
 ## 📋 License
 
 ```
