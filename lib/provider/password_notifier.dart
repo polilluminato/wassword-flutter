@@ -10,7 +10,7 @@ class PasswordNotifier extends StateNotifier<Password> {
             withNumbers: false,
             withSpecial: false,
             length: 8,
-            password: ""));
+            password: "Wassword"));
 
   void changeLowercase() {
     String newPassword = generatePassword(
