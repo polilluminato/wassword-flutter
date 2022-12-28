@@ -3,6 +3,7 @@
   <p align="center">
   <a href="https://dart.dev/"><img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"></a>
   <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white"></a>
+  <a href="https://www.apache.org/licenses/LICENSE-2.0.html"><img src="https://img.shields.io/badge/licence-Apache%202.0-yellow?style=for-the-badge&"></a>
   </p>
 </div>
 
@@ -41,7 +42,7 @@ Everything works offline and nothing is shared, your safety comes first.
 
 If you have any idea, feel free to fork it and submit your changes back to me.
 
-<img alt="Get it on Google Play" src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" />
+<img alt="Ask me anything" src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" />
 
 ## 📋 License
 
