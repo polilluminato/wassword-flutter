@@ -1,15 +1,12 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wassword/app/app.dart';
-import 'package:wassword/app/app_bloc_observer.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:wassword/styles/colors.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -37,14 +34,5 @@ void main() async {
         statusBarBrightness: Brightness.dark),
   );
 
-  Bloc.observer = AppBlocObserver();
-
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
-
-  runZonedGuarded(
-    () => runApp(App()),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
-  );
+  runApp(ProviderScope(child: App()));
 }
