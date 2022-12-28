@@ -29,7 +29,7 @@ Everything works offline and nothing is shared, your safety comes first.
 - **Copy** generated passwords
 - **Share** generated passwords
 - **Generate** as many passwords as you want
-- **[Bloc](https://bloclibrary.dev/)** as a state management library
+- **[Riverpod](https://riverpod.dev/)** as a state management library
 
 ### 📱 Screenshots
 
