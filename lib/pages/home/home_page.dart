@@ -6,13 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wassword/provider/password.dart';
-import 'package:wassword/provider/password_provider.dart';
+import 'package:wassword/provider/tab_provider.dart';
 import 'package:wassword/styles/colors.dart';
-import 'package:wassword/styles/dimens.dart';
-import 'package:wassword/ui/action_button.dart';
-import 'package:wassword/ui/custom_slider_thumb_circle.dart';
-import 'package:wassword/ui/option_button.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,7 +25,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Password password = ref.watch(passwordProvider);
+    int selectedTab = ref.watch(tabProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -48,12 +43,37 @@ class HomePage extends ConsumerWidget {
             child: IconButton(
                 iconSize: 24,
                 color: BrandColors.colorTextLight,
-                icon: const Icon(Icons.person_outline),
+                icon: const Icon(Icons.settings),
                 onPressed: () => context.push('/about')),
           ),
         ],
       ),
-      body: Column(
+      body: const Center(),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          ref.read(tabProvider.notifier).update((state) => index);
+        },
+        selectedIndex: selectedTab,
+        destinations: const <Widget>[
+          NavigationDestination(
+            icon: Icon(Icons.vpn_key),
+            label: 'Password',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.text_fields),
+            label: 'Passphrase',
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: BrandColors.colorMainButton,
+        child: const Icon(Icons.refresh),
+      ),
+      /*Column(
         children: <Widget>[
           Container(
             margin: const EdgeInsets.all(Dimens.defaultSpace),
@@ -194,7 +214,7 @@ class HomePage extends ConsumerWidget {
             height: Dimens.hugeSpace,
           ),
         ],
-      ),
+      ),*/
     );
   }
 }
