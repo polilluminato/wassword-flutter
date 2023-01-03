@@ -47,9 +47,10 @@ class PasswordView extends ConsumerWidget {
             password.password,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                color: BrandColors.colorTextDark),
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              color: BrandColors.colorTextDark,
+            ),
           ),
         ),
         //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
