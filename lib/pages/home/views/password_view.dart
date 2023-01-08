@@ -28,6 +28,7 @@ class PasswordView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double screenWidth = MediaQuery.of(context).size.width;
     Password password = ref.watch(passwordProvider);
 
     return Column(
@@ -144,25 +145,24 @@ class PasswordView extends ConsumerWidget {
         Padding(
           padding:
               const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
             children: [
-              ActionButton(
-                text: "Copy",
-                icon: Icons.copy,
-                isMain: false,
-                callback: () => _copyToClipboard(password.password),
-              ),
-              const SizedBox(
-                height: Dimens.defaultSpace,
-              ),
               ActionButton(
                 text: "Generate",
                 icon: Icons.sync,
                 isMain: true,
                 callback: () =>
                     ref.read(passwordProvider.notifier).updatePassword(),
+                width: screenWidth * .5,
+              ),
+              ActionButton(
+                text: "Copy",
+                icon: Icons.copy,
+                isMain: false,
+                callback: () => _copyToClipboard(password.password),
+                width: screenWidth * .3,
               ),
             ],
           ),
