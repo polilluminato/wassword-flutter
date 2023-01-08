@@ -1,5 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:wassword/provider/passphrase.dart';
+import 'package:wassword/provider/passphrase_provider.dart';
 import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
@@ -8,9 +14,21 @@ import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 class PassphraseView extends ConsumerWidget {
   const PassphraseView({super.key});
 
+  void _copyToClipboard(String newPassword) {
+    Clipboard.setData(ClipboardData(text: newPassword));
+
+    if (Platform.isAndroid || Platform.isIOS) {
+      Fluttertoast.showToast(
+          msg: "Password copied to clipboard",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER);
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     double screenWidth = MediaQuery.of(context).size.width;
+    Passphrase passphrase = ref.watch(passphraseProvider);
 
     return Column(
       children: <Widget>[
@@ -25,10 +43,10 @@ class PassphraseView extends ConsumerWidget {
           padding:
               const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
           alignment: const Alignment(0, 0),
-          child: const Text(
-            "",
+          child: Text(
+            passphrase.passphrase,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30,
               color: BrandColors.colorTextDark,
@@ -41,17 +59,19 @@ class PassphraseView extends ConsumerWidget {
             trackHeight: Dimens.heightSlider * 1.1,
             inactiveTrackColor: BrandColors.colorDisabled,
             thumbColor: BrandColors.colorEnabled,
-            thumbShape: const CustomSliderThumbCircle(
+            thumbShape: CustomSliderThumbCircle(
               thumbRadius: Dimens.heightSlider,
-              value: 16,
+              value: passphrase.length,
             ),
           ),
           child: Slider(
-            min: 8.0,
-            max: 32.0,
-            divisions: 20,
-            value: 16,
-            onChanged: (double value) => {},
+            min: 6.0,
+            max: 24.0,
+            divisions: 9,
+            value: passphrase.length.toDouble(),
+            onChanged: (double value) => ref
+                .read(passphraseProvider.notifier)
+                .changeLength(value.toInt()),
           ),
         ),
         Expanded(
@@ -68,14 +88,15 @@ class PassphraseView extends ConsumerWidget {
                 text: "Generate",
                 icon: Icons.sync,
                 isMain: true,
-                callback: () => {},
+                callback: () =>
+                    ref.read(passphraseProvider.notifier).updatePassphrase(),
                 width: screenWidth * .5,
               ),
               ActionButton(
                 text: "Copy",
                 icon: Icons.copy,
                 isMain: false,
-                callback: () => {},
+                callback: () => _copyToClipboard(passphrase.passphrase),
                 width: screenWidth * .3,
               ),
             ],

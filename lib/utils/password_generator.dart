@@ -6,15 +6,16 @@ import 'dart:math';
  * @param bool isWithUppercase: password must contain uppercase letters
  * @param bool isWithNumbers: password must contain numbers
  * @param bool isWithSpecial: password must contain special chars
- * @param int _numberCharPassword: password length
+ * @param int numberCharPassword: password length
  * @return string: new password
  */
-String generatePassword(
-    {required bool isWithLowercase,
-    required bool isWithUppercase,
-    required bool isWithNumbers,
-    required bool isWithSpecial,
-    required int numberCharPassword}) {
+String generatePassword({
+  required bool isWithLowercase,
+  required bool isWithUppercase,
+  required bool isWithNumbers,
+  required bool isWithSpecial,
+  required int numberCharPassword,
+}) {
   String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
   String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   String numbers = "0123456789";
