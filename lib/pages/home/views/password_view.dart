@@ -69,7 +69,7 @@ class PasswordView extends ConsumerWidget {
           child: Slider(
             min: 8.0,
             max: 32.0,
-            divisions: 20,
+            divisions: 24,
             value: password.length.toDouble(),
             onChanged: (double value) =>
                 ref.read(passwordProvider.notifier).changeLength(value.toInt()),
