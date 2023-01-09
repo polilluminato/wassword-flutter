@@ -5,9 +5,8 @@ class Dimens {
 
   static const double roundedCorner = 16;
 
-  static const double paddingButtonBig = 20;
-  static const double paddingButton = 16;
-  static const double paddingHorizontal = 16;
+  static const double hugePadding = 20;
+  static const double mainPadding = 16;
 
   static const double defaultSpace = 16;
   static const double hugeSpace = 32;

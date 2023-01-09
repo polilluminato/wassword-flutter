@@ -41,8 +41,7 @@ class PasswordView extends ConsumerWidget {
             borderRadius:
                 BorderRadius.all(Radius.circular(Dimens.roundedCorner)),
           ),
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           alignment: const Alignment(0, 0),
           child: Text(
             password.password,
@@ -79,8 +78,7 @@ class PasswordView extends ConsumerWidget {
           height: Dimens.defaultSpace,
         ),
         Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -111,8 +109,7 @@ class PasswordView extends ConsumerWidget {
           height: Dimens.defaultSpace,
         ),
         Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -143,8 +140,7 @@ class PasswordView extends ConsumerWidget {
           child: Container(),
         ),
         Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
