@@ -9,25 +9,24 @@ class ActionButton extends StatelessWidget {
     required this.icon,
     required this.callback,
     required this.isMain,
+    required this.width,
   }) : super(key: key);
 
   final String text;
   final IconData icon;
   final VoidCallback callback;
   final bool isMain;
-
   final double actionButtonSizeBig = 56;
   final double actionButtonSizeSmall = 44;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return GestureDetector(
       onTap: callback,
       child: Container(
-        height: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
-        width: screenWidth * .7,
+        height: actionButtonSizeSmall,
+        width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Dimens.roundedCorner),
           color:
@@ -41,9 +40,7 @@ class ActionButton extends StatelessWidget {
               color: isMain
                   ? BrandColors.colorTextDark
                   : BrandColors.colorTextLight,
-              size: isMain
-                  ? actionButtonSizeBig / 2
-                  : actionButtonSizeSmall / 2.5,
+              size: 20,
             ),
             const SizedBox(
               width: Dimens.defaultSpace,
@@ -51,7 +48,7 @@ class ActionButton extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                  fontSize: isMain ? 18 : 16,
+                  fontSize: 16,
                   color: isMain
                       ? BrandColors.colorTextDark
                       : BrandColors.colorTextLight),

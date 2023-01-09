@@ -28,6 +28,7 @@ class PasswordView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double screenWidth = MediaQuery.of(context).size.width;
     Password password = ref.watch(passwordProvider);
 
     return Column(
@@ -40,16 +41,16 @@ class PasswordView extends ConsumerWidget {
             borderRadius:
                 BorderRadius.all(Radius.circular(Dimens.roundedCorner)),
           ),
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           alignment: const Alignment(0, 0),
           child: Text(
             password.password,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                color: BrandColors.colorTextDark),
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              color: BrandColors.colorTextDark,
+            ),
           ),
         ),
         //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
@@ -67,7 +68,7 @@ class PasswordView extends ConsumerWidget {
           child: Slider(
             min: 8.0,
             max: 32.0,
-            divisions: 20,
+            divisions: 24,
             value: password.length.toDouble(),
             onChanged: (double value) =>
                 ref.read(passwordProvider.notifier).changeLength(value.toInt()),
@@ -77,8 +78,7 @@ class PasswordView extends ConsumerWidget {
           height: Dimens.defaultSpace,
         ),
         Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -109,8 +109,7 @@ class PasswordView extends ConsumerWidget {
           height: Dimens.defaultSpace,
         ),
         Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -141,27 +140,25 @@ class PasswordView extends ConsumerWidget {
           child: Container(),
         ),
         Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal),
-          child: Column(
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
             children: [
-              ActionButton(
-                text: "Copy",
-                icon: Icons.copy,
-                isMain: false,
-                callback: () => _copyToClipboard(password.password),
-              ),
-              const SizedBox(
-                height: Dimens.defaultSpace,
-              ),
               ActionButton(
                 text: "Generate",
                 icon: Icons.sync,
                 isMain: true,
                 callback: () =>
                     ref.read(passwordProvider.notifier).updatePassword(),
+                width: screenWidth * .5,
+              ),
+              ActionButton(
+                text: "Copy",
+                icon: Icons.copy,
+                isMain: false,
+                callback: () => _copyToClipboard(password.password),
+                width: screenWidth * .3,
               ),
             ],
           ),
