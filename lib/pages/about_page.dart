@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wassword/styles/colors.dart';
 import 'package:wassword/ui/about_row.dart';
 
@@ -10,10 +10,11 @@ class AboutPage extends StatelessWidget {
 
   //Open the browser with the url provided
   void _launchURL(String urlToLaunch) async {
-    if (await canLaunchUrlString(urlToLaunch)) {
-      await launchUrlString(urlToLaunch);
-    } else {
-      throw 'Could not launch $urlToLaunch';
+    if (!await launchUrl(
+      Uri.parse(urlToLaunch),
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $urlToLaunch');
     }
   }
 
