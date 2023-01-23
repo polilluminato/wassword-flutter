@@ -6,4 +6,4 @@ final dividerSelectProvider =
     StateProvider<DividerEnum>((_) => DividerEnum.comma);
 
 final wordlistSelectProvider =
-    StateProvider<WordlistEnum>((_) => WordlistEnum.english);
+    StateProvider<WordlistEnum>((_) => WordlistEnum.wordlistefflong);

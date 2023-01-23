@@ -7,7 +7,7 @@ import 'package:wassword/utils/passphrase_generator.dart';
 class PassphraseNotifier extends StateNotifier<Passphrase> {
   PassphraseNotifier()
       : super(const Passphrase(
-            wordlist: WordlistEnum.english,
+            wordlist: WordlistEnum.wordlistefflong,
             divider: DividerEnum.colon,
             length: 8,
             passphrase: "Wassword"));
