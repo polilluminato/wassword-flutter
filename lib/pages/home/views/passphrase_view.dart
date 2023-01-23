@@ -40,7 +40,7 @@ class PassphraseView extends ConsumerWidget {
       children: <Widget>[
         Container(
           margin: const EdgeInsets.all(Dimens.defaultSpace),
-          height: 290,
+          height: 250,
           decoration: const BoxDecoration(
             color: BrandColors.colorEnabled,
             borderRadius: BorderRadius.all(
@@ -56,7 +56,7 @@ class PassphraseView extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 26,
+              fontSize: 24,
               color: BrandColors.colorTextDark,
             ),
           ),
