@@ -35,7 +35,7 @@ class PasswordView extends ConsumerWidget {
       children: <Widget>[
         Container(
           margin: const EdgeInsets.all(Dimens.defaultSpace),
-          height: 160,
+          height: 210,
           decoration: const BoxDecoration(
             color: BrandColors.colorEnabled,
             borderRadius:
@@ -48,7 +48,7 @@ class PasswordView extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 30,
+              fontSize: 24,
               color: BrandColors.colorTextDark,
             ),
           ),
@@ -67,8 +67,8 @@ class PasswordView extends ConsumerWidget {
           ),
           child: Slider(
             min: 8.0,
-            max: 32.0,
-            divisions: 24,
+            max: 128.0,
+            divisions: 120,
             value: password.length.toDouble(),
             onChanged: (double value) =>
                 ref.read(passwordProvider.notifier).changeLength(value.toInt()),
