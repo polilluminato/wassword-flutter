@@ -26,7 +26,7 @@ class OptionButton extends StatelessWidget {
         child: Container(
           height: 85,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Dimens.roundedCorner),
+            borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
             color:
                 active ? BrandColors.colorEnabled : BrandColors.colorDisabled,
           ),

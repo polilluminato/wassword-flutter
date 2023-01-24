@@ -26,7 +26,7 @@ class AboutRow extends StatelessWidget {
         decoration: const BoxDecoration(
           color: BrandColors.colorDisabled,
           borderRadius: BorderRadius.all(
-            Radius.circular(Dimens.roundedCorner),
+            Radius.circular(Dimens.mainRoundedCorner),
           ),
         ),
         child: Row(

@@ -7,11 +7,11 @@ InputDecoration getSelectInputDecoration(String labelText) {
     labelText: labelText,
     enabledBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: BrandColors.colorEnabled),
-      borderRadius: BorderRadius.circular(Dimens.roundedCorner),
+      borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
     ),
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: BrandColors.colorEnabled),
-      borderRadius: BorderRadius.circular(Dimens.roundedCorner),
+      borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
     ),
   );
 }

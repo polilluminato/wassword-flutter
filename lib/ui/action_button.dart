@@ -28,7 +28,7 @@ class ActionButton extends StatelessWidget {
         height: actionButtonSizeSmall,
         width: width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimens.roundedCorner),
+          borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
           color:
               isMain ? BrandColors.colorMainButton : BrandColors.colorDisabled,
         ),

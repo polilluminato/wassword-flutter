@@ -21,11 +21,13 @@ class HomePage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:
-            BrandColors.backgroundView, // status bar colortatus bar brightness
+            BrandColors.colorEnabled, // status bar colortatus bar brightness
         title: Text(
           "Wassword",
           style: GoogleFonts.roboto(
-            color: BrandColors.colorTextLight,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: BrandColors.colorTextDark,
           ),
         ),
         actions: <Widget>[
@@ -33,7 +35,7 @@ class HomePage extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 16),
             child: IconButton(
                 iconSize: 24,
-                color: BrandColors.colorTextLight,
+                color: BrandColors.colorTextDark,
                 icon: const Icon(Icons.settings),
                 onPressed: () => context.push('/about')),
           ),
@@ -42,9 +44,10 @@ class HomePage extends ConsumerWidget {
       body: tabList[selectedTab],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-          indicatorColor: BrandColors.colorEnabled.withAlpha(130),
+          indicatorColor: BrandColors.colorEnabled.withAlpha(170),
         ),
         child: NavigationBar(
+          backgroundColor: BrandColors.backgroundView,
           onDestinationSelected: (int index) {
             ref.read(tabProvider.notifier).update((state) => index);
           },

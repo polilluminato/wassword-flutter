@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:wassword/enums/divider_enum.dart';
 import 'package:wassword/enums/wordlist_enum.dart';
 import 'package:wassword/provider/passphrase.dart';
@@ -14,19 +11,14 @@ import 'package:wassword/styles/decoration.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
+import 'package:wassword/utils/utils.dart';
 
 class PassphraseView extends ConsumerWidget {
   const PassphraseView({super.key});
 
-  void _copyToClipboard(String newPassword) {
-    Clipboard.setData(ClipboardData(text: newPassword));
-
-    if (Platform.isAndroid || Platform.isIOS) {
-      Fluttertoast.showToast(
-          msg: "Password copied to clipboard",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER);
-    }
+  void _copyToClipboard(String newPassphrase) {
+    Clipboard.setData(ClipboardData(text: newPassphrase));
+    showToast("Passphrase copied to clipboard");
   }
 
   @override
@@ -39,16 +31,17 @@ class PassphraseView extends ConsumerWidget {
     return Column(
       children: <Widget>[
         Container(
-          margin: const EdgeInsets.all(Dimens.defaultSpace),
+          margin: const EdgeInsets.only(bottom: Dimens.defaultSpace),
           height: 250,
           decoration: const BoxDecoration(
             color: BrandColors.colorEnabled,
-            borderRadius: BorderRadius.all(
-              Radius.circular(Dimens.roundedCorner),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(Dimens.hugeRoundedCorner),
+              bottomRight: Radius.circular(Dimens.hugeRoundedCorner),
             ),
           ),
           padding: const EdgeInsets.symmetric(
-            horizontal: Dimens.hugePadding,
+            horizontal: Dimens.mainPadding,
           ),
           alignment: const Alignment(0, 0),
           child: Text(

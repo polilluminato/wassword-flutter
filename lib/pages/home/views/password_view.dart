@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:wassword/provider/password.dart';
 import 'package:wassword/provider/password_provider.dart';
 import 'package:wassword/styles/colors.dart';
@@ -11,19 +8,14 @@ import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/option_button.dart';
+import 'package:wassword/utils/utils.dart';
 
 class PasswordView extends ConsumerWidget {
   const PasswordView({super.key});
 
   void _copyToClipboard(String newPassword) {
     Clipboard.setData(ClipboardData(text: newPassword));
-
-    if (Platform.isAndroid || Platform.isIOS) {
-      Fluttertoast.showToast(
-          msg: "Password copied to clipboard",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER);
-    }
+    showToast("Password copied to clipboard");
   }
 
   @override
@@ -34,21 +26,25 @@ class PasswordView extends ConsumerWidget {
     return Column(
       children: <Widget>[
         Container(
-          margin: const EdgeInsets.all(Dimens.defaultSpace),
-          height: 210,
+          margin: const EdgeInsets.only(bottom: Dimens.defaultSpace),
+          height: 220,
           decoration: const BoxDecoration(
             color: BrandColors.colorEnabled,
-            borderRadius:
-                BorderRadius.all(Radius.circular(Dimens.roundedCorner)),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(Dimens.hugeRoundedCorner),
+              bottomRight: Radius.circular(Dimens.hugeRoundedCorner),
+            ),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Dimens.mainPadding,
+          ),
           alignment: const Alignment(0, 0),
           child: Text(
             password.password,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 24,
+              fontSize: 26,
               color: BrandColors.colorTextDark,
             ),
           ),

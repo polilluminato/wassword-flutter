@@ -3,7 +3,8 @@ class Dimens {
   // e.g. invoke `Dimens()` accidentally
   Dimens._();
 
-  static const double roundedCorner = 16;
+  static const double mainRoundedCorner = 16;
+  static const double hugeRoundedCorner = 32;
 
   static const double hugePadding = 20;
   static const double mainPadding = 16;
