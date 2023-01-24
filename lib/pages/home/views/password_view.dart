@@ -44,7 +44,7 @@ class PasswordView extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 26,
+              fontSize: 28,
               color: BrandColors.colorTextDark,
             ),
           ),

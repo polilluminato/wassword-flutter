@@ -49,7 +49,7 @@ class PassphraseView extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 24,
+              fontSize: 28,
               color: BrandColors.colorTextDark,
             ),
           ),
