@@ -6,11 +6,11 @@ import 'package:wassword/enums/wordlist_enum.dart';
 import 'package:wassword/provider/passphrase.dart';
 import 'package:wassword/provider/passphrase_provider.dart';
 import 'package:wassword/provider/select_provider.dart';
-import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/decoration.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
+import 'package:wassword/ui/secret_card.dart';
 import 'package:wassword/utils/utils.dart';
 
 class PassphraseView extends ConsumerWidget {
@@ -27,40 +27,19 @@ class PassphraseView extends ConsumerWidget {
     Passphrase passphrase = ref.watch(passphraseProvider);
     final dividerSelected = ref.watch(dividerSelectProvider);
     final wordlistSelected = ref.watch(wordlistSelectProvider);
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Column(
       children: <Widget>[
-        Container(
-          margin: const EdgeInsets.only(bottom: Dimens.defaultSpace),
-          height: 250,
-          decoration: const BoxDecoration(
-            color: BrandColors.colorEnabled,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(Dimens.hugeRoundedCorner),
-              bottomRight: Radius.circular(Dimens.hugeRoundedCorner),
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: Dimens.mainPadding,
-          ),
-          alignment: const Alignment(0, 0),
-          child: Text(
-            passphrase.passphrase,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 28,
-              color: BrandColors.colorTextDark,
-            ),
-          ),
-        ),
+        SecretCard(secretString: passphrase.passphrase),
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
-            activeTrackColor: BrandColors.colorEnabled,
+            activeTrackColor: colorScheme.primaryContainer,
             trackHeight: Dimens.heightSlider * 1.1,
-            inactiveTrackColor: BrandColors.colorDisabled,
-            thumbColor: BrandColors.colorEnabled,
+            inactiveTrackColor: colorScheme.surfaceVariant,
+            thumbColor: colorScheme.primaryContainer,
             thumbShape: CustomSliderThumbCircle(
+              buildContext: context,
               thumbRadius: Dimens.heightSlider,
               value: passphrase.length,
             ),
@@ -82,7 +61,8 @@ class PassphraseView extends ConsumerWidget {
             top: Dimens.hugeSpace,
           ),
           child: DropdownButtonFormField(
-            decoration: getSelectInputDecoration("Wordlist"),
+            decoration: getSelectInputDecoration(
+                colorScheme.primaryContainer, "Wordlist"),
             value: wordlistSelected,
             onChanged: (value) {
               ref.read(wordlistSelectProvider.notifier).state = value!;
@@ -94,7 +74,7 @@ class PassphraseView extends ConsumerWidget {
                     value: singleDivider,
                     child: Text(
                       singleDivider.name,
-                      style: const TextStyle(color: BrandColors.colorTextLight),
+                      style: TextStyle(color: colorScheme.onBackground),
                     ),
                   ),
                 )
@@ -107,7 +87,8 @@ class PassphraseView extends ConsumerWidget {
             vertical: Dimens.hugeSpace,
           ),
           child: DropdownButtonFormField(
-            decoration: getSelectInputDecoration("Divider"),
+            decoration: getSelectInputDecoration(
+                colorScheme.primaryContainer, "Divider"),
             value: dividerSelected,
             onChanged: (value) {
               ref.read(dividerSelectProvider.notifier).state = value!;
@@ -119,7 +100,7 @@ class PassphraseView extends ConsumerWidget {
                     value: singleDivider,
                     child: Text(
                       singleDivider.name,
-                      style: const TextStyle(color: BrandColors.colorTextLight),
+                      style: TextStyle(color: colorScheme.onBackground),
                     ),
                   ),
                 )

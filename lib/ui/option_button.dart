@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart';
 
 class OptionButton extends StatelessWidget {
@@ -20,6 +19,8 @@ class OptionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Expanded(
       child: GestureDetector(
         onTap: callback,
@@ -27,8 +28,9 @@ class OptionButton extends StatelessWidget {
           height: 85,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
-            color:
-                active ? BrandColors.colorEnabled : BrandColors.colorDisabled,
+            color: active
+                ? colorScheme.primaryContainer
+                : colorScheme.secondaryContainer,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -40,8 +42,8 @@ class OptionButton extends StatelessWidget {
                   icon,
                   size: 24,
                   color: active
-                      ? BrandColors.colorTextDark
-                      : BrandColors.colorTextLight,
+                      ? colorScheme.onPrimaryContainer
+                      : colorScheme.onSecondaryContainer,
                 ),
               ),
               Column(
@@ -54,8 +56,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: active
-                          ? BrandColors.colorTextDark
-                          : BrandColors.colorTextLight,
+                          ? colorScheme.onPrimaryContainer
+                          : colorScheme.onSecondaryContainer,
                     ),
                   ),
                   const SizedBox(
@@ -67,8 +69,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: active
-                          ? BrandColors.colorTextDark
-                          : BrandColors.colorTextLight,
+                          ? colorScheme.onPrimaryContainer
+                          : colorScheme.onSecondaryContainer,
                     ),
                   )
                 ],

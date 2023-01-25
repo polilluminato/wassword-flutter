@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:wassword/pages/home/views/passphrase_view.dart';
 import 'package:wassword/pages/home/views/password_view.dart';
 import 'package:wassword/provider/tab_provider.dart';
-import 'package:wassword/styles/colors.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,25 +15,17 @@ class HomePage extends ConsumerWidget {
       const PasswordView(),
       const PassphraseView(),
     ];
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:
-            BrandColors.colorEnabled, // status bar colortatus bar brightness
-        title: Text(
-          "Wassword",
-          style: GoogleFonts.roboto(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: BrandColors.colorTextDark,
-          ),
-        ),
+        // status bar colortatus bar brightness
+        title: const Text("Wassword"),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: IconButton(
                 iconSize: 24,
-                color: BrandColors.colorTextDark,
                 icon: const Icon(Icons.settings),
                 onPressed: () => context.push('/about')),
           ),
@@ -44,10 +34,9 @@ class HomePage extends ConsumerWidget {
       body: tabList[selectedTab],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-          indicatorColor: BrandColors.colorEnabled.withAlpha(170),
+          indicatorColor: colorScheme.primary.withAlpha(170),
         ),
         child: NavigationBar(
-          backgroundColor: BrandColors.backgroundView,
           onDestinationSelected: (int index) {
             ref.read(tabProvider.notifier).update((state) => index);
           },

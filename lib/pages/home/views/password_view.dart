@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wassword/provider/password.dart';
 import 'package:wassword/provider/password_provider.dart';
-import 'package:wassword/styles/colors.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/option_button.dart';
+import 'package:wassword/ui/secret_card.dart';
 import 'package:wassword/utils/utils.dart';
 
 class PasswordView extends ConsumerWidget {
@@ -22,41 +22,20 @@ class PasswordView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double screenWidth = MediaQuery.of(context).size.width;
     Password password = ref.watch(passwordProvider);
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Column(
       children: <Widget>[
-        Container(
-          margin: const EdgeInsets.only(bottom: Dimens.defaultSpace),
-          height: 220,
-          decoration: const BoxDecoration(
-            color: BrandColors.colorEnabled,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(Dimens.hugeRoundedCorner),
-              bottomRight: Radius.circular(Dimens.hugeRoundedCorner),
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: Dimens.mainPadding,
-          ),
-          alignment: const Alignment(0, 0),
-          child: Text(
-            password.password,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 28,
-              color: BrandColors.colorTextDark,
-            ),
-          ),
-        ),
+        SecretCard(secretString: password.password),
         //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
-            activeTrackColor: BrandColors.colorEnabled,
+            activeTrackColor: colorScheme.primaryContainer,
             trackHeight: Dimens.heightSlider * 1.1,
-            inactiveTrackColor: BrandColors.colorDisabled,
-            thumbColor: BrandColors.colorEnabled,
+            inactiveTrackColor: colorScheme.surfaceVariant,
+            thumbColor: colorScheme.primaryContainer,
             thumbShape: CustomSliderThumbCircle(
+              buildContext: context,
               thumbRadius: Dimens.heightSlider,
               value: password.length,
             ),
@@ -71,7 +50,7 @@ class PasswordView extends ConsumerWidget {
           ),
         ),
         const SizedBox(
-          height: Dimens.defaultSpace,
+          height: Dimens.mainSpace,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
@@ -88,7 +67,7 @@ class PasswordView extends ConsumerWidget {
                     ref.read(passwordProvider.notifier).changeUppercase(),
               ),
               const SizedBox(
-                width: Dimens.defaultSpace,
+                width: Dimens.mainSpace,
               ),
               OptionButton(
                 title: "Lowercase",
@@ -102,7 +81,7 @@ class PasswordView extends ConsumerWidget {
           ),
         ),
         const SizedBox(
-          height: Dimens.defaultSpace,
+          height: Dimens.mainSpace,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
@@ -119,7 +98,7 @@ class PasswordView extends ConsumerWidget {
                     ref.read(passwordProvider.notifier).changeNumbers(),
               ),
               const SizedBox(
-                width: Dimens.defaultSpace,
+                width: Dimens.mainSpace,
               ),
               OptionButton(
                 title: "Special",

@@ -10,7 +10,7 @@ class PassphraseNotifier extends StateNotifier<Passphrase> {
             wordlist: WordlistEnum.wordlistefflong,
             divider: DividerEnum.colon,
             length: 8,
-            passphrase: "Wassword"));
+            passphrase: "not_secure_passphrase"));
 
   void changeWordlist(WordlistEnum newWordlist) {
     String newPassphrase = generatePassphrase(
