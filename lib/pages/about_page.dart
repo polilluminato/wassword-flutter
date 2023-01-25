@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wassword/styles/colors.dart';
 import 'package:wassword/ui/about_row.dart';
+import 'package:wassword/styles/dimens.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -18,74 +18,123 @@ class AboutPage extends StatelessWidget {
     }
   }
 
+  Future<PackageInfo> getPackageInfo() async {
+    return await PackageInfo.fromPlatform();
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          backgroundColor:
-              BrandColors.backgroundView, // status bar colorstatus ba
-          leading: IconButton(
-            color: Colors.white,
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => context.pop(),
-          ),
-          title: Text(
-            "About",
-            style: GoogleFonts.roboto(
-              color: BrandColors.colorTextLight,
-            ),
-          ),
+  Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
         ),
-        body: ListView(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(
-                  height: 8,
-                ),
-                const ListTile(
-                  title: Text(
-                    "DEVELOPER",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontSize: 14, color: BrandColors.colorTextLight),
+        title: const Text("About"),
+      ),
+      body: ListView(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(
+                height: Dimens.smallSpace,
+              ),
+              ListTile(
+                title: Text(
+                  "APP",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: colorScheme.onBackground,
                   ),
                 ),
-                AboutRow(
-                  icon: Icons.language,
-                  title: "AlbertoBonacina.com",
-                  subtitle: "Website",
-                  callback: () {
-                    _launchURL("https://www.albertobonacina.com/");
-                  },
+              ),
+              AboutRow(
+                icon: Icons.language,
+                title: "Website",
+                callback: () {
+                  _launchURL("https://www.wassword.app/");
+                },
+              ),
+              AboutRow(
+                icon: Icons.person,
+                title: "Privacy Policy",
+                callback: () {
+                  _launchURL(
+                      "https://github.com/polilluminato/wassword-flutter");
+                },
+              ),
+              AboutRow(
+                icon: Icons.favorite,
+                title: "Sponsor",
+                callback: () {
+                  _launchURL("https://github.com/sponsors/polilluminato");
+                },
+              ),
+              ListTile(
+                title: Text(
+                  "DEVELOPER",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: colorScheme.onBackground,
+                  ),
                 ),
-                AboutRow(
-                  icon: Icons.code,
-                  title: "@polilluminato",
-                  subtitle: "Github",
-                  callback: () {
-                    _launchURL("https://www.github.com/polilluminato");
-                  },
-                ),
-                AboutRow(
-                  icon: Icons.campaign,
-                  title: "@polilluminato",
-                  subtitle: "Twitter",
-                  callback: () {
-                    _launchURL("https://www.twitter.com/polilluminato");
-                  },
-                ),
-                AboutRow(
-                  icon: Icons.business,
-                  title: "bonacinaalberto",
-                  subtitle: "Linkedin",
-                  callback: () {
-                    _launchURL("https://www.linkedin.com/in/bonacinaalberto");
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
+              ),
+              AboutRow(
+                icon: Icons.language,
+                title: "Website",
+                callback: () {
+                  _launchURL("https://www.albertobonacina.com/");
+                },
+              ),
+              AboutRow(
+                icon: Icons.code,
+                title: "Follow on GitHub",
+                callback: () {
+                  _launchURL("https://www.github.com/polilluminato");
+                },
+              ),
+              AboutRow(
+                icon: Icons.campaign,
+                title: "Follow on GitHub",
+                callback: () {
+                  _launchURL("https://www.twitter.com/polilluminato");
+                },
+              ),
+              AboutRow(
+                icon: Icons.business,
+                title: "Connect on LinkedIn",
+                callback: () {
+                  _launchURL("https://www.linkedin.com/in/bonacinaalberto");
+                },
+              ),
+              const SizedBox(
+                height: Dimens.mainSpace,
+              ),
+              FutureBuilder<PackageInfo>(
+                builder: (BuildContext context,
+                    AsyncSnapshot<PackageInfo> snapshot) {
+                  if (snapshot.hasData) {
+                    return Text(
+                      "Wassword ${snapshot.data!.version}\nMade with ☕ and 💙 by Alberto Bonacina",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: colorScheme.onBackground,
+                      ),
+                    );
+                  }
+                  return Container();
+                },
+                //
+                future: getPackageInfo(),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
