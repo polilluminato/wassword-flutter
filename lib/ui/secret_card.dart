@@ -11,9 +11,11 @@ class SecretCard extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: Dimens.mainSpace,
-        horizontal: Dimens.mainSpace,
+      margin: const EdgeInsets.only(
+        top: Dimens.smallMargin,
+        bottom: Dimens.mainMargin,
+        left: Dimens.mainMargin,
+        right: Dimens.mainMargin,
       ),
       height: 250,
       decoration: BoxDecoration(

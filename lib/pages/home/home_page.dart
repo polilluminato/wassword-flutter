@@ -15,21 +15,16 @@ class HomePage extends ConsumerWidget {
       const PasswordView(),
       const PassphraseView(),
     ];
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
         // status bar colortatus bar brightness
         title: const Text("Wassword"),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: IconButton(
-                iconSize: 24,
-                icon: const Icon(Icons.settings),
-                onPressed: () => context.push('/about')),
-          ),
-        ],
+        leading: IconButton(
+          iconSize: 24,
+          icon: const Icon(Icons.settings_outlined),
+          onPressed: () => context.push('/about'),
+        ),
       ),
       body: tabList[selectedTab],
       bottomNavigationBar: NavigationBarTheme(
