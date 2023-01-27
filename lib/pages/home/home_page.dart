@@ -33,9 +33,7 @@ class HomePage extends ConsumerWidget {
       ),
       body: tabList[selectedTab],
       bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: colorScheme.primary.withAlpha(170),
-        ),
+        data: const NavigationBarThemeData(),
         child: NavigationBar(
           onDestinationSelected: (int index) {
             ref.read(tabProvider.notifier).update((state) => index);
