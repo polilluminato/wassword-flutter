@@ -4,13 +4,15 @@ import 'package:wassword/utils/password_generator.dart';
 
 class PasswordNotifier extends StateNotifier<Password> {
   PasswordNotifier()
-      : super(const Password(
-            withLowercase: true,
-            withUppercase: false,
-            withNumbers: false,
-            withSpecial: false,
-            length: 8,
-            password: "not_secure_password"));
+      : super(
+          const Password(
+              withLowercase: true,
+              withUppercase: false,
+              withNumbers: false,
+              withSpecial: false,
+              length: 8,
+              password: "not_secure_password"),
+        );
 
   void changeLowercase() {
     String newPassword = generatePassword(
