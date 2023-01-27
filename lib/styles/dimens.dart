@@ -10,6 +10,8 @@ class Dimens {
 
   static const double hugePadding = 20;
   static const double mainPadding = 16;
+  static const double smallPadding = 8;
+  static const double tinyPadding = 4;
 
   static const double hugeMargin = 20;
   static const double mainMargin = 16;

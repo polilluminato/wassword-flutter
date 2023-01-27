@@ -19,9 +19,11 @@ class AboutRow extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.symmetric(
-          horizontal: Dimens.mainMargin, vertical: Dimens.tinyMargin),
+        horizontal: Dimens.mainMargin,
+        vertical: Dimens.tinyMargin,
+      ),
       decoration: BoxDecoration(
-        color: colorScheme.surfaceVariant,
+        color: colorScheme.surfaceVariant.withAlpha(100),
         borderRadius: const BorderRadius.all(
           Radius.circular(Dimens.smallRoundedCorner),
         ),
@@ -31,13 +33,13 @@ class AboutRow extends StatelessWidget {
         leading: Icon(
           icon,
           size: 24,
-          color: colorScheme.onBackground,
+          color: colorScheme.onSurfaceVariant,
         ),
         title: Text(
           title,
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: colorScheme.onBackground,
+            color: colorScheme.onSurfaceVariant,
           ),
         ),
       ),

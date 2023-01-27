@@ -39,11 +39,14 @@ class AboutPage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(
-                height: Dimens.smallSpace,
-              ),
-              ListTile(
-                title: Text(
+              Container(
+                padding: const EdgeInsets.only(
+                  left: Dimens.mainPadding,
+                  bottom: Dimens.smallPadding,
+                  top: Dimens.mainPadding,
+                ),
+                alignment: Alignment.centerLeft,
+                child: Text(
                   "APP",
                   style: TextStyle(
                     fontSize: 14,
@@ -59,7 +62,7 @@ class AboutPage extends StatelessWidget {
                 },
               ),
               AboutRow(
-                icon: Icons.person,
+                icon: Icons.policy,
                 title: "Privacy Policy",
                 callback: () {
                   _launchURL(
@@ -73,8 +76,14 @@ class AboutPage extends StatelessWidget {
                   _launchURL("https://github.com/sponsors/polilluminato");
                 },
               ),
-              ListTile(
-                title: Text(
+              Container(
+                padding: const EdgeInsets.only(
+                  left: Dimens.mainPadding,
+                  bottom: Dimens.smallPadding,
+                  top: Dimens.mainPadding,
+                ),
+                alignment: Alignment.centerLeft,
+                child: Text(
                   "DEVELOPER",
                   style: TextStyle(
                     fontSize: 14,
@@ -83,8 +92,8 @@ class AboutPage extends StatelessWidget {
                 ),
               ),
               AboutRow(
-                icon: Icons.language,
-                title: "Website",
+                icon: Icons.person,
+                title: "Personal Website",
                 callback: () {
                   _launchURL("https://www.albertobonacina.com/");
                 },
@@ -97,10 +106,17 @@ class AboutPage extends StatelessWidget {
                 },
               ),
               AboutRow(
-                icon: Icons.campaign,
+                icon: Icons.flutter_dash,
                 title: "Follow on Twitter",
                 callback: () {
                   _launchURL("https://www.twitter.com/polilluminato");
+                },
+              ),
+              AboutRow(
+                icon: Icons.campaign,
+                title: "Follow on Mastodon",
+                callback: () {
+                  _launchURL("https://fluttercommunity.social/@polilluminato");
                 },
               ),
               AboutRow(
@@ -114,6 +130,7 @@ class AboutPage extends StatelessWidget {
                 height: Dimens.mainSpace,
               ),
               FutureBuilder<PackageInfo>(
+                future: getPackageInfo(),
                 builder: (BuildContext context,
                     AsyncSnapshot<PackageInfo> snapshot) {
                   if (snapshot.hasData) {
@@ -121,15 +138,13 @@ class AboutPage extends StatelessWidget {
                       "Wassword ${snapshot.data!.version}\nMade with ☕ and 💙 by Alberto Bonacina",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 10,
                         color: colorScheme.onBackground,
                       ),
                     );
                   }
                   return Container();
                 },
-                //
-                future: getPackageInfo(),
               )
             ],
           ),
