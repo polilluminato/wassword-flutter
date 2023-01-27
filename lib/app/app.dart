@@ -1,31 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wassword/pages/about_page.dart';
-import 'package:wassword/pages/home/home_page.dart';
+
+import 'router.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
 
-  final _router = GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const HomePage(),
-      ),
-      GoRoute(
-        path: '/about',
-        builder: (context, state) => const AboutPage(),
-      ),
-    ],
-  );
+  late final router = buildRouter();
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        routeInformationProvider: _router.routeInformationProvider,
-        routeInformationParser: _router.routeInformationParser,
-        routerDelegate: _router.routerDelegate,
+        routeInformationProvider: router.routeInformationProvider,
+        routeInformationParser: router.routeInformationParser,
+        routerDelegate: router.routerDelegate,
         theme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.robotoTextTheme(
