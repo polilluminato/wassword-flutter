@@ -98,7 +98,7 @@ class AboutPage extends StatelessWidget {
               ),
               AboutRow(
                 icon: Icons.campaign,
-                title: "Follow on GitHub",
+                title: "Follow on Twitter",
                 callback: () {
                   _launchURL("https://www.twitter.com/polilluminato");
                 },
