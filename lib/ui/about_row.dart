@@ -17,39 +17,28 @@ class AboutRow extends StatelessWidget {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return GestureDetector(
-      onTap: callback,
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-            horizontal: Dimens.mainMargin, vertical: Dimens.tinyMargin),
-        height: 60,
-        decoration: BoxDecoration(
-          color: colorScheme.surfaceVariant,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(Dimens.smallRoundedCorner),
-          ),
+    return Container(
+      margin: const EdgeInsets.symmetric(
+          horizontal: Dimens.mainMargin, vertical: Dimens.tinyMargin),
+      decoration: BoxDecoration(
+        color: colorScheme.surfaceVariant,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(Dimens.smallRoundedCorner),
         ),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
-              child: Icon(
-                icon,
-                size: 24,
-                color: colorScheme.onBackground,
-              ),
-            ),
-            Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: colorScheme.onBackground,
-              ),
-            ),
-          ],
+      ),
+      child: ListTile(
+        onTap: callback,
+        leading: Icon(
+          icon,
+          size: 24,
+          color: colorScheme.onBackground,
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            color: colorScheme.onBackground,
+          ),
         ),
       ),
     );
