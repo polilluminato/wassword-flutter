@@ -5,7 +5,7 @@
 import FlutterMacOS
 import Foundation
 
-import path_provider_macos
+import path_provider_foundation
 import screen_retriever
 import share_plus
 import url_launcher_macos
