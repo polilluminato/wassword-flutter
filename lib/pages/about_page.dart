@@ -138,7 +138,7 @@ class AboutPage extends StatelessWidget {
                       "Wassword ${snapshot.data!.version}\nMade with ☕ and 💙 by Alberto Bonacina",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 12,
                         color: colorScheme.onBackground,
                       ),
                     );
