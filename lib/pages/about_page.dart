@@ -58,7 +58,7 @@ class AboutPage extends StatelessWidget {
                 icon: Icons.language,
                 title: "Website",
                 callback: () {
-                  _launchURL("https://www.wassword.app/");
+                  _launchURL("https://wassword.app/");
                 },
               ),
               AboutRow(
