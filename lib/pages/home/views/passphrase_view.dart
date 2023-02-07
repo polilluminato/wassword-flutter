@@ -34,10 +34,10 @@ class PassphraseView extends ConsumerWidget {
         SecretCard(secretString: passphrase.passphrase),
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
-            activeTrackColor: colorScheme.primaryContainer,
+            activeTrackColor: colorScheme.secondaryContainer,
             trackHeight: Dimens.heightSlider * 1.1,
-            inactiveTrackColor: colorScheme.surfaceVariant,
-            thumbColor: colorScheme.primaryContainer,
+            inactiveTrackColor: colorScheme.primaryContainer,
+            thumbColor: colorScheme.secondaryContainer,
             thumbShape: CustomSliderThumbCircle(
               buildContext: context,
               thumbRadius: Dimens.heightSlider,
@@ -62,7 +62,7 @@ class PassphraseView extends ConsumerWidget {
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
-                colorScheme.primaryContainer, "Wordlist"),
+                colorScheme.secondaryContainer, "Wordlist"),
             value: wordlistSelected,
             onChanged: (value) {
               ref.read(wordlistSelectProvider.notifier).state = value!;
@@ -88,7 +88,7 @@ class PassphraseView extends ConsumerWidget {
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
-                colorScheme.primaryContainer, "Divider"),
+                colorScheme.secondaryContainer, "Divider"),
             value: dividerSelected,
             onChanged: (value) {
               ref.read(dividerSelectProvider.notifier).state = value!;

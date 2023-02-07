@@ -30,14 +30,14 @@ class ActionButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
-          color: isMain ? colorScheme.primary : colorScheme.secondary,
+          color: isMain ? colorScheme.secondary : colorScheme.primary,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               icon,
-              color: isMain ? colorScheme.onPrimary : colorScheme.onSecondary,
+              color: isMain ? colorScheme.onSecondary : colorScheme.onPrimary,
               size: 20,
             ),
             const SizedBox(
@@ -47,7 +47,7 @@ class ActionButton extends StatelessWidget {
               text,
               style: TextStyle(
                 fontSize: 16,
-                color: isMain ? colorScheme.onPrimary : colorScheme.onSecondary,
+                color: isMain ? colorScheme.onSecondary : colorScheme.onPrimary,
               ),
             )
           ],

@@ -29,8 +29,8 @@ class OptionButton extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
             color: active
-                ? colorScheme.primaryContainer
-                : colorScheme.surfaceVariant,
+                ? colorScheme.secondaryContainer
+                : colorScheme.primaryContainer,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -42,8 +42,8 @@ class OptionButton extends StatelessWidget {
                   icon,
                   size: 24,
                   color: active
-                      ? colorScheme.onPrimaryContainer
-                      : colorScheme.onSurfaceVariant,
+                      ? colorScheme.onSecondaryContainer
+                      : colorScheme.onPrimaryContainer,
                 ),
               ),
               Column(
@@ -56,8 +56,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: active
-                          ? colorScheme.onPrimaryContainer
-                          : colorScheme.onSurfaceVariant,
+                          ? colorScheme.onSecondaryContainer
+                          : colorScheme.onPrimaryContainer,
                     ),
                   ),
                   const SizedBox(
@@ -69,8 +69,8 @@ class OptionButton extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: active
-                          ? colorScheme.onPrimaryContainer
-                          : colorScheme.onSurfaceVariant,
+                          ? colorScheme.onSecondaryContainer
+                          : colorScheme.onPrimaryContainer,
                     ),
                   )
                 ],

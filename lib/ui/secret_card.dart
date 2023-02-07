@@ -20,7 +20,7 @@ class SecretCard extends StatelessWidget {
       height: 250,
       decoration: BoxDecoration(
         border: Border.all(
-          color: colorScheme.primaryContainer,
+          color: colorScheme.secondaryContainer,
           width: 1,
         ),
         borderRadius: const BorderRadius.all(

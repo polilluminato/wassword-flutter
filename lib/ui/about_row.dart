@@ -17,17 +17,12 @@ class AboutRow extends StatelessWidget {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
+    return Card(
       margin: const EdgeInsets.symmetric(
         horizontal: Dimens.mainMargin,
         vertical: Dimens.tinyMargin,
       ),
-      decoration: BoxDecoration(
-        color: colorScheme.surface,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(Dimens.smallRoundedCorner),
-        ),
-      ),
+      elevation: 2,
       child: ListTile(
         onTap: callback,
         leading: Icon(

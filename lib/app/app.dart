@@ -1,6 +1,6 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wassword/app/seed_scheme.dart';
 
 import 'router.dart';
 
@@ -16,18 +16,15 @@ class App extends StatelessWidget {
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,
         themeMode: ThemeMode.dark,
-        darkTheme: ThemeData(
+        // The Mandy red, dark theme.
+        darkTheme: FlexThemeData.dark(
+          scheme: FlexScheme.ebonyClay,
+          visualDensity: FlexColorScheme.comfortablePlatformDensity,
           useMaterial3: true,
+          swapLegacyOnMaterial3: true,
           textTheme: GoogleFonts.robotoTextTheme(
             Theme.of(context).textTheme,
           ),
-          colorScheme: schemeDark,
-          appBarTheme: const AppBarTheme(
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-          ),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
       );
 }
