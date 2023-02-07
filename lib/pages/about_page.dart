@@ -27,6 +27,7 @@ class AboutPage extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
+      backgroundColor: colorScheme.background,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

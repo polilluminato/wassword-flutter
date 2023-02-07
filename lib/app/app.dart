@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wassword/app/seed_scheme.dart';
 
 import 'router.dart';
 
@@ -14,18 +15,19 @@ class App extends StatelessWidget {
         routeInformationProvider: router.routeInformationProvider,
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,
-        theme: ThemeData(
+        themeMode: ThemeMode.dark,
+        darkTheme: ThemeData(
           useMaterial3: true,
           textTheme: GoogleFonts.robotoTextTheme(
             Theme.of(context).textTheme,
           ),
+          colorScheme: schemeDark,
           appBarTheme: const AppBarTheme(
             centerTitle: true,
+            backgroundColor: Colors.transparent,
             elevation: 0,
           ),
-          brightness: Brightness.dark,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorSchemeSeed: Colors.blue,
         ),
       );
 }
