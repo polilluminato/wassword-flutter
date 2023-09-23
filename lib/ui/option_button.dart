@@ -20,6 +20,11 @@ class OptionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+    Color containerColor =
+        active ? colorScheme.primaryContainer : colorScheme.secondaryContainer;
+    Color onContainerColor = active
+        ? colorScheme.onPrimaryContainer
+        : colorScheme.onSecondaryContainer;
 
     return Expanded(
       child: GestureDetector(
@@ -27,10 +32,8 @@ class OptionButton extends StatelessWidget {
         child: Container(
           height: 85,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
-            color: active
-                ? colorScheme.secondaryContainer
-                : colorScheme.primaryContainer,
+            borderRadius: Dimens.mainBorderRadius,
+            color: containerColor,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -41,9 +44,7 @@ class OptionButton extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 24,
-                  color: active
-                      ? colorScheme.onSecondaryContainer
-                      : colorScheme.onPrimaryContainer,
+                  color: onContainerColor,
                 ),
               ),
               Column(
@@ -55,9 +56,7 @@ class OptionButton extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: active
-                          ? colorScheme.onSecondaryContainer
-                          : colorScheme.onPrimaryContainer,
+                      color: onContainerColor,
                     ),
                   ),
                   const SizedBox(
@@ -66,11 +65,9 @@ class OptionButton extends StatelessWidget {
                   Text(
                     description,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: active
-                          ? colorScheme.onSecondaryContainer
-                          : colorScheme.onPrimaryContainer,
+                      color: onContainerColor,
                     ),
                   )
                 ],

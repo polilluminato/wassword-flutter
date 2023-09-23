@@ -36,9 +36,8 @@ class App extends StatelessWidget {
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,
         themeMode: ThemeMode.dark,
-        // The Mandy red, dark theme.
         darkTheme: FlexThemeData.dark(
-          scheme: FlexScheme.ebonyClay,
+          scheme: FlexScheme.flutterDash,
           visualDensity: FlexColorScheme.comfortablePlatformDensity,
           useMaterial3: true,
           swapLegacyOnMaterial3: true,

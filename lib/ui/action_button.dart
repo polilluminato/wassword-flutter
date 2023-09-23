@@ -22,6 +22,9 @@ class ActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+    Color buttonColor = isMain ? colorScheme.primary : colorScheme.secondary;
+    Color onButtonColor =
+        isMain ? colorScheme.onPrimary : colorScheme.onSecondary;
 
     return GestureDetector(
       onTap: callback,
@@ -29,15 +32,15 @@ class ActionButton extends StatelessWidget {
         height: actionButtonSizeSmall,
         width: width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimens.mainRoundedCorner),
-          color: isMain ? colorScheme.secondary : colorScheme.primary,
+          borderRadius: Dimens.mainBorderRadius,
+          color: buttonColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               icon,
-              color: isMain ? colorScheme.onSecondary : colorScheme.onPrimary,
+              color: onButtonColor,
               size: 20,
             ),
             const SizedBox(
@@ -47,7 +50,7 @@ class ActionButton extends StatelessWidget {
               text,
               style: TextStyle(
                 fontSize: 16,
-                color: isMain ? colorScheme.onSecondary : colorScheme.onPrimary,
+                color: onButtonColor,
               ),
             )
           ],

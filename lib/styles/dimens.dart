@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Dimens {
   // add a private constructor to prevent this class being instantiated
   // e.g. invoke `Dimens()` accidentally
@@ -23,4 +25,7 @@ class Dimens {
   static const double smallSpace = 8;
 
   static const double heightSlider = 16;
+
+  static BorderRadius mainBorderRadius =
+      BorderRadius.circular(mainRoundedCorner);
 }

@@ -30,10 +30,10 @@ class PasswordView extends ConsumerWidget {
         //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
-            activeTrackColor: colorScheme.secondaryContainer,
+            activeTrackColor: colorScheme.primaryContainer,
             trackHeight: Dimens.heightSlider * 1.1,
-            inactiveTrackColor: colorScheme.primaryContainer,
-            thumbColor: colorScheme.secondaryContainer,
+            inactiveTrackColor: colorScheme.secondaryContainer,
+            thumbColor: colorScheme.primaryContainer,
             thumbShape: CustomSliderThumbCircle(
               buildContext: context,
               thumbRadius: Dimens.heightSlider,
