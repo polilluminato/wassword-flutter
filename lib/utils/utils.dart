@@ -1,13 +1,13 @@
-import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
-import 'package:fluttertoast/fluttertoast.dart';
-
-void showToast(String message) {
-  if (Platform.isAndroid || Platform.isIOS) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-    );
-  }
+void showMyToast(String message, BuildContext context) {
+  showToast(
+    message,
+    context: context,
+    axis: Axis.horizontal,
+    alignment: Alignment.center,
+    position: StyledToastPosition.bottom,
+    animation: StyledToastAnimation.fade,
+  );
 }

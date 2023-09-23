@@ -16,9 +16,9 @@ import 'package:wassword/utils/utils.dart';
 class PassphraseView extends ConsumerWidget {
   const PassphraseView({super.key});
 
-  void _copyToClipboard(String newPassphrase) {
+  void _copyToClipboard(String newPassphrase, BuildContext context) {
     Clipboard.setData(ClipboardData(text: newPassphrase));
-    showToast("Passphrase copied to clipboard");
+    showMyToast("Passphrase copied to clipboard", context);
   }
 
   @override
@@ -130,7 +130,8 @@ class PassphraseView extends ConsumerWidget {
                 text: "Copy",
                 icon: Icons.copy,
                 isMain: false,
-                callback: () => _copyToClipboard(passphrase.passphrase),
+                callback: () =>
+                    _copyToClipboard(passphrase.passphrase, context),
                 width: screenWidth * .3,
               ),
             ],

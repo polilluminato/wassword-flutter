@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.4.0
-  fluttertoast: ^8.2.2
+  flutter_styled_toast: ^2.2.1
   go_router: ^11.0.0
   google_fonts: ^6.1.0
   package_info_plus: ^4.1.0
