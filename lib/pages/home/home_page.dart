@@ -5,7 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wassword/pages/home/views/passphrase_view.dart';
 import 'package:wassword/pages/home/views/password_view.dart';
-import 'package:wassword/provider/tab_provider.dart';
+
+final tabProvider = StateProvider<int>((ref) => 0);
+
+List<Widget> tabList = <Widget>[
+  const PasswordView(),
+  const PassphraseView(),
+];
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,10 +19,6 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int selectedTab = ref.watch(tabProvider);
-    List<Widget> tabList = <Widget>[
-      const PasswordView(),
-      const PassphraseView(),
-    ];
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: FlexColorScheme.themedSystemNavigationBar(

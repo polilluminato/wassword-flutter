@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/styles/dimens.dart';
+import 'package:wassword/ui/about_row.dart';
+import 'package:wassword/ui/about_row_switch_theme.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -49,6 +50,25 @@ class AboutPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "APP",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: colorScheme.onBackground,
+                  ),
+                ),
+              ),
+              const AboutRowSwitchTheme(
+                icon: Icons.dark_mode_outlined,
+                title: "Modalità scura",
+              ),
+              Container(
+                padding: const EdgeInsets.only(
+                  left: Dimens.mainPadding,
+                  bottom: Dimens.smallPadding,
+                  top: Dimens.mainPadding,
+                ),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "GENERALE",
                   style: TextStyle(
                     fontSize: 14,
                     color: colorScheme.onBackground,

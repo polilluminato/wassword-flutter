@@ -59,23 +59,23 @@ class PasswordView extends ConsumerWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               OptionButton(
-                title: "Uppercase",
-                description: "ABC",
-                icon: Icons.title,
-                active: password.withUppercase,
-                callback: () =>
-                    ref.read(passwordProvider.notifier).changeUppercase(),
-              ),
-              const SizedBox(
-                width: Dimens.mainSpace,
-              ),
-              OptionButton(
                 title: "Lowercase",
                 description: "abc",
                 icon: Icons.format_size,
                 active: password.withLowercase,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeLowercase(),
+              ),
+              const SizedBox(
+                width: Dimens.mainSpace,
+              ),
+              OptionButton(
+                title: "Uppercase",
+                description: "ABC",
+                icon: Icons.title,
+                active: password.withUppercase,
+                callback: () =>
+                    ref.read(passwordProvider.notifier).changeUppercase(),
               ),
             ],
           ),
