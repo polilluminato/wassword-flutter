@@ -2,24 +2,30 @@
 
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:wassword/app/app.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
   usePathUrlStrategy();
+
+  WindowOptions windowOptions = const WindowOptions(
+    //Pixel 7a form factor (2400x1080 px)
+    size: Size(376, 835),
+  );
 
   if (!kIsWeb &&
       !Platform.isAndroid &&
       !Platform.isIOS &&
       (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    await windowManager.ensureInitialized();
-    windowManager.waitUntilReadyToShow().then((_) async {
-      await windowManager.setSize(const Size(385, 835));
+    windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
     });
   }
 
