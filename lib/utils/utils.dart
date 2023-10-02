@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void showMyToast(String message, BuildContext context) {
   showToast(
@@ -22,4 +23,14 @@ double getScreenWidth(BuildContext context) {
 
 double getScreenHeight(BuildContext context) {
   return getScreenSize(context).height;
+}
+
+//Open the browser with the url provided
+void launchURL(String urlToLaunch) async {
+  if (!await launchUrl(
+    Uri.parse(urlToLaunch),
+    mode: LaunchMode.externalApplication,
+  )) {
+    throw Exception('Could not launch $urlToLaunch');
+  }
 }
