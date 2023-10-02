@@ -115,7 +115,7 @@ class AboutPage extends StatelessWidget {
           ),
           AboutRow(
             icon: Icons.flutter_dash,
-            title: "Follow on Twitter",
+            title: "Follow on X/Twitter",
             callback: () {
               Utils.launchURL("https://www.twitter.com/polilluminato");
             },
