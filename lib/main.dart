@@ -11,7 +11,6 @@ import 'package:window_manager/window_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
   usePathUrlStrategy();
 
   WindowOptions windowOptions = const WindowOptions(
@@ -23,6 +22,7 @@ void main() async {
       !Platform.isAndroid &&
       !Platform.isIOS &&
       (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow(windowOptions, () async {
       await windowManager.show();
       await windowManager.focus();
