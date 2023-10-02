@@ -18,19 +18,25 @@ Everything works offline and nothing is shared, your safety comes first.
   <a href="https://demo.wassword.app"><img alt="Get it on Google Play" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" height="50px"/></a>
 </p>
 
-### 🔒 Features
+### Features
 
 - Create password with **Numbers**, **Lower case letters**, **Upper case letters**, **Symbols**, **8 to 128 chars**
 - Generate passhrase with [EFF's New Wordlists for Random Passphrases](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases) and choose between: [eff-long](https://github.com/redacted/XKCD-password-generator/blob/master/xkcdpass/static/eff-long), [eff-short](https://github.com/redacted/XKCD-password-generator/blob/master/xkcdpass/static/eff-short) and [eff-special](https://github.com/redacted/XKCD-password-generator/blob/master/xkcdpass/static/eff-special)
 - **Copy** generated passwords and passphrase
 - **Generate** as many passwords and passphrases as you want
 - **[Riverpod](https://riverpod.dev/)** as a state management library
+- Support for **dark** and **light** mode
+- Support for large screen with [Navigation rail](https://m3.material.io/components/navigation-rail/overview)
 
 ### 📱 Screenshots
 
 | Screenshot #1 | Screenshot #2 | Screenshot #3 |
 |-|-|-|
-| <img src="screenshot/first.png" width="300"> | <img src="screenshot/second.png" width="300"> | <img src="screenshot/third.png" width="300"> |
+| <img src="screenshot/password_generator.png"> | <img src="screenshot/passphrase_generator.png"> | <img src="screenshot/about.png"> |
+
+| Screenshot Large #1 | Screenshot Large #2 |
+|-|-|
+| <img src="screenshot/password_generator_large.png"> | <img src="screenshot/passphrase_generator_large.png"> |
 
 ## 💎 Contributing
 
