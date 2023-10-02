@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wassword/enums/windowsize_enum.dart';
+import 'package:wassword/models/screen_tab_model.dart';
 import 'package:wassword/pages/home/views/passphrase_view.dart';
 import 'package:wassword/pages/home/views/password_view.dart';
 import 'package:wassword/styles/dimens.dart';
+import 'package:wassword/utils/utils.dart' as Utils;
 
 final tabProvider = StateProvider<int>((ref) => 0);
 
-List<Widget> tabList = <Widget>[
-  const PasswordView(),
-  const PassphraseView(),
+final List<ScreenTab> tabList = [
+  ScreenTab(
+    label: "Password",
+    icon: Icons.vpn_key,
+    content: const PasswordView(),
+  ),
+  ScreenTab(
+    label: "Passphrase",
+    icon: Icons.text_fields,
+    content: const PassphraseView(),
+  ),
 ];
 
 class HomePage extends ConsumerWidget {
@@ -17,7 +28,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    int selectedTab = ref.watch(tabProvider);
+    double screenSizeWidth = Utils.getScreenWidth(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -33,26 +44,48 @@ class HomePage extends ConsumerWidget {
               ))
         ],
       ),
-      body: tabList[selectedTab],
-      bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(),
-        child: NavigationBar(
-          onDestinationSelected: (int index) {
-            ref.read(tabProvider.notifier).update((state) => index);
-          },
-          selectedIndex: selectedTab,
-          destinations: const <Widget>[
-            NavigationDestination(
-              icon: Icon(Icons.vpn_key),
-              label: 'Password',
+      //body: tabList[selectedTab],
+      body: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          if (screenSizeWidth >= WindowSizeEnum.tabletPortrait.width)
+            NavigationRail(
+              extended: screenSizeWidth >= WindowSizeEnum.tabletLandscape.width,
+              selectedIndex: ref.watch(tabProvider),
+              // Called when one tab is selected
+              onDestinationSelected: (int index) {
+                ref.read(tabProvider.notifier).update((state) => index);
+              },
+              // navigation rail items
+              destinations: tabList
+                  .map(
+                    (singleScreenTab) => NavigationRailDestination(
+                      icon: Icon(singleScreenTab.icon),
+                      label: Text(singleScreenTab.label),
+                    ),
+                  )
+                  .toList(),
             ),
-            NavigationDestination(
-              icon: Icon(Icons.text_fields),
-              label: 'Passphrase',
-            ),
-          ],
-        ),
+          Expanded(child: tabList[ref.watch(tabProvider)].content),
+        ],
       ),
+
+      bottomNavigationBar: screenSizeWidth < WindowSizeEnum.tabletPortrait.width
+          ? NavigationBar(
+              onDestinationSelected: (int index) {
+                ref.read(tabProvider.notifier).update((state) => index);
+              },
+              selectedIndex: ref.watch(tabProvider),
+              destinations: tabList
+                  .map(
+                    (singleScreenTab) => NavigationDestination(
+                      icon: Icon(singleScreenTab.icon),
+                      label: singleScreenTab.label,
+                    ),
+                  )
+                  .toList(),
+            )
+          : null,
     );
   }
 }
