@@ -23,7 +23,6 @@ class PassphraseView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    double screenWidth = MediaQuery.of(context).size.width;
     Passphrase passphrase = ref.watch(passphraseProvider);
     final dividerSelected = ref.watch(dividerSelectProvider);
     final wordlistSelected = ref.watch(wordlistSelectProvider);
@@ -110,32 +109,40 @@ class PassphraseView extends ConsumerWidget {
         Expanded(
           child: Container(),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Dimens.mainPadding,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              ActionButton(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const SizedBox(
+              width: Dimens.mainSpace,
+            ),
+            Flexible(
+              flex: 3,
+              child: ActionButton(
                 text: "Generate",
                 icon: Icons.sync,
                 isMain: true,
                 callback: () =>
                     ref.read(passphraseProvider.notifier).updatePassphrase(),
-                width: screenWidth * .5,
               ),
-              ActionButton(
+            ),
+            const SizedBox(
+              width: Dimens.mainSpace,
+            ),
+            Flexible(
+              flex: 2,
+              child: ActionButton(
                 text: "Copy",
                 icon: Icons.copy,
                 isMain: false,
                 callback: () =>
                     _copyToClipboard(passphrase.passphrase, context),
-                width: screenWidth * .3,
               ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              width: Dimens.mainSpace,
+            ),
+          ],
         ),
         const SizedBox(
           height: Dimens.hugeSpace,

@@ -8,16 +8,12 @@ class ActionButton extends StatelessWidget {
     required this.icon,
     required this.callback,
     required this.isMain,
-    required this.width,
   }) : super(key: key);
 
   final String text;
   final IconData icon;
   final VoidCallback callback;
   final bool isMain;
-  final double actionButtonSizeBig = 56;
-  final double actionButtonSizeSmall = 44;
-  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +25,7 @@ class ActionButton extends StatelessWidget {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        height: actionButtonSizeSmall,
-        width: width,
+        height: 44,
         decoration: BoxDecoration(
           borderRadius: Dimens.mainBorderRadius,
           color: buttonColor,
