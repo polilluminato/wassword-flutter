@@ -1,4 +1,4 @@
-<img src="assets/icons/banner_store.png">
+<img src="assets/icona/banner_store.png">
 
 <p align="center">
     <a href="https://dart.dev/"><img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"></a>
