@@ -55,7 +55,7 @@ class AboutPage extends StatelessWidget {
           ),
           const AboutRowSwitchTheme(
             icon: Icons.dark_mode_outlined,
-            title: "Modalità scura",
+            title: "Dark Mode",
           ),
           Container(
             padding: const EdgeInsets.only(
