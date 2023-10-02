@@ -14,7 +14,6 @@ class AboutRowSwitchTheme extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
     final bProvider = ref.watch(brightnessProvider);
 
     return Card(
@@ -22,20 +21,9 @@ class AboutRowSwitchTheme extends ConsumerWidget {
         horizontal: Dimens.mainMargin,
         vertical: Dimens.tinyMargin,
       ),
-      elevation: 2,
       child: ListTile(
-        leading: Icon(
-          icon,
-          size: 24,
-          color: colorScheme.onSurface,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: colorScheme.onSurface,
-          ),
-        ),
+        leading: Icon(icon),
+        title: Text(title),
         trailing: Switch.adaptive(
           value: bProvider == Brightness.dark,
           onChanged: (value) => ref

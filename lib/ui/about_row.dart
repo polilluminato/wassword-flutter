@@ -15,28 +15,15 @@ class AboutRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     return Card(
       margin: const EdgeInsets.symmetric(
         horizontal: Dimens.mainMargin,
         vertical: Dimens.tinyMargin,
       ),
-      elevation: 2,
       child: ListTile(
         onTap: callback,
-        leading: Icon(
-          icon,
-          size: 24,
-          color: colorScheme.onSurface,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: colorScheme.onSurface,
-          ),
-        ),
+        leading: Icon(icon),
+        title: Text(title),
       ),
     );
   }
