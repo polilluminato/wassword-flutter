@@ -11,7 +11,6 @@ class Password {
     required this.password,
   });
 
-  // All properties should be `final` on our class.
   final bool withLowercase;
   final bool withUppercase;
   final bool withNumbers;
@@ -19,15 +18,14 @@ class Password {
   final int length;
   final String password;
 
-  // Since Todo is immutable, we implement a method that allows cloning the
-  // Todo with slightly different content.
-  Password copyWith(
-      {bool? withLowercase,
-      bool? withUppercase,
-      bool? withNumbers,
-      bool? withSpecial,
-      int? length,
-      String? password}) {
+  Password copyWith({
+    bool? withLowercase,
+    bool? withUppercase,
+    bool? withNumbers,
+    bool? withSpecial,
+    int? length,
+    String? password,
+  }) {
     return Password(
       withLowercase: withLowercase ?? this.withLowercase,
       withUppercase: withUppercase ?? this.withUppercase,

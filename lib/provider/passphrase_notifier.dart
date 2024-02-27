@@ -16,36 +16,49 @@ class PassphraseNotifier extends StateNotifier<Passphrase> {
 
   void changeWordlist(WordlistEnum newWordlist) {
     String newPassphrase = generatePassphrase(
-        wordlist: newWordlist.wordlist,
-        divider: state.divider.divider,
-        numberStringPassphrase: state.length);
+      wordlist: newWordlist.wordlist,
+      divider: state.divider.divider,
+      numberStringPassphrase: state.length,
+    );
 
-    state = state.copyWith(wordlist: newWordlist, passphrase: newPassphrase);
+    state = state.copyWith(
+      wordlist: newWordlist,
+      passphrase: newPassphrase,
+    );
   }
 
   void changeDivider(DividerEnum newDivider) {
     String newPassphrase = generatePassphrase(
-        wordlist: state.wordlist.wordlist,
-        divider: newDivider.divider,
-        numberStringPassphrase: state.length);
+      wordlist: state.wordlist.wordlist,
+      divider: newDivider.divider,
+      numberStringPassphrase: state.length,
+    );
 
-    state = state.copyWith(divider: newDivider, passphrase: newPassphrase);
+    state = state.copyWith(
+      divider: newDivider,
+      passphrase: newPassphrase,
+    );
   }
 
   void changeLength(int newLength) {
     String newPassphrase = generatePassphrase(
-        wordlist: state.wordlist.wordlist,
-        divider: state.divider.divider,
-        numberStringPassphrase: newLength);
+      wordlist: state.wordlist.wordlist,
+      divider: state.divider.divider,
+      numberStringPassphrase: newLength,
+    );
 
-    state = state.copyWith(length: newLength, passphrase: newPassphrase);
+    state = state.copyWith(
+      length: newLength,
+      passphrase: newPassphrase,
+    );
   }
 
   void updatePassphrase() {
     String newPassphrase = generatePassphrase(
-        wordlist: state.wordlist.wordlist,
-        divider: state.divider.divider,
-        numberStringPassphrase: state.length);
+      wordlist: state.wordlist.wordlist,
+      divider: state.divider.divider,
+      numberStringPassphrase: state.length,
+    );
 
     state = state.copyWith(passphrase: newPassphrase);
   }

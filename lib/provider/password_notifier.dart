@@ -24,7 +24,9 @@ class PasswordNotifier extends StateNotifier<Password> {
     );
 
     state = state.copyWith(
-        withLowercase: !state.withLowercase, password: newPassword);
+      withLowercase: !state.withLowercase,
+      password: newPassword,
+    );
   }
 
   void changeUppercase() {
@@ -37,7 +39,9 @@ class PasswordNotifier extends StateNotifier<Password> {
     );
 
     state = state.copyWith(
-        withUppercase: !state.withUppercase, password: newPassword);
+      withUppercase: !state.withUppercase,
+      password: newPassword,
+    );
   }
 
   void changeNumbers() {
@@ -49,8 +53,10 @@ class PasswordNotifier extends StateNotifier<Password> {
       numberCharPassword: state.length,
     );
 
-    state =
-        state.copyWith(withNumbers: !state.withNumbers, password: newPassword);
+    state = state.copyWith(
+      withNumbers: !state.withNumbers,
+      password: newPassword,
+    );
   }
 
   void changeSpecial() {
@@ -62,8 +68,10 @@ class PasswordNotifier extends StateNotifier<Password> {
       numberCharPassword: state.length,
     );
 
-    state =
-        state.copyWith(withSpecial: !state.withSpecial, password: newPassword);
+    state = state.copyWith(
+      withSpecial: !state.withSpecial,
+      password: newPassword,
+    );
   }
 
   void changeLength(int newLength) {
@@ -75,7 +83,10 @@ class PasswordNotifier extends StateNotifier<Password> {
       numberCharPassword: newLength,
     );
 
-    state = state.copyWith(length: newLength, password: newPassword);
+    state = state.copyWith(
+      length: newLength,
+      password: newPassword,
+    );
   }
 
   void updatePassword() {
