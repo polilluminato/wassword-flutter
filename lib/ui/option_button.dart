@@ -3,13 +3,13 @@ import 'package:wassword/styles/dimens.dart';
 
 class OptionButton extends StatelessWidget {
   const OptionButton({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.icon,
     required this.active,
     required this.callback,
-  }) : super(key: key);
+  });
 
   final String title;
   final String description;

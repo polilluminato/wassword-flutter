@@ -5,8 +5,7 @@ import 'package:wassword/styles/dimens.dart';
 
 class AboutRowSwitchTheme extends ConsumerWidget {
   const AboutRowSwitchTheme(
-      {Key? key, required this.title, required this.icon, this.isDark = true})
-      : super(key: key);
+      {super.key, required this.title, required this.icon, this.isDark = true});
 
   final String title;
   final IconData icon;

@@ -7,7 +7,7 @@ import 'package:wassword/ui/about_row_switch_theme.dart';
 import 'package:wassword/utils/utils.dart' as Utils;
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   Future<PackageInfo> getPackageInfo() async {
     return await PackageInfo.fromPlatform();

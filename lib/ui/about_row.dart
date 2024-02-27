@@ -3,11 +3,10 @@ import 'package:wassword/styles/dimens.dart';
 
 class AboutRow extends StatelessWidget {
   const AboutRow(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.icon,
-      required this.callback})
-      : super(key: key);
+      required this.callback});
 
   final String title;
   final IconData icon;

@@ -6,7 +6,7 @@ import 'package:wassword/pages/home/home_page.dart';
 import 'package:wassword/provider/brightness_provider.dart';
 
 class App extends ConsumerWidget {
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
   final router = GoRouter(
     routes: [

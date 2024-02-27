@@ -3,12 +3,12 @@ import 'package:wassword/styles/dimens.dart';
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.icon,
     required this.callback,
     required this.isMain,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconData icon;
