@@ -5,8 +5,7 @@ import 'package:wassword/enums/windowsize_enum.dart';
 import 'package:wassword/models/screen_tab_model.dart';
 import 'package:wassword/pages/home/views/passphrase_view.dart';
 import 'package:wassword/pages/home/views/password_view.dart';
-import 'package:wassword/styles/dimens.dart';
-import 'package:wassword/utils/utils.dart' as Utils;
+import 'package:wassword/utils/utils.dart';
 
 final tabProvider = StateProvider<int>((ref) => 0);
 
@@ -28,7 +27,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    double screenSizeWidth = Utils.getScreenWidth(context);
+    double screenSizeWidth = getScreenWidth(context);
 
     return Scaffold(
       appBar: AppBar(

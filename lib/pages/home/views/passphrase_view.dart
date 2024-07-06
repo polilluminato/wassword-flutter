@@ -11,14 +11,14 @@ import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
 import 'package:wassword/ui/custom_slider_thumb_circle.dart';
 import 'package:wassword/ui/secret_card.dart';
-import 'package:wassword/utils/utils.dart' as Utils;
+import 'package:wassword/utils/utils.dart';
 
 class PassphraseView extends ConsumerWidget {
   const PassphraseView({super.key});
 
   void _copyToClipboard(String newPassphrase, BuildContext context) {
     Clipboard.setData(ClipboardData(text: newPassphrase));
-    Utils.showMyToast("Passphrase copied to clipboard", context);
+    showMyToast("Passphrase copied to clipboard", context);
   }
 
   @override

@@ -4,7 +4,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/ui/about_row_switch_theme.dart';
-import 'package:wassword/utils/utils.dart' as Utils;
+import 'package:wassword/utils/utils.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -66,22 +66,21 @@ class AboutPage extends StatelessWidget {
             icon: Icons.language,
             title: "Website",
             callback: () {
-              Utils.launchURL("https://wassword.app/");
+              launchURL("https://wassword.app/");
             },
           ),
           AboutRow(
             icon: Icons.policy,
             title: "Privacy Policy",
             callback: () {
-              Utils.launchURL(
-                  "https://github.com/polilluminato/wassword-flutter");
+              launchURL("https://github.com/polilluminato/wassword-flutter");
             },
           ),
           AboutRow(
             icon: Icons.favorite,
             title: "Sponsor",
             callback: () {
-              Utils.launchURL("https://github.com/sponsors/polilluminato");
+              launchURL("https://github.com/sponsors/polilluminato");
             },
           ),
           Container(
@@ -103,35 +102,35 @@ class AboutPage extends StatelessWidget {
             icon: Icons.person,
             title: "Personal Website",
             callback: () {
-              Utils.launchURL("https://www.albertobonacina.com/");
+              launchURL("https://www.albertobonacina.com/");
             },
           ),
           AboutRow(
             icon: Icons.code,
             title: "Follow on GitHub",
             callback: () {
-              Utils.launchURL("https://www.github.com/polilluminato");
+              launchURL("https://www.github.com/polilluminato");
             },
           ),
           AboutRow(
             icon: Icons.flutter_dash,
             title: "Follow on X/Twitter",
             callback: () {
-              Utils.launchURL("https://www.twitter.com/polilluminato");
+              launchURL("https://www.twitter.com/polilluminato");
             },
           ),
           AboutRow(
             icon: Icons.campaign,
             title: "Follow on Mastodon",
             callback: () {
-              Utils.launchURL("https://fluttercommunity.social/@polilluminato");
+              launchURL("https://fluttercommunity.social/@polilluminato");
             },
           ),
           AboutRow(
             icon: Icons.business,
             title: "Connect on LinkedIn",
             callback: () {
-              Utils.launchURL("https://www.linkedin.com/in/bonacinaalberto");
+              launchURL("https://www.linkedin.com/in/bonacinaalberto");
             },
           ),
           const SizedBox(
