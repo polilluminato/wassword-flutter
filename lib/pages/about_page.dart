@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.background,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -39,7 +39,7 @@ class AboutPage extends StatelessWidget {
               "APP",
               style: TextStyle(
                 fontSize: 14,
-                color: colorScheme.onBackground,
+                color: colorScheme.onSurface,
               ),
             ),
           ),
@@ -58,7 +58,7 @@ class AboutPage extends StatelessWidget {
               "GENERALE",
               style: TextStyle(
                 fontSize: 14,
-                color: colorScheme.onBackground,
+                color: colorScheme.onSurface,
               ),
             ),
           ),
@@ -95,7 +95,7 @@ class AboutPage extends StatelessWidget {
               "DEVELOPER",
               style: TextStyle(
                 fontSize: 14,
-                color: colorScheme.onBackground,
+                color: colorScheme.onSurface,
               ),
             ),
           ),
@@ -147,7 +147,7 @@ class AboutPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 12,
-                    color: colorScheme.onBackground,
+                    color: colorScheme.onSurface,
                   ),
                 );
               }

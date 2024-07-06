@@ -37,7 +37,7 @@ class SecretCard extends StatelessWidget {
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 24,
-          color: colorScheme.onBackground,
+          color: colorScheme.onSurface,
         ),
       ),
     );

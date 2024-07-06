@@ -73,7 +73,7 @@ class PassphraseView extends ConsumerWidget {
                     value: singleDivider,
                     child: Text(
                       singleDivider.name,
-                      style: TextStyle(color: colorScheme.onBackground),
+                      style: TextStyle(color: colorScheme.onSurface),
                     ),
                   ),
                 )
@@ -99,7 +99,7 @@ class PassphraseView extends ConsumerWidget {
                     value: singleDivider,
                     child: Text(
                       singleDivider.name,
-                      style: TextStyle(color: colorScheme.onBackground),
+                      style: TextStyle(color: colorScheme.onSurface),
                     ),
                   ),
                 )
