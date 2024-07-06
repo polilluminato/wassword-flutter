@@ -34,15 +34,11 @@ class HomePage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text("Wassword"),
         centerTitle: true,
-        actions: [
-          Padding(
-              padding: const EdgeInsets.only(right: Dimens.smallPadding),
-              child: IconButton(
-                iconSize: 24,
-                icon: const Icon(Icons.settings_outlined),
-                onPressed: () => context.push('/about'),
-              ))
-        ],
+        leading: IconButton(
+          iconSize: 24,
+          icon: const Icon(Icons.settings_outlined),
+          onPressed: () => context.push('/about'),
+        ),
       ),
       //body: tabList[selectedTab],
       body: Row(
