@@ -24,7 +24,7 @@ class AboutPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
-        title: const Text("About"),
+        title: const Text("Settings"),
       ),
       body: ListView(
         children: <Widget>[
@@ -36,7 +36,7 @@ class AboutPage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
             child: Text(
-              "APP",
+              "THEME",
               style: TextStyle(
                 fontSize: 14,
                 color: colorScheme.onSurface,
@@ -55,7 +55,7 @@ class AboutPage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
             child: Text(
-              "GENERALE",
+              "APP",
               style: TextStyle(
                 fontSize: 14,
                 color: colorScheme.onSurface,
