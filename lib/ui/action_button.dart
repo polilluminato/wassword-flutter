@@ -1,56 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
-import 'package:wassword/styles/dimens.dart' as mdimens;
+import 'package:wassword/styles/dimens.dart';
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.icon,
     required this.callback,
     required this.isMain,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconData icon;
   final VoidCallback callback;
   final bool isMain;
 
-  final double actionButtonSizeBig = 56;
-  final double actionButtonSizeSmall = 44;
-
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    Color buttonColor = isMain ? colorScheme.primary : colorScheme.secondary;
+    Color onButtonColor =
+        isMain ? colorScheme.onPrimary : colorScheme.onSecondary;
 
     return GestureDetector(
       onTap: callback,
       child: Container(
-        height: isMain ? actionButtonSizeBig : actionButtonSizeSmall,
-        width: screenWidth * .7,
+        height: 44,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(mdimens.roundedCorner),
-          color: isMain ? mcolors.colorMainButton : mcolors.colorDisabled,
+          borderRadius: Dimens.mainBorderRadius,
+          color: buttonColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               icon,
-              color: isMain ? mcolors.colorTextDark : mcolors.colorTextLight,
-              size: isMain
-                  ? actionButtonSizeBig / 2
-                  : actionButtonSizeSmall / 2.5,
+              color: onButtonColor,
+              size: 20,
             ),
-            SizedBox(
-              width: mdimens.defaultSpace,
+            const SizedBox(
+              width: Dimens.mainSpace,
             ),
             Text(
               text,
               style: TextStyle(
-                  fontSize: isMain ? 18 : 16,
-                  color:
-                      isMain ? mcolors.colorTextDark : mcolors.colorTextLight),
+                fontSize: 16,
+                color: onButtonColor,
+              ),
             )
           ],
         ),

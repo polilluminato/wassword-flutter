@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
-import 'package:wassword/styles/dimens.dart' as mdimens;
+import 'package:wassword/styles/dimens.dart';
 
 class OptionButton extends StatelessWidget {
   const OptionButton({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.icon,
     required this.active,
     required this.callback,
-  }) : super(key: key);
+  });
 
   final String title;
   final String description;
@@ -20,14 +19,21 @@ class OptionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    Color containerColor =
+        active ? colorScheme.primaryContainer : colorScheme.secondaryContainer;
+    Color onContainerColor = active
+        ? colorScheme.onPrimaryContainer
+        : colorScheme.onSecondaryContainer;
+
     return Expanded(
       child: GestureDetector(
         onTap: callback,
         child: Container(
           height: 85,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(mdimens.roundedCorner),
-            color: active ? mcolors.colorEnabled : mcolors.colorDisabled,
+            borderRadius: Dimens.mainBorderRadius,
+            color: containerColor,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -38,8 +44,7 @@ class OptionButton extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 24,
-                  color:
-                      active ? mcolors.colorTextDark : mcolors.colorTextLight,
+                  color: onContainerColor,
                 ),
               ),
               Column(
@@ -51,9 +56,7 @@ class OptionButton extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: active
-                          ? mcolors.colorTextDark
-                          : mcolors.colorTextLight,
+                      color: onContainerColor,
                     ),
                   ),
                   const SizedBox(
@@ -62,11 +65,9 @@ class OptionButton extends StatelessWidget {
                   Text(
                     description,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: active
-                          ? mcolors.colorTextDark
-                          : mcolors.colorTextLight,
+                      color: onContainerColor,
                     ),
                   )
                 ],

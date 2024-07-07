@@ -1,89 +1,163 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-import 'package:wassword/styles/colors.dart' as mcolors;
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/about_row.dart';
+import 'package:wassword/ui/about_row_switch_theme.dart';
+import 'package:wassword/utils/utils.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
-  //Open the browser with the url provided
-  void _launchURL(String urlToLaunch) async {
-    if (await canLaunchUrlString(urlToLaunch)) {
-      await launchUrlString(urlToLaunch);
-    } else {
-      throw 'Could not launch $urlToLaunch';
-    }
+  Future<PackageInfo> getPackageInfo() async {
+    return await PackageInfo.fromPlatform();
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          backgroundColor: mcolors.backgroundView, // status bar colorstatus ba
-          leading: IconButton(
-            color: Colors.white,
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => context.pop(),
-          ),
-          title: Text(
-            "About",
-            style: GoogleFonts.roboto(
-              color: mcolors.colorTextLight,
+  Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    return Scaffold(
+      backgroundColor: colorScheme.surface,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
+        ),
+        title: const Text("Settings"),
+      ),
+      body: ListView(
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.only(
+              left: Dimens.mainPadding,
+              bottom: Dimens.smallPadding,
+              top: Dimens.mainPadding,
+            ),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "THEME",
+              style: TextStyle(
+                fontSize: 14,
+                color: colorScheme.onSurface,
+              ),
             ),
           ),
-        ),
-        body: ListView(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(
-                  height: 8,
-                ),
-                ListTile(
-                  title: Text(
-                    "DEVELOPER",
-                    textAlign: TextAlign.left,
-                    style:
-                        TextStyle(fontSize: 14, color: mcolors.colorTextLight),
+          const AboutRowSwitchTheme(
+            icon: Icons.dark_mode_outlined,
+            title: "Dark Mode",
+          ),
+          Container(
+            padding: const EdgeInsets.only(
+              left: Dimens.mainPadding,
+              bottom: Dimens.smallPadding,
+              top: Dimens.hugePadding,
+            ),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "APP",
+              style: TextStyle(
+                fontSize: 14,
+                color: colorScheme.onSurface,
+              ),
+            ),
+          ),
+          AboutRow(
+            icon: Icons.language,
+            title: "Website",
+            callback: () {
+              launchURL("https://wassword.app/");
+            },
+          ),
+          AboutRow(
+            icon: Icons.policy,
+            title: "Privacy Policy",
+            callback: () {
+              launchURL("https://github.com/polilluminato/wassword-flutter");
+            },
+          ),
+          AboutRow(
+            icon: Icons.favorite,
+            title: "Sponsor",
+            callback: () {
+              launchURL("https://github.com/sponsors/polilluminato");
+            },
+          ),
+          Container(
+            padding: const EdgeInsets.only(
+              left: Dimens.mainPadding,
+              bottom: Dimens.smallPadding,
+              top: Dimens.hugePadding,
+            ),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "DEVELOPER",
+              style: TextStyle(
+                fontSize: 14,
+                color: colorScheme.onSurface,
+              ),
+            ),
+          ),
+          AboutRow(
+            icon: Icons.person,
+            title: "Personal Website",
+            callback: () {
+              launchURL("https://www.albertobonacina.com/");
+            },
+          ),
+          AboutRow(
+            icon: Icons.code,
+            title: "Follow on GitHub",
+            callback: () {
+              launchURL("https://www.github.com/polilluminato");
+            },
+          ),
+          AboutRow(
+            icon: Icons.flutter_dash,
+            title: "Follow on X/Twitter",
+            callback: () {
+              launchURL("https://www.twitter.com/polilluminato");
+            },
+          ),
+          AboutRow(
+            icon: Icons.campaign,
+            title: "Follow on Mastodon",
+            callback: () {
+              launchURL("https://fluttercommunity.social/@polilluminato");
+            },
+          ),
+          AboutRow(
+            icon: Icons.business,
+            title: "Connect on LinkedIn",
+            callback: () {
+              launchURL("https://www.linkedin.com/in/bonacinaalberto");
+            },
+          ),
+          const SizedBox(
+            height: Dimens.hugeSpace,
+          ),
+          FutureBuilder<PackageInfo>(
+            future: getPackageInfo(),
+            builder:
+                (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
+              if (snapshot.hasData) {
+                return Text(
+                  "Wassword ${snapshot.data!.version}\nMade with ☕ and 💙 by Alberto Bonacina",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: colorScheme.onSurface,
                   ),
-                ),
-                AboutRow(
-                  icon: Icons.language,
-                  title: "AlbertoBonacina.com",
-                  subtitle: "Website",
-                  callback: () {
-                    _launchURL("https://www.albertobonacina.com/");
-                  },
-                ),
-                AboutRow(
-                  icon: Icons.code,
-                  title: "@polilluminato",
-                  subtitle: "Github",
-                  callback: () {
-                    _launchURL("https://www.github.com/polilluminato");
-                  },
-                ),
-                AboutRow(
-                  icon: Icons.campaign,
-                  title: "@polilluminato",
-                  subtitle: "Twitter",
-                  callback: () {
-                    _launchURL("https://www.twitter.com/polilluminato");
-                  },
-                ),
-                AboutRow(
-                  icon: Icons.business,
-                  title: "bonacinaalberto",
-                  subtitle: "Linkedin",
-                  callback: () {
-                    _launchURL("https://www.linkedin.com/in/bonacinaalberto");
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
+                );
+              }
+              return Container();
+            },
+          ),
+          const SizedBox(
+            height: Dimens.hugeSpace,
+          ),
+        ],
+      ),
+    );
+  }
 }

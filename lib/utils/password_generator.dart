@@ -6,40 +6,41 @@ import 'dart:math';
  * @param bool isWithUppercase: password must contain uppercase letters
  * @param bool isWithNumbers: password must contain numbers
  * @param bool isWithSpecial: password must contain special chars
- * @param int _numberCharPassword: password length
+ * @param int numberCharPassword: password length
  * @return string: new password
  */
-String generatePassword(
-    {required bool isWithLowercase,
-    required bool isWithUppercase,
-    required bool isWithNumbers,
-    required bool isWithSpecial,
-    required int numberCharPassword}) {
-  String _lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-  String _upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  String _numbers = "0123456789";
-  String _special = "@#=+!£\$%&?[](){}-_";
+String generatePassword({
+  required bool isWithLowercase,
+  required bool isWithUppercase,
+  required bool isWithNumbers,
+  required bool isWithSpecial,
+  required int numberCharPassword,
+}) {
+  String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+  String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  String numbers = "0123456789";
+  String special = "@#=+!£\$%&?[](){}-_";
 
-  String _allowedChars = "";
+  String allowedChars = "";
 
-  _allowedChars += (isWithLowercase ? _lowerCaseLetters : '');
-  _allowedChars += (isWithUppercase ? _upperCaseLetters : '');
-  _allowedChars += (isWithNumbers ? _numbers : '');
-  _allowedChars += (isWithSpecial ? _special : '');
+  allowedChars += (isWithLowercase ? lowerCaseLetters : '');
+  allowedChars += (isWithUppercase ? upperCaseLetters : '');
+  allowedChars += (isWithNumbers ? numbers : '');
+  allowedChars += (isWithSpecial ? special : '');
 
-  if (_allowedChars.length == 0) {
+  if (allowedChars.isEmpty) {
     return '';
   }
 
   //If I can create a password because I've got some char to use
   int i = 0;
-  String _result = "";
+  String result = "";
   while (i < numberCharPassword) {
     //https://stackoverflow.com/a/28614409/7483183
-    int randomInt = Random.secure().nextInt(_allowedChars.length);
-    _result += _allowedChars[randomInt];
+    int randomInt = Random.secure().nextInt(allowedChars.length);
+    result += allowedChars[randomInt];
     i++;
   }
 
-  return _result;
+  return result;
 }
