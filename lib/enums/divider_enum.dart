@@ -3,7 +3,7 @@ enum DividerEnum {
   period(".", "Period (.)"),
   colon(":", "Colon (:)"),
   semicolon(";", "Semicolon (;)"),
-  hyphen("-", "Hypen (-)"),
+  hyphen("-", "Hyphen (-)"),
   underscore("_", "Underscore (_)"),
   pipe("|", "Pipe (|)");
 
