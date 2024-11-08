@@ -33,6 +33,25 @@ dev_dependencies:
   riverpod_generator: ^2.6.2
   riverpod_lint: ^2.6.2
 
+# Launcher Icons
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path_android: "assets/icona/icona.png"
+  image_path_ios: "assets/icona/icona.png"
+  adaptive_icon_background: "assets/icona/ic_background.png"
+  adaptive_icon_foreground: "assets/icona/ic_foreground.png"
+  web:
+    generate: true
+    image_path: "assets/icona/icona.png"
+    background_color: "#050607" 
+
+# Splash Screen
+flutter_native_splash:
+  image: assets/icona/ic_splash.png
+  color: "#202125"
+
 flutter:
   generate: true
   uses-material-design: true
