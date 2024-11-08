@@ -14,7 +14,7 @@ void showMyToast(String message, BuildContext context) {
 }
 
 Size getScreenSize(BuildContext context) {
-  return MediaQuery.of(context).size;
+  return MediaQuery.sizeOf(context);
 }
 
 double getScreenWidth(BuildContext context) {
