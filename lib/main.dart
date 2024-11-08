@@ -12,14 +12,11 @@ void main() async {
   usePathUrlStrategy();
 
   WindowOptions windowOptions = const WindowOptions(
-    //Pixel 7a form factor (2400x1080 px)
+    //Pixel 8 form factor (2400x1080 px)
     size: Size(376, 835),
   );
 
-  if (!UniversalPlatform.isWeb &&
-      !UniversalPlatform.isAndroid &&
-      !UniversalPlatform.isIOS &&
-      UniversalPlatform.isDesktop) {
+  if (UniversalPlatform.isDesktop) {
     await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow(windowOptions, () async {
       await windowManager.show();
