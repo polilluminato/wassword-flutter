@@ -1,6 +1,7 @@
 enum DividerEnum {
   comma(",", "Comma (,)"),
   period(".", "Period (.)"),
+  space(" ", "Space ( )"),
   colon(":", "Colon (:)"),
   semicolon(";", "Semicolon (;)"),
   hyphen("-", "Hyphen (-)"),

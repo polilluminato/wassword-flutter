@@ -19,7 +19,7 @@ String generatePassword({
   String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
   String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   String numbers = "0123456789";
-  String special = "@#=+!£\$%&?[](){}-_";
+  String special = "@#=+!£\$%&?[](){}-_ ";
 
   String allowedChars = "";
 
