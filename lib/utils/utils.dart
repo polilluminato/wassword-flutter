@@ -13,16 +13,16 @@ void showMyToast(String message, BuildContext context) {
   );
 }
 
-Size getScreenSize(BuildContext context) {
-  return MediaQuery.sizeOf(context);
-}
+SizedBox gapW(double width) => SizedBox(width: width);
+
+SizedBox gapH(double height) => SizedBox(height: height);
 
 double getScreenWidth(BuildContext context) {
-  return getScreenSize(context).width;
+  return MediaQuery.sizeOf(context).width;
 }
 
 double getScreenHeight(BuildContext context) {
-  return getScreenSize(context).height;
+  return MediaQuery.sizeOf(context).height;
 }
 
 //Open the browser with the url provided
