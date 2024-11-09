@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/ui/about_row_switch_theme.dart';
@@ -21,7 +22,7 @@ class AboutPage extends StatelessWidget {
       backgroundColor: colorScheme.surface,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(PhosphorIcons.arrowLeft()),
           onPressed: () => context.pop(),
         ),
         title: const Text("Settings"),
@@ -43,8 +44,8 @@ class AboutPage extends StatelessWidget {
               ),
             ),
           ),
-          const AboutRowSwitchTheme(
-            icon: Icons.dark_mode_outlined,
+          AboutRowSwitchTheme(
+            icon: PhosphorIcons.moon(),
             title: "Dark Mode",
           ),
           Container(
@@ -63,21 +64,21 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           AboutRow(
-            icon: Icons.language,
+            icon: PhosphorIcons.globe(),
             title: "Website",
             callback: () {
               launchURL("https://wassword.app/");
             },
           ),
           AboutRow(
-            icon: Icons.policy,
+            icon: PhosphorIcons.shieldCheck(),
             title: "Privacy Policy",
             callback: () {
               launchURL("https://github.com/polilluminato/wassword-flutter");
             },
           ),
           AboutRow(
-            icon: Icons.favorite,
+            icon: PhosphorIcons.heart(),
             title: "Sponsor",
             callback: () {
               launchURL("https://github.com/sponsors/polilluminato");
@@ -99,43 +100,41 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           AboutRow(
-            icon: Icons.person,
+            icon: PhosphorIcons.userCircle(),
             title: "Personal Website",
             callback: () {
               launchURL("https://www.albertobonacina.com/");
             },
           ),
           AboutRow(
-            icon: Icons.code,
+            icon: PhosphorIcons.code(),
             title: "Follow on GitHub",
             callback: () {
               launchURL("https://www.github.com/polilluminato");
             },
           ),
           AboutRow(
-            icon: Icons.flutter_dash,
+            icon: PhosphorIcons.xLogo(),
             title: "Follow on X/Twitter",
             callback: () {
               launchURL("https://www.twitter.com/polilluminato");
             },
           ),
           AboutRow(
-            icon: Icons.campaign,
+            icon: PhosphorIcons.mastodonLogo(),
             title: "Follow on Mastodon",
             callback: () {
               launchURL("https://fluttercommunity.social/@polilluminato");
             },
           ),
           AboutRow(
-            icon: Icons.business,
+            icon: PhosphorIcons.linkedinLogo(),
             title: "Connect on LinkedIn",
             callback: () {
               launchURL("https://www.linkedin.com/in/bonacinaalberto");
             },
           ),
-          const SizedBox(
-            height: kHugeSpace,
-          ),
+          gapH(kHugeSpace),
           FutureBuilder<PackageInfo>(
             future: getPackageInfo(),
             builder:
@@ -153,9 +152,7 @@ class AboutPage extends StatelessWidget {
               return Container();
             },
           ),
-          const SizedBox(
-            height: kHugeSpace,
-          ),
+          gapH(kHugeSpace),
         ],
       ),
     );
