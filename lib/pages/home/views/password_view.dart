@@ -30,12 +30,12 @@ class PasswordView extends ConsumerWidget {
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
             activeTrackColor: colorScheme.primaryContainer,
-            trackHeight: Dimens.heightSlider * 1.1,
+            trackHeight: kHeightSlider * 1.1,
             inactiveTrackColor: colorScheme.secondaryContainer,
             thumbColor: colorScheme.primaryContainer,
             thumbShape: CustomSliderThumbCircle(
               buildContext: context,
-              thumbRadius: Dimens.heightSlider,
+              thumbRadius: kHeightSlider,
               value: password.length,
             ),
           ),
@@ -49,10 +49,10 @@ class PasswordView extends ConsumerWidget {
           ),
         ),
         const SizedBox(
-          height: Dimens.mainSpace,
+          height: kMainSpace,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kMainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -66,7 +66,7 @@ class PasswordView extends ConsumerWidget {
                     ref.read(passwordProvider.notifier).changeLowercase(),
               ),
               const SizedBox(
-                width: Dimens.mainSpace,
+                width: kMainSpace,
               ),
               OptionButton(
                 title: "Uppercase",
@@ -80,10 +80,10 @@ class PasswordView extends ConsumerWidget {
           ),
         ),
         const SizedBox(
-          height: Dimens.mainSpace,
+          height: kMainSpace,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.mainPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kMainPadding),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -97,7 +97,7 @@ class PasswordView extends ConsumerWidget {
                     ref.read(passwordProvider.notifier).changeNumbers(),
               ),
               const SizedBox(
-                width: Dimens.mainSpace,
+                width: kMainSpace,
               ),
               OptionButton(
                 title: "Special",
@@ -118,7 +118,7 @@ class PasswordView extends ConsumerWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
             Flexible(
               flex: 3,
@@ -131,7 +131,7 @@ class PasswordView extends ConsumerWidget {
               ),
             ),
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
             Flexible(
               flex: 2,
@@ -143,12 +143,12 @@ class PasswordView extends ConsumerWidget {
               ),
             ),
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
           ],
         ),
         const SizedBox(
-          height: Dimens.hugeSpace,
+          height: kHugeSpace,
         ),
       ],
     );

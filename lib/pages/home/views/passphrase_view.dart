@@ -34,12 +34,12 @@ class PassphraseView extends ConsumerWidget {
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
             activeTrackColor: colorScheme.primaryContainer,
-            trackHeight: Dimens.heightSlider * 1.1,
+            trackHeight: kHeightSlider * 1.1,
             inactiveTrackColor: colorScheme.secondaryContainer,
             thumbColor: colorScheme.primaryContainer,
             thumbShape: CustomSliderThumbCircle(
               buildContext: context,
-              thumbRadius: Dimens.heightSlider,
+              thumbRadius: kHeightSlider,
               value: passphrase.length,
             ),
           ),
@@ -55,9 +55,9 @@ class PassphraseView extends ConsumerWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
-            left: Dimens.mainPadding,
-            right: Dimens.mainPadding,
-            top: Dimens.hugeSpace,
+            left: kMainPadding,
+            right: kMainPadding,
+            top: kHugeSpace,
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
@@ -82,8 +82,8 @@ class PassphraseView extends ConsumerWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: Dimens.mainPadding,
-            vertical: Dimens.hugeSpace,
+            horizontal: kMainPadding,
+            vertical: kHugeSpace,
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
@@ -114,7 +114,7 @@ class PassphraseView extends ConsumerWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
             Flexible(
               flex: 3,
@@ -127,7 +127,7 @@ class PassphraseView extends ConsumerWidget {
               ),
             ),
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
             Flexible(
               flex: 2,
@@ -140,12 +140,12 @@ class PassphraseView extends ConsumerWidget {
               ),
             ),
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
           ],
         ),
         const SizedBox(
-          height: Dimens.hugeSpace,
+          height: kHugeSpace,
         ),
       ],
     );

@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
 
-class Dimens {
-  // add a private constructor to prevent this class being instantiated
-  // e.g. invoke `Dimens()` accidentally
-  Dimens._();
+const double kHugeRoundedCorner = 32;
+const double kMainRoundedCorner = 16;
+const double kSmallRoundedCorner = 8;
+const double kTinyRoundedCorner = 4;
 
-  static const double hugeRoundedCorner = 32;
-  static const double mainRoundedCorner = 16;
-  static const double smallRoundedCorner = 8;
-  static const double tinyRoundedCorner = 4;
+const double kHugePadding = 20;
+const double kMainPadding = 16;
+const double kSmallPadding = 8;
+const double kTinyPadding = 4;
 
-  static const double hugePadding = 20;
-  static const double mainPadding = 16;
-  static const double smallPadding = 8;
-  static const double tinyPadding = 4;
+const double kHugeMargin = 20;
+const double kMainMargin = 16;
+const double kSmallMargin = 8;
+const double kTinyMargin = 4;
 
-  static const double hugeMargin = 20;
-  static const double mainMargin = 16;
-  static const double smallMargin = 8;
-  static const double tinyMargin = 4;
+const double kHugeSpace = 32;
+const double kMainSpace = 16;
+const double kSmallSpace = 8;
 
-  static const double hugeSpace = 32;
-  static const double mainSpace = 16;
-  static const double smallSpace = 8;
+const double kHeightSlider = 16;
 
-  static const double heightSlider = 16;
-
-  static BorderRadius mainBorderRadius =
-      BorderRadius.circular(mainRoundedCorner);
-}
+BorderRadius kMainBorderRadius = BorderRadius.circular(kMainRoundedCorner);

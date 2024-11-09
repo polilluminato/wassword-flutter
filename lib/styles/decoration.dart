@@ -6,11 +6,11 @@ InputDecoration getSelectInputDecoration(Color onBackground, String labelText) {
     labelText: labelText,
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(color: onBackground),
-      borderRadius: Dimens.mainBorderRadius,
+      borderRadius: kMainBorderRadius,
     ),
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: onBackground),
-      borderRadius: Dimens.mainBorderRadius,
+      borderRadius: kMainBorderRadius,
     ),
   );
 }

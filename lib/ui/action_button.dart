@@ -27,7 +27,7 @@ class ActionButton extends StatelessWidget {
       child: Container(
         height: 44,
         decoration: BoxDecoration(
-          borderRadius: Dimens.mainBorderRadius,
+          borderRadius: kMainBorderRadius,
           color: buttonColor,
         ),
         child: Row(
@@ -39,7 +39,7 @@ class ActionButton extends StatelessWidget {
               size: 20,
             ),
             const SizedBox(
-              width: Dimens.mainSpace,
+              width: kMainSpace,
             ),
             Text(
               text,

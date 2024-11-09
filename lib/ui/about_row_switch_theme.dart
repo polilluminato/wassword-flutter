@@ -17,8 +17,8 @@ class AboutRowSwitchTheme extends ConsumerWidget {
 
     return Card(
       margin: const EdgeInsets.symmetric(
-        horizontal: Dimens.mainMargin,
-        vertical: Dimens.tinyMargin,
+        horizontal: kMainMargin,
+        vertical: kTinyMargin,
       ),
       child: ListTile(
         leading: Icon(icon),

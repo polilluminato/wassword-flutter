@@ -30,9 +30,9 @@ class AboutPage extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: const EdgeInsets.only(
-              left: Dimens.mainPadding,
-              bottom: Dimens.smallPadding,
-              top: Dimens.mainPadding,
+              left: kMainPadding,
+              bottom: kSmallPadding,
+              top: kMainPadding,
             ),
             alignment: Alignment.centerLeft,
             child: Text(
@@ -49,9 +49,9 @@ class AboutPage extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(
-              left: Dimens.mainPadding,
-              bottom: Dimens.smallPadding,
-              top: Dimens.hugePadding,
+              left: kMainPadding,
+              bottom: kSmallPadding,
+              top: kHugePadding,
             ),
             alignment: Alignment.centerLeft,
             child: Text(
@@ -85,9 +85,9 @@ class AboutPage extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(
-              left: Dimens.mainPadding,
-              bottom: Dimens.smallPadding,
-              top: Dimens.hugePadding,
+              left: kMainPadding,
+              bottom: kSmallPadding,
+              top: kHugePadding,
             ),
             alignment: Alignment.centerLeft,
             child: Text(
@@ -134,7 +134,7 @@ class AboutPage extends StatelessWidget {
             },
           ),
           const SizedBox(
-            height: Dimens.hugeSpace,
+            height: kHugeSpace,
           ),
           FutureBuilder<PackageInfo>(
             future: getPackageInfo(),
@@ -154,7 +154,7 @@ class AboutPage extends StatelessWidget {
             },
           ),
           const SizedBox(
-            height: Dimens.hugeSpace,
+            height: kHugeSpace,
           ),
         ],
       ),

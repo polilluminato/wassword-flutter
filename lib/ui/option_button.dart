@@ -32,7 +32,7 @@ class OptionButton extends StatelessWidget {
         child: Container(
           height: 85,
           decoration: BoxDecoration(
-            borderRadius: Dimens.mainBorderRadius,
+            borderRadius: kMainBorderRadius,
             color: containerColor,
           ),
           child: Row(

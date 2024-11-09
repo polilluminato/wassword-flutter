@@ -16,8 +16,8 @@ class AboutRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(
-        horizontal: Dimens.mainMargin,
-        vertical: Dimens.tinyMargin,
+        horizontal: kMainMargin,
+        vertical: kTinyMargin,
       ),
       child: ListTile(
         onTap: callback,

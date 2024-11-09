@@ -12,10 +12,10 @@ class SecretCard extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.only(
-        top: Dimens.smallMargin,
-        bottom: Dimens.mainMargin,
-        left: Dimens.mainMargin,
-        right: Dimens.mainMargin,
+        top: kSmallMargin,
+        bottom: kMainMargin,
+        left: kMainMargin,
+        right: kMainMargin,
       ),
       height: 250,
       decoration: BoxDecoration(
@@ -24,11 +24,11 @@ class SecretCard extends StatelessWidget {
           width: 1,
         ),
         borderRadius: const BorderRadius.all(
-          Radius.circular(Dimens.hugeRoundedCorner),
+          Radius.circular(kHugeRoundedCorner),
         ),
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: Dimens.mainPadding,
+        horizontal: kMainPadding,
       ),
       alignment: const Alignment(0, 0),
       child: Text(
