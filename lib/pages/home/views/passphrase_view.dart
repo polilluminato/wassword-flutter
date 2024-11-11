@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/divider_enum.dart';
 import 'package:wassword/enums/wordlist_enum.dart';
 import 'package:wassword/provider/passphrase.dart';
@@ -120,7 +121,7 @@ class PassphraseView extends ConsumerWidget {
               flex: 3,
               child: ActionButton(
                 text: "Generate",
-                icon: Icons.sync,
+                icon: PhosphorIcons.arrowsClockwise(),
                 isMain: true,
                 callback: () =>
                     ref.read(passphraseProvider.notifier).updatePassphrase(),
@@ -133,7 +134,7 @@ class PassphraseView extends ConsumerWidget {
               flex: 2,
               child: ActionButton(
                 text: "Copy",
-                icon: Icons.copy,
+                icon: PhosphorIcons.copy(),
                 isMain: false,
                 callback: () =>
                     _copyToClipboard(passphrase.passphrase, context),

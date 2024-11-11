@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/provider/password.dart';
 import 'package:wassword/provider/password_provider.dart';
 import 'package:wassword/styles/dimens.dart';
@@ -60,7 +61,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: "Lowercase",
                 description: "abc",
-                icon: Icons.format_size,
+                icon: PhosphorIcons.textAa(),
                 active: password.withLowercase,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeLowercase(),
@@ -71,7 +72,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: "Uppercase",
                 description: "ABC",
-                icon: Icons.title,
+                icon: PhosphorIcons.textB(),
                 active: password.withUppercase,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeUppercase(),
@@ -91,7 +92,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: "Numbers",
                 description: "123",
-                icon: Icons.looks_one,
+                icon: PhosphorIcons.numberSquareOne(),
                 active: password.withNumbers,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeNumbers(),
@@ -102,7 +103,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: "Special",
                 description: "@£*",
-                icon: Icons.star,
+                icon: PhosphorIcons.star(),
                 active: password.withSpecial,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeSpecial(),
@@ -124,7 +125,7 @@ class PasswordView extends ConsumerWidget {
               flex: 3,
               child: ActionButton(
                 text: "Generate",
-                icon: Icons.sync,
+                icon: PhosphorIcons.arrowsClockwise(),
                 isMain: true,
                 callback: () =>
                     ref.read(passwordProvider.notifier).updatePassword(),
@@ -137,7 +138,7 @@ class PasswordView extends ConsumerWidget {
               flex: 2,
               child: ActionButton(
                 text: "Copy",
-                icon: Icons.copy,
+                icon: PhosphorIcons.copy(),
                 isMain: false,
                 callback: () => _copyToClipboard(password.password, context),
               ),

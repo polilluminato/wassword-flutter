@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/windowsize_enum.dart';
 import 'package:wassword/models/screen_tab_model.dart';
 import 'package:wassword/pages/home/views/passphrase_view.dart';
@@ -12,12 +13,12 @@ final tabProvider = StateProvider<int>((ref) => 0);
 final List<ScreenTab> tabList = [
   ScreenTab(
     label: "Password",
-    icon: Icons.vpn_key,
+    icon: PhosphorIcons.password(),
     content: const PasswordView(),
   ),
   ScreenTab(
     label: "Passphrase",
-    icon: Icons.text_fields,
+    icon: PhosphorIcons.textAa(),
     content: const PassphraseView(),
   ),
 ];
@@ -35,7 +36,7 @@ class HomePage extends ConsumerWidget {
         centerTitle: true,
         leading: IconButton(
           iconSize: 24,
-          icon: const Icon(Icons.settings_outlined),
+          icon: Icon(PhosphorIcons.gear()),
           onPressed: () => context.push('/about'),
         ),
       ),
