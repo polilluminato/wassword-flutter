@@ -1,3 +1,37 @@
 {
-   "@@locale": "en"
+   "@@locale": "en",
+
+   "settingsPageTitle": "Settings",
+   "settingsPageThemeSection": "Theme",
+   "settingsPageDarkModeTitle": "Dark Mode",
+
+   "settingsPageAppSection": "App",
+   "settingsPageWebsiteTitle": "Website",
+   "settingsPageWebsiteLink": "https://wassword.app",
+   "settingsPagePrivacyPolicyTitle": "Privacy Policy",
+   "settingsPagePrivacyPolicyLink": "https://github.com/polilluminato/wassword-flutter",
+   "settingsPageSponsorTitle": "Sponsor",
+   "settingsPageSponsorLink": "https://github.com/sponsors/polilluminato",
+
+   "settingsPageDeveloperSection": "Developer",
+   "settingsPagePersonalWebsiteTitle": "Personal Website",
+   "settingsPagePersonalWebsiteLink": "https://www.albertobonacina.com/",
+   "settingsPageFollowGitHubTitle": "Follow on GitHub",
+   "settingsPageFollowGitHubLink": "https://www.github.com/polilluminato",
+   "settingsPageFollowXTitle": "Follow on X",
+   "settingsPageFollowXLink": "https://www.twitter.com/polilluminato",
+   "settingsPageFollowMastodonTitle": "Follow on Mastodon",
+   "settingsPageFollowMastodonLink": "hhttps://fluttercommunity.social/@polilluminato",
+   "settingsPageConnectLinkedInTitle": "Connect on LinkedIn",
+   "settingsPageConnectLinkedInLink": "https://www.linkedin.com/in/bonacinaalberto",
+
+   "settingsFooter": "Wassword {version}\nMade with ☕ and \uD83D\uDC99 by Alberto Bonacina",
+   "@settingsFooter" : {
+      "placeholders": {
+         "version": {
+            "type": "String",
+            "example": "1"
+         }
+      }
+   }
 }

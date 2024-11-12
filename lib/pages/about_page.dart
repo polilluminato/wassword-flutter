@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:wassword/l10n/l10n.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/ui/about_row_switch_theme.dart';
@@ -25,10 +26,10 @@ class AboutPage extends StatelessWidget {
           icon: Icon(PhosphorIcons.arrowLeft()),
           onPressed: () => context.pop(),
         ),
-        title: const Text("Settings"),
+        title: Text(context.loc.settingsPageTitle),
       ),
       body: ListView(
-        children: <Widget>[
+        children: [
           Container(
             padding: const EdgeInsets.only(
               left: kMainPadding,
@@ -37,7 +38,7 @@ class AboutPage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
             child: Text(
-              "THEME",
+              context.loc.settingsPageThemeSection.toUpperCase(),
               style: TextStyle(
                 fontSize: 14,
                 color: colorScheme.onSurface,
@@ -46,7 +47,7 @@ class AboutPage extends StatelessWidget {
           ),
           AboutRowSwitchTheme(
             icon: PhosphorIcons.moon(),
-            title: "Dark Mode",
+            title: context.loc.settingsPageDarkModeTitle,
           ),
           Container(
             padding: const EdgeInsets.only(
@@ -56,7 +57,7 @@ class AboutPage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
             child: Text(
-              "APP",
+              context.loc.settingsPageAppSection,
               style: TextStyle(
                 fontSize: 14,
                 color: colorScheme.onSurface,
@@ -65,23 +66,23 @@ class AboutPage extends StatelessWidget {
           ),
           AboutRow(
             icon: PhosphorIcons.globe(),
-            title: "Website",
+            title: context.loc.settingsPageWebsiteTitle,
             callback: () {
-              launchURL("https://wassword.app/");
+              launchURL(context.loc.settingsPageWebsiteLink);
             },
           ),
           AboutRow(
             icon: PhosphorIcons.shieldCheck(),
-            title: "Privacy Policy",
+            title: context.loc.settingsPagePrivacyPolicyTitle,
             callback: () {
-              launchURL("https://github.com/polilluminato/wassword-flutter");
+              launchURL(context.loc.settingsPagePrivacyPolicyLink);
             },
           ),
           AboutRow(
             icon: PhosphorIcons.heart(),
-            title: "Sponsor",
+            title: context.loc.settingsPageSponsorTitle,
             callback: () {
-              launchURL("https://github.com/sponsors/polilluminato");
+              launchURL(context.loc.settingsPageSponsorLink);
             },
           ),
           Container(
@@ -92,7 +93,7 @@ class AboutPage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
             child: Text(
-              "DEVELOPER",
+              context.loc.settingsPageDeveloperSection.toUpperCase(),
               style: TextStyle(
                 fontSize: 14,
                 color: colorScheme.onSurface,
@@ -101,37 +102,37 @@ class AboutPage extends StatelessWidget {
           ),
           AboutRow(
             icon: PhosphorIcons.userCircle(),
-            title: "Personal Website",
+            title: context.loc.settingsPagePersonalWebsiteTitle,
             callback: () {
-              launchURL("https://www.albertobonacina.com/");
+              launchURL(context.loc.settingsPagePersonalWebsiteLink);
             },
           ),
           AboutRow(
             icon: PhosphorIcons.code(),
-            title: "Follow on GitHub",
+            title: context.loc.settingsPageFollowGitHubTitle,
             callback: () {
-              launchURL("https://www.github.com/polilluminato");
+              launchURL(context.loc.settingsPageFollowGitHubLink);
             },
           ),
           AboutRow(
             icon: PhosphorIcons.xLogo(),
-            title: "Follow on X/Twitter",
+            title: context.loc.settingsPageFollowXTitle,
             callback: () {
-              launchURL("https://www.twitter.com/polilluminato");
+              launchURL(context.loc.settingsPageFollowXLink);
             },
           ),
           AboutRow(
             icon: PhosphorIcons.mastodonLogo(),
-            title: "Follow on Mastodon",
+            title: context.loc.settingsPageFollowMastodonTitle,
             callback: () {
-              launchURL("https://fluttercommunity.social/@polilluminato");
+              launchURL(context.loc.settingsPageFollowMastodonLink);
             },
           ),
           AboutRow(
             icon: PhosphorIcons.linkedinLogo(),
-            title: "Connect on LinkedIn",
+            title: context.loc.settingsPageConnectLinkedInTitle,
             callback: () {
-              launchURL("https://www.linkedin.com/in/bonacinaalberto");
+              launchURL(context.loc.settingsPageConnectLinkedInLink);
             },
           ),
           gapH(kHugeSpace),
@@ -141,7 +142,7 @@ class AboutPage extends StatelessWidget {
                 (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
               if (snapshot.hasData) {
                 return Text(
-                  "Wassword ${snapshot.data!.version}\nMade with ☕ and 💙 by Alberto Bonacina",
+                  context.loc.settingsFooter(snapshot.data!.version),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 12,
