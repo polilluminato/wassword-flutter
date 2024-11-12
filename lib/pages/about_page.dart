@@ -150,7 +150,7 @@ class AboutPage extends StatelessWidget {
                   ),
                 );
               }
-              return Container();
+              return SizedBox.shrink();
             },
           ),
           gapH(kHugeSpace),

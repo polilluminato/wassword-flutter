@@ -107,9 +107,7 @@ class PassphraseView extends ConsumerWidget {
                 .toList(),
           ),
         ),
-        Expanded(
-          child: Container(),
-        ),
+        Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
