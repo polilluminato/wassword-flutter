@@ -30,8 +30,8 @@ class PassphraseView extends ConsumerWidget {
     final wordlistSelected = ref.watch(wordlistSelectProvider);
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Column(
-      children: <Widget>[
+    return ListView(
+      children: [
         SecretCard(secretString: passphrase.passphrase),
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
@@ -87,7 +87,7 @@ class PassphraseView extends ConsumerWidget {
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: kMainPadding,
-            vertical: kHugeSpace,
+            vertical: kBigSpace,
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
@@ -112,7 +112,7 @@ class PassphraseView extends ConsumerWidget {
                 .toList(),
           ),
         ),
-        Spacer(),
+        gapH(kHugeSpace),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,

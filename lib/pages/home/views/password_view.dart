@@ -25,8 +25,8 @@ class PasswordView extends ConsumerWidget {
     Password password = ref.watch(passwordProvider);
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Column(
-      children: <Widget>[
+    return ListView(
+      children: [
         SecretCard(secretString: password.password),
         //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
         SliderTheme(
@@ -104,7 +104,7 @@ class PasswordView extends ConsumerWidget {
             ],
           ),
         ),
-        Spacer(),
+        gapH(kHugeSpace),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
