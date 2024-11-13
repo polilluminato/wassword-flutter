@@ -40,7 +40,6 @@ class HomePage extends ConsumerWidget {
           onPressed: () => context.push('/about'),
         ),
       ),
-      //body: tabList[selectedTab],
       body: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -62,10 +61,15 @@ class HomePage extends ConsumerWidget {
                   )
                   .toList(),
             ),
-          Expanded(child: tabList[ref.watch(tabProvider)].content),
+          //Expanded(child: tabList[ref.watch(tabProvider)].content),
+          Expanded(
+            child: IndexedStack(
+              index: ref.watch(tabProvider),
+              children: tabList.map((e) => e.content).toList(),
+            ),
+          )
         ],
       ),
-
       bottomNavigationBar: screenSizeWidth < WindowSizeEnum.tabletPortrait.width
           ? NavigationBar(
               onDestinationSelected: (int index) {
