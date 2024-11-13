@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:wassword/styles/dimens.dart';
 
 class SecretCard extends StatelessWidget {
-  const SecretCard({super.key, required this.secretString});
+  const SecretCard({
+    super.key,
+    required this.secretString,
+    this.height = 270,
+  });
 
   final String secretString;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class SecretCard extends StatelessWidget {
         left: kMainMargin,
         right: kMainMargin,
       ),
-      height: 250,
+      height: height,
       decoration: BoxDecoration(
         border: Border.all(
           color: colorScheme.secondaryContainer,

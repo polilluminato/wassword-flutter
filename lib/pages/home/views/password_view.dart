@@ -27,7 +27,10 @@ class PasswordView extends ConsumerWidget {
 
     return ListView(
       children: [
-        SecretCard(secretString: password.password),
+        SecretCard(
+          secretString: password.password,
+          height: 250,
+        ),
         //https://medium.com/flutter-community/flutter-sliders-demystified-4b3ea65879c
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
