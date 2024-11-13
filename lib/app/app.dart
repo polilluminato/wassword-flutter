@@ -18,7 +18,7 @@ class App extends ConsumerWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: SeedColorScheme.fromSeeds(
-          primaryKey: Colors.deepPurple,
+          primaryKey: Colors.deepPurpleAccent,
           brightness: ref.watch(brightnessProvider),
           tones: FlexTones.material(
             ref.watch(brightnessProvider),

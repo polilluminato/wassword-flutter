@@ -16,6 +16,7 @@ const double kSmallMargin = 8;
 const double kTinyMargin = 4;
 
 const double kHugeSpace = 32;
+const double kBigSpace = 24;
 const double kMainSpace = 16;
 const double kSmallSpace = 8;
 const double kTinySpace = 4;
