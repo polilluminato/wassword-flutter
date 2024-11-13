@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/divider_enum.dart';
 import 'package:wassword/enums/wordlist_enum.dart';
+import 'package:wassword/l10n/l10n.dart';
 import 'package:wassword/provider/passphrase.dart';
 import 'package:wassword/provider/passphrase_provider.dart';
 import 'package:wassword/provider/select_provider.dart';
@@ -62,7 +63,9 @@ class PassphraseView extends ConsumerWidget {
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
-                colorScheme.secondaryContainer, "Wordlist"),
+              colorScheme.secondaryContainer,
+              context.loc.passphraseGeneratorWordlistSelect,
+            ),
             value: wordlistSelected,
             onChanged: (value) {
               ref.read(wordlistSelectProvider.notifier).state = value!;
@@ -88,7 +91,9 @@ class PassphraseView extends ConsumerWidget {
           ),
           child: DropdownButtonFormField(
             decoration: getSelectInputDecoration(
-                colorScheme.secondaryContainer, "Divider"),
+              colorScheme.secondaryContainer,
+              context.loc.passphraseGeneratorDividerSelect,
+            ),
             value: dividerSelected,
             onChanged: (value) {
               ref.read(dividerSelectProvider.notifier).state = value!;
@@ -116,7 +121,7 @@ class PassphraseView extends ConsumerWidget {
             Flexible(
               flex: 3,
               child: ActionButton(
-                text: "Generate",
+                text: context.loc.buttonGenerateLabel,
                 icon: PhosphorIcons.arrowsClockwise(),
                 isMain: true,
                 callback: () =>
@@ -127,7 +132,7 @@ class PassphraseView extends ConsumerWidget {
             Flexible(
               flex: 2,
               child: ActionButton(
-                text: "Copy",
+                text: context.loc.buttonCopyLabel,
                 icon: PhosphorIcons.copy(),
                 isMain: false,
                 callback: () =>

@@ -3,25 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/windowsize_enum.dart';
+import 'package:wassword/l10n/l10n.dart';
 import 'package:wassword/models/screen_tab_model.dart';
 import 'package:wassword/pages/home/views/passphrase_view.dart';
 import 'package:wassword/pages/home/views/password_view.dart';
 import 'package:wassword/utils/utils.dart';
 
 final tabProvider = StateProvider<int>((ref) => 0);
-
-final List<ScreenTab> tabList = [
-  ScreenTab(
-    label: "Password",
-    icon: PhosphorIcons.password(),
-    content: const PasswordView(),
-  ),
-  ScreenTab(
-    label: "Passphrase",
-    icon: PhosphorIcons.textAa(),
-    content: const PassphraseView(),
-  ),
-];
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -30,9 +18,22 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double screenSizeWidth = getScreenWidth(context);
 
+    final List<ScreenTab> tabList = [
+      ScreenTab(
+        label: context.loc.passwordTabLabel,
+        icon: PhosphorIcons.password(),
+        content: const PasswordView(),
+      ),
+      ScreenTab(
+        label: context.loc.passphraseTabLabel,
+        icon: PhosphorIcons.textAa(),
+        content: const PassphraseView(),
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Wassword"),
+        title: Text(context.loc.appTitle),
         centerTitle: true,
         leading: IconButton(
           iconSize: 24,

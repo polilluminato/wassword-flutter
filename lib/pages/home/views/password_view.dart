@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:wassword/l10n/l10n.dart';
 import 'package:wassword/provider/password.dart';
 import 'package:wassword/provider/password_provider.dart';
 import 'package:wassword/styles/dimens.dart';
@@ -16,7 +17,7 @@ class PasswordView extends ConsumerWidget {
 
   void _copyToClipboard(String newPassword, BuildContext context) {
     Clipboard.setData(ClipboardData(text: newPassword));
-    showMyToast("Password copied to clipboard", context);
+    showMyToast(context.loc.toastLabelPasswordCopied, context);
   }
 
   @override
@@ -57,8 +58,8 @@ class PasswordView extends ConsumerWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               OptionButton(
-                title: "Lowercase",
-                description: "abc",
+                title: context.loc.passwordGeneratorLowercaseTitle,
+                description: context.loc.passwordGeneratorLowercaseDescription,
                 icon: PhosphorIcons.textAa(),
                 active: password.withLowercase,
                 callback: () =>
@@ -66,8 +67,8 @@ class PasswordView extends ConsumerWidget {
               ),
               gapW(kMainSpace),
               OptionButton(
-                title: "Uppercase",
-                description: "ABC",
+                title: context.loc.passwordGeneratorUppercaseTitle,
+                description: context.loc.passwordGeneratorUppercaseDescription,
                 icon: PhosphorIcons.textB(),
                 active: password.withUppercase,
                 callback: () =>
@@ -84,8 +85,8 @@ class PasswordView extends ConsumerWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               OptionButton(
-                title: "Numbers",
-                description: "123",
+                title: context.loc.passwordGeneratorNumbersTitle,
+                description: context.loc.passwordGeneratorNumbersDescription,
                 icon: PhosphorIcons.numberSquareOne(),
                 active: password.withNumbers,
                 callback: () =>
@@ -93,8 +94,8 @@ class PasswordView extends ConsumerWidget {
               ),
               gapW(kMainSpace),
               OptionButton(
-                title: "Special",
-                description: "@£*",
+                title: context.loc.passwordGeneratorSpecialTitle,
+                description: context.loc.passwordGeneratorSpecialDescription,
                 icon: PhosphorIcons.star(),
                 active: password.withSpecial,
                 callback: () =>
@@ -112,7 +113,7 @@ class PasswordView extends ConsumerWidget {
             Flexible(
               flex: 3,
               child: ActionButton(
-                text: "Generate",
+                text: context.loc.buttonGenerateLabel,
                 icon: PhosphorIcons.arrowsClockwise(),
                 isMain: true,
                 callback: () =>
@@ -123,7 +124,7 @@ class PasswordView extends ConsumerWidget {
             Flexible(
               flex: 2,
               child: ActionButton(
-                text: "Copy",
+                text: context.loc.buttonCopyLabel,
                 icon: PhosphorIcons.copy(),
                 isMain: false,
                 callback: () => _copyToClipboard(password.password, context),

@@ -1,9 +1,13 @@
 {
    "@@locale": "en",
+   "appTitle": "Wassword",
 
    "settingsPageTitle": "Settings",
    "settingsPageThemeSection": "Theme",
    "settingsPageDarkModeTitle": "Dark Mode",
+
+   "passwordTabLabel": "Password",
+   "passphraseTabLabel": "Passphrase",
 
    "settingsPageAppSection": "App",
    "settingsPageWebsiteTitle": "Website",
@@ -33,5 +37,22 @@
             "example": "1"
          }
       }
-   }
+   },
+
+   "passwordGeneratorLowercaseTitle": "Lowercase",
+   "passwordGeneratorLowercaseDescription": "abc",
+   "passwordGeneratorUppercaseTitle": "Uppercase",
+   "passwordGeneratorUppercaseDescription": "ABC",
+   "passwordGeneratorNumbersTitle": "Numbers",
+   "passwordGeneratorNumbersDescription": "123",
+   "passwordGeneratorSpecialTitle": "Special",
+   "passwordGeneratorSpecialDescription": "@£*",
+
+   "passphraseGeneratorWordlistSelect": "Wordlist",
+   "passphraseGeneratorDividerSelect": "Divider",
+
+   "buttonGenerateLabel": "Generate",
+   "buttonCopyLabel": "Copy",
+
+   "toastLabelPasswordCopied": "Password copied to clipboard"
 }
