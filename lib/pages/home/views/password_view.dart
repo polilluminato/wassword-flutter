@@ -49,9 +49,7 @@ class PasswordView extends ConsumerWidget {
                 ref.read(passwordProvider.notifier).changeLength(value.toInt()),
           ),
         ),
-        const SizedBox(
-          height: kMainSpace,
-        ),
+        gapH(kMainSpace),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kMainPadding),
           child: Row(
@@ -66,9 +64,7 @@ class PasswordView extends ConsumerWidget {
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeLowercase(),
               ),
-              const SizedBox(
-                width: kMainSpace,
-              ),
+              gapW(kMainSpace),
               OptionButton(
                 title: "Uppercase",
                 description: "ABC",
@@ -80,9 +76,7 @@ class PasswordView extends ConsumerWidget {
             ],
           ),
         ),
-        const SizedBox(
-          height: kMainSpace,
-        ),
+        gapH(kMainSpace),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kMainPadding),
           child: Row(
@@ -97,9 +91,7 @@ class PasswordView extends ConsumerWidget {
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeNumbers(),
               ),
-              const SizedBox(
-                width: kMainSpace,
-              ),
+              gapW(kMainSpace),
               OptionButton(
                 title: "Special",
                 description: "@£*",
@@ -116,9 +108,7 @@ class PasswordView extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
           children: [
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
             Flexible(
               flex: 3,
               child: ActionButton(
@@ -129,9 +119,7 @@ class PasswordView extends ConsumerWidget {
                     ref.read(passwordProvider.notifier).updatePassword(),
               ),
             ),
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
             Flexible(
               flex: 2,
               child: ActionButton(
@@ -141,14 +129,10 @@ class PasswordView extends ConsumerWidget {
                 callback: () => _copyToClipboard(password.password, context),
               ),
             ),
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
           ],
         ),
-        const SizedBox(
-          height: kHugeSpace,
-        ),
+        gapH(kHugeSpace),
       ],
     );
   }

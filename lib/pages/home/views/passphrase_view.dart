@@ -112,9 +112,7 @@ class PassphraseView extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
           children: [
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
             Flexible(
               flex: 3,
               child: ActionButton(
@@ -125,9 +123,7 @@ class PassphraseView extends ConsumerWidget {
                     ref.read(passphraseProvider.notifier).updatePassphrase(),
               ),
             ),
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
             Flexible(
               flex: 2,
               child: ActionButton(
@@ -138,14 +134,10 @@ class PassphraseView extends ConsumerWidget {
                     _copyToClipboard(passphrase.passphrase, context),
               ),
             ),
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
           ],
         ),
-        const SizedBox(
-          height: kHugeSpace,
-        ),
+        gapH(kHugeSpace),
       ],
     );
   }

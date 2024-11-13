@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassword/styles/dimens.dart';
+import 'package:wassword/utils/utils.dart';
 
 class OptionButton extends StatelessWidget {
   const OptionButton({
@@ -59,9 +60,7 @@ class OptionButton extends StatelessWidget {
                       color: onContainerColor,
                     ),
                   ),
-                  const SizedBox(
-                    height: 6,
-                  ),
+                  gapH(kTinySpace),
                   Text(
                     description,
                     style: TextStyle(

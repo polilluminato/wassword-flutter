@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassword/styles/dimens.dart';
+import 'package:wassword/utils/utils.dart';
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
@@ -36,16 +37,15 @@ class ActionButton extends StatelessWidget {
             Icon(
               icon,
               color: onButtonColor,
-              size: 20,
+              size: 24,
             ),
-            const SizedBox(
-              width: kMainSpace,
-            ),
+            gapW(kMainSpace),
             Text(
               text,
               style: TextStyle(
                 fontSize: 16,
                 color: onButtonColor,
+                fontWeight: FontWeight.w500,
               ),
             )
           ],
