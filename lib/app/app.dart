@@ -25,6 +25,15 @@ class App extends ConsumerWidget {
           ),
         ),
       ),
+      builder: (_, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          textScaler: MediaQuery.textScalerOf(context).clamp(
+            minScaleFactor: 1,
+            maxScaleFactor: 1,
+          ),
+        ),
+        child: child!,
+      ),
     );
   }
 }
