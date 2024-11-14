@@ -1,6 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/windowsize_enum.dart';
 import 'package:wassword/l10n/l10n.dart';
@@ -11,6 +11,7 @@ import 'package:wassword/utils/utils.dart';
 
 final tabProvider = StateProvider<int>((ref) => 0);
 
+@RoutePage()
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
@@ -38,7 +39,7 @@ class HomePage extends ConsumerWidget {
         leading: IconButton(
           iconSize: 24,
           icon: Icon(PhosphorIcons.gear()),
-          onPressed: () => context.push('/about'),
+          onPressed: () => context.router.pushNamed('/about'),
         ),
       ),
       body: Row(

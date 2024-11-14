@@ -1,5 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/l10n/l10n.dart';
@@ -8,6 +8,7 @@ import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/ui/about_row_switch_theme.dart';
 import 'package:wassword/utils/utils.dart';
 
+@RoutePage()
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -24,7 +25,7 @@ class AboutPage extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(PhosphorIcons.arrowLeft()),
-          onPressed: () => context.pop(),
+          onPressed: () => context.router.back(),
         ),
         title: Text(context.loc.settingsPageTitle),
       ),
