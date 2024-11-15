@@ -54,7 +54,7 @@ class AboutPage extends StatelessWidget {
             padding: const EdgeInsets.only(
               left: kMainPadding,
               bottom: kSmallPadding,
-              top: kHugePadding,
+              top: kSmallPadding,
             ),
             alignment: Alignment.centerLeft,
             child: Text(
@@ -71,6 +71,13 @@ class AboutPage extends StatelessWidget {
             callback: () {
               launchURL(context.loc.settingsPageWebsiteLink);
             },
+          ),
+          AboutRow(
+            icon: PhosphorIcons.fileCode(),
+            title: context.loc.settingsPageLicensesTitle,
+            callback: () => showLicensePage(
+              context: context,
+            ),
           ),
           AboutRow(
             icon: PhosphorIcons.shieldCheck(),
@@ -90,7 +97,7 @@ class AboutPage extends StatelessWidget {
             padding: const EdgeInsets.only(
               left: kMainPadding,
               bottom: kSmallPadding,
-              top: kHugePadding,
+              top: kSmallPadding,
             ),
             alignment: Alignment.centerLeft,
             child: Text(

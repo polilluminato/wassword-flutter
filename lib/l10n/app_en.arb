@@ -12,6 +12,7 @@
    "settingsPageAppSection": "App",
    "settingsPageWebsiteTitle": "Website",
    "settingsPageWebsiteLink": "https://wassword.app",
+   "settingsPageLicensesTitle": "Licenses",
    "settingsPagePrivacyPolicyTitle": "Privacy Policy",
    "settingsPagePrivacyPolicyLink": "https://github.com/polilluminato/wassword-flutter",
    "settingsPageSponsorTitle": "Sponsor",
