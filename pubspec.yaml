@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   auto_route: ^9.2.2
-  flex_seed_scheme: ^3.4.1
   flutter:
     sdk: flutter
   flutter_localizations:

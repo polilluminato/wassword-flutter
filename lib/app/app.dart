@@ -1,9 +1,9 @@
-import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wassword/app/app_router.dart';
 import 'package:wassword/provider/brightness_provider.dart';
+import 'package:wassword/styles/theme/theme.dart';
 
 class App extends ConsumerWidget {
   App({super.key});
@@ -12,12 +12,20 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Use with Google Fonts package to use downloadable fonts
+    TextTheme textTheme = Theme.of(context).textTheme;
+    MaterialTheme theme = MaterialTheme(textTheme);
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: _appRouter.config(),
-      theme: ThemeData(
+      theme: ref.watch(brightnessProvider) == Brightness.dark
+          ? theme.dark()
+          : theme.light(),
+
+      /*ThemeData(
         useMaterial3: true,
         colorScheme: SeedColorScheme.fromSeeds(
           primaryKey: Colors.deepPurpleAccent,
@@ -26,7 +34,7 @@ class App extends ConsumerWidget {
             ref.watch(brightnessProvider),
           ),
         ),
-      ),
+      ),*/
       builder: (_, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
           textScaler: MediaQuery.textScalerOf(context).clamp(
