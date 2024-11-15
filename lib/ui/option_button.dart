@@ -28,51 +28,50 @@ class OptionButton extends StatelessWidget {
         : colorScheme.onSecondaryContainer;
 
     return Expanded(
-      child: GestureDetector(
-        onTap: callback,
-        child: Container(
-          height: 85,
-          decoration: BoxDecoration(
-            borderRadius: kMainBorderRadius,
-            color: containerColor,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16, right: 12),
-                child: Icon(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: kMainBorderRadius,
+          color: containerColor,
+        ),
+        padding: EdgeInsets.all(kMainPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
                   icon,
-                  size: 24,
+                  size: 28,
                   color: onContainerColor,
                 ),
+                Switch.adaptive(
+                  value: active,
+                  onChanged: (_) => callback(),
+                )
+              ],
+            ),
+            gapH(kSmallSpace),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: onContainerColor,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: onContainerColor,
-                    ),
-                  ),
-                  gapH(kTinySpace),
-                  Text(
-                    description,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: onContainerColor,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
+            ),
+            Text(
+              description,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: onContainerColor,
+              ),
+            )
+          ],
         ),
       ),
     );

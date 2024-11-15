@@ -5,7 +5,7 @@ class SecretCard extends StatelessWidget {
   const SecretCard({
     super.key,
     required this.secretString,
-    this.height = 270,
+    this.height = 220,
   });
 
   final String secretString;
@@ -18,7 +18,7 @@ class SecretCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(
         top: kSmallMargin,
-        bottom: kMainMargin,
+        bottom: kSmallMargin,
         left: kMainMargin,
         right: kMainMargin,
       ),
@@ -41,7 +41,7 @@ class SecretCard extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 24,
+          fontSize: 20,
           color: colorScheme.onSurface,
         ),
       ),
