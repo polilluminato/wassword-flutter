@@ -3,7 +3,7 @@
     "short_name": "Wassword",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#050607",
+    "background_color": "#A700B6",
     "theme_color": "#0175C2",
     "description": "Wassword - Wonderful Password Generator",
     "orientation": "portrait-primary",
