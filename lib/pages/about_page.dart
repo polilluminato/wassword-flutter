@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/l10n/l10n.dart';
@@ -7,6 +8,7 @@ import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/ui/about_row_switch_theme.dart';
 import 'package:wassword/utils/utils.dart';
+import 'package:wassword/provider/appinfo_provider.dart';
 
 @RoutePage()
 class AboutPage extends StatelessWidget {
@@ -72,12 +74,22 @@ class AboutPage extends StatelessWidget {
               launchURL(context.loc.settingsPageWebsiteLink);
             },
           ),
-          AboutRow(
-            icon: PhosphorIcons.fileCode(),
-            title: context.loc.settingsPageLicensesTitle,
-            callback: () => showLicensePage(
-              context: context,
-            ),
+          Consumer(
+            builder: (context, ref, _) {
+              final packageInfo = ref.watch(packageInfoProvider);
+              return switch (packageInfo) {
+                AsyncData(:final value) => AboutRow(
+                    icon: PhosphorIcons.fileCode(),
+                    title: context.loc.settingsPageLicensesTitle,
+                    callback: () => showLicensePage(
+                      context: context,
+                      applicationName: context.loc.appName,
+                      applicationVersion: value.version,
+                    ),
+                  ),
+                _ => SizedBox.shrink(),
+              };
+            },
           ),
           AboutRow(
             icon: PhosphorIcons.shieldCheck(),
@@ -144,21 +156,20 @@ class AboutPage extends StatelessWidget {
             },
           ),
           gapH(kHugeSpace),
-          FutureBuilder<PackageInfo>(
-            future: getPackageInfo(),
-            builder:
-                (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
-              if (snapshot.hasData) {
-                return Text(
-                  context.loc.settingsFooter(snapshot.data!.version),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: colorScheme.onSurface,
+          Consumer(
+            builder: (context, ref, _) {
+              final packageInfo = ref.watch(packageInfoProvider);
+              return switch (packageInfo) {
+                AsyncData(:final value) => Text(
+                    context.loc.settingsFooter(value.version),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: colorScheme.onSurface,
+                    ),
                   ),
-                );
-              }
-              return SizedBox.shrink();
+                _ => SizedBox.shrink(),
+              };
             },
           ),
           gapH(kHugeSpace),
