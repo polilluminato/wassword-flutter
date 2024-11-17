@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wassword/app/app_router.dart';
 import 'package:wassword/provider/brightness_provider.dart';
 import 'package:wassword/styles/theme/theme.dart';
+import 'package:wassword/styles/theme/theme_util.dart';
 
 class App extends ConsumerWidget {
   App({super.key});
@@ -12,8 +13,7 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Use with Google Fonts package to use downloadable fonts
-    TextTheme textTheme = Theme.of(context).textTheme;
+    TextTheme textTheme = createTextTheme(context, "Nunito", "Nunito");
     MaterialTheme theme = MaterialTheme(textTheme);
 
     return MaterialApp.router(
