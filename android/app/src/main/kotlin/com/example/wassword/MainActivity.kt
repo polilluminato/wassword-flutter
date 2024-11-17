@@ -1,4 +1,4 @@
-package com.albertobonacina.wassword
+package com.example.wassword
 
 import io.flutter.embedding.android.FlutterActivity
 

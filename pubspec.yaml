@@ -49,6 +49,16 @@ flutter_launcher_icons:
 
 # Splash Screen
 flutter_native_splash:
+  #Android
+  android: true
+  android_gravity: center
+  color_android: "#A700B6"
+  image_android: assets/icon/ic_splash.png
+  #iOS
+  ios: true
+  #web
+  web: true
+  web_image_mode: center
   image: assets/icon/ic_splash.png
   color: "#A700B6"
 
