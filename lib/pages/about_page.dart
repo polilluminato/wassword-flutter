@@ -155,7 +155,7 @@ class AboutPage extends StatelessWidget {
               launchURL(context.loc.settingsPageConnectLinkedInLink);
             },
           ),
-          gapH(kHugeSpace),
+          gapH(kMainSpace),
           Consumer(
             builder: (context, ref, _) {
               final packageInfo = ref.watch(packageInfoProvider);
@@ -172,7 +172,7 @@ class AboutPage extends StatelessWidget {
               };
             },
           ),
-          gapH(kHugeSpace),
+          gapH(kMainSpace),
         ],
       ),
     );
