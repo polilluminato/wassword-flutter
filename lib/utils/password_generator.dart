@@ -2,7 +2,7 @@ import 'dart:math';
 
 /*
  * @desc Function to generate passwords based on some criteria
- * @param bool isWithLetters: password must contain letters
+ * @param bool isWithLowercase: password must contain letters
  * @param bool isWithUppercase: password must contain uppercase letters
  * @param bool isWithNumbers: password must contain numbers
  * @param bool isWithSpecial: password must contain special chars

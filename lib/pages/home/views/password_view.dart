@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/l10n/l10n.dart';
-import 'package:wassword/provider/password.dart';
 import 'package:wassword/provider/password_provider.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/action_button.dart';
@@ -22,7 +21,7 @@ class PasswordView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Password password = ref.watch(passwordProvider);
+    final password = ref.watch(passwordProvider);
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return ListView(
