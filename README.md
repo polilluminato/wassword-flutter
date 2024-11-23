@@ -13,8 +13,7 @@ Everything works offline and nothing is shared, your safety comes first.
 
 <p align="center">
   <a href="https://play.google.com/store/apps/details?id=com.albertobonacina.wassword"><img alt="Get it on Google Play" src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" height="50px"/></a>
-  <a href="https://f-droid.org/it/packages/com.albertobonacina.wassword/"><img alt="Get it on F-Droid" src="https://img.shields.io/badge/Fdroid-1976D2?style=for-the-badge&logo=fdroid&logoColor=white" height="50px"/></a>
-  <a href="https://demo.wassword.app"><img alt="Get it on Google Play" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" height="50px"/></a>
+  <a href="https://demo.wassword.app"><img alt="Wassword Web App" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" height="50px"/></a>
 </p>
 
 ### Features
