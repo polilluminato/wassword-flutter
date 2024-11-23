@@ -1,4 +1,4 @@
-<img src="assets/icona/banner_store.png">
+<img src=".github/images/banner_store.png">
 
 <p align="center">
     <a href="https://dart.dev/"><img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"></a>
@@ -29,13 +29,9 @@ Everything works offline and nothing is shared, your safety comes first.
 
 ### 📱 Screenshots
 
-| Screenshot #1 | Screenshot #2 | Screenshot #3 |
-|-|-|-|
-| <img src="screenshot/password_generator.png"> | <img src="screenshot/passphrase_generator.png"> | <img src="screenshot/about.png"> |
-
-| Screenshot Large #1 | Screenshot Large #2 |
-|-|-|
-| <img src="screenshot/password_generator_large.png"> | <img src="screenshot/passphrase_generator_large.png"> |
+| Password Generation                                           | Passphrase Generation                           | Light Mode                                                      |
+|---------------------------------------------------------------|-------------------------------------------------|-----------------------------------------------------------------|
+| <img width="250" src=".github/images/screenshot/screenshot_password.png"> | <img width="250" src=".github/images/screenshot/screenshot_passphrase.png"> | <img width="250" src=".github/images/screenshot/screenshot_light_mode.png"> |
 
 ## 💎 Contributing
 
