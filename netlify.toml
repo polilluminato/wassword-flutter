@@ -7,5 +7,5 @@
 
 [build]
 
-command = "dart run build_runner build & flutter build web --release"
+command = "flutter build web --release"
 publish = "build/web"
