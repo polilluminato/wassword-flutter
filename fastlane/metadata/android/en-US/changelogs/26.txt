@@ -1,0 +1,12 @@
+- New Icon and theme
+- New UI for password generation, now it's clean and smart
+- Added support for future translations of the UI
+- Bugfix
+
+🤓 Nerd stuff
+
+- New routing library, switched from go_router to auto_router
+- New phosphor_flutter icons instead of material default one
+- Upgrade Flutter to 3.24.5
+- Upgrade libraries
+- Upgrade Android SDK to 35
