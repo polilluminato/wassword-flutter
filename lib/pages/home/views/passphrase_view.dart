@@ -5,7 +5,6 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/divider_enum.dart';
 import 'package:wassword/enums/wordlist_enum.dart';
 import 'package:wassword/l10n/l10n.dart';
-import 'package:wassword/provider/passphrase.dart';
 import 'package:wassword/provider/passphrase_provider.dart';
 import 'package:wassword/provider/select_provider.dart';
 import 'package:wassword/styles/decoration.dart';
@@ -25,7 +24,7 @@ class PassphraseView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Passphrase passphrase = ref.watch(passphraseProvider);
+    final passphrase = ref.watch(passphraseProvider);
     final dividerSelected = ref.watch(dividerSelectProvider);
     final wordlistSelected = ref.watch(wordlistSelectProvider);
     ColorScheme colorScheme = Theme.of(context).colorScheme;

@@ -24,7 +24,7 @@ class Password extends _$Password {
     return MyPassword(
       withLowercase: true,
       withUppercase: true,
-      withNumbers: true,
+      withNumbers: false,
       withSpecial: true,
       length: 16,
       password: "not_secure_password",
