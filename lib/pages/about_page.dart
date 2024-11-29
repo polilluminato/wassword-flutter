@@ -60,7 +60,7 @@ class AboutPage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
             child: Text(
-              context.loc.settingsPageAppSection,
+              context.loc.settingsPageAppSection.toUpperCase(),
               style: TextStyle(
                 fontSize: 14,
                 color: colorScheme.onSurface,
