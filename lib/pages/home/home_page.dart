@@ -22,12 +22,12 @@ class HomePage extends ConsumerWidget {
     final List<ScreenTab> tabList = [
       ScreenTab(
         label: context.loc.passwordTabLabel,
-        icon: PhosphorIcons.password(),
+        icon: PhosphorIconsRegular.password,
         content: const PasswordView(),
       ),
       ScreenTab(
         label: context.loc.passphraseTabLabel,
-        icon: PhosphorIcons.textAa(),
+        icon: PhosphorIconsRegular.textAa,
         content: const PassphraseView(),
       ),
     ];
@@ -38,7 +38,7 @@ class HomePage extends ConsumerWidget {
         centerTitle: true,
         leading: IconButton(
           iconSize: 24,
-          icon: Icon(PhosphorIcons.gear()),
+          icon: Icon(PhosphorIconsRegular.gear),
           onPressed: () => context.router.pushNamed('/about'),
         ),
       ),

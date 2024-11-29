@@ -26,7 +26,7 @@ class AboutPage extends StatelessWidget {
       backgroundColor: colorScheme.surface,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(PhosphorIcons.arrowLeft()),
+          icon: const Icon(PhosphorIconsRegular.arrowLeft),
           onPressed: () => context.router.back(),
         ),
         title: Text(context.loc.settingsPageTitle),
@@ -49,7 +49,7 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           AboutRowSwitchTheme(
-            icon: PhosphorIcons.moon(),
+            icon: PhosphorIconsRegular.moon,
             title: context.loc.settingsPageDarkModeTitle,
           ),
           Container(
@@ -68,7 +68,7 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           AboutRow(
-            icon: PhosphorIcons.globe(),
+            icon: PhosphorIconsRegular.globe,
             title: context.loc.settingsPageWebsiteTitle,
             callback: () {
               launchURL(context.loc.settingsPageWebsiteLink);
@@ -79,7 +79,7 @@ class AboutPage extends StatelessWidget {
               final packageInfo = ref.watch(packageInfoProvider);
               return switch (packageInfo) {
                 AsyncData(:final value) => AboutRow(
-                    icon: PhosphorIcons.fileCode(),
+                    icon: PhosphorIconsRegular.fileCode,
                     title: context.loc.settingsPageLicensesTitle,
                     callback: () => showLicensePage(
                       context: context,
@@ -92,14 +92,14 @@ class AboutPage extends StatelessWidget {
             },
           ),
           AboutRow(
-            icon: PhosphorIcons.shieldCheck(),
+            icon: PhosphorIconsRegular.shieldCheck,
             title: context.loc.settingsPagePrivacyPolicyTitle,
             callback: () {
               launchURL(context.loc.settingsPagePrivacyPolicyLink);
             },
           ),
           AboutRow(
-            icon: PhosphorIcons.heart(),
+            icon: PhosphorIconsRegular.heart,
             title: context.loc.settingsPageSponsorTitle,
             callback: () {
               launchURL(context.loc.settingsPageSponsorLink);
@@ -121,35 +121,35 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           AboutRow(
-            icon: PhosphorIcons.userCircle(),
+            icon: PhosphorIconsRegular.userCircle,
             title: context.loc.settingsPagePersonalWebsiteTitle,
             callback: () {
               launchURL(context.loc.settingsPagePersonalWebsiteLink);
             },
           ),
           AboutRow(
-            icon: PhosphorIcons.code(),
+            icon: PhosphorIconsRegular.code,
             title: context.loc.settingsPageFollowGitHubTitle,
             callback: () {
               launchURL(context.loc.settingsPageFollowGitHubLink);
             },
           ),
           AboutRow(
-            icon: PhosphorIcons.xLogo(),
+            icon: PhosphorIconsRegular.xLogo,
             title: context.loc.settingsPageFollowXTitle,
             callback: () {
               launchURL(context.loc.settingsPageFollowXLink);
             },
           ),
           AboutRow(
-            icon: PhosphorIcons.mastodonLogo(),
+            icon: PhosphorIconsRegular.mastodonLogo,
             title: context.loc.settingsPageFollowMastodonTitle,
             callback: () {
               launchURL(context.loc.settingsPageFollowMastodonLink);
             },
           ),
           AboutRow(
-            icon: PhosphorIcons.linkedinLogo(),
+            icon: PhosphorIconsRegular.linkedinLogo,
             title: context.loc.settingsPageConnectLinkedInTitle,
             callback: () {
               launchURL(context.loc.settingsPageConnectLinkedInLink);

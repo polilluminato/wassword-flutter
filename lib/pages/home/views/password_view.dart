@@ -61,7 +61,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: context.loc.passwordGeneratorLowercaseTitle,
                 description: context.loc.passwordGeneratorLowercaseDescription,
-                icon: PhosphorIcons.textAa(),
+                icon: PhosphorIconsRegular.textAa,
                 active: password.withLowercase,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeLowercase(),
@@ -70,7 +70,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: context.loc.passwordGeneratorUppercaseTitle,
                 description: context.loc.passwordGeneratorUppercaseDescription,
-                icon: PhosphorIcons.textB(),
+                icon: PhosphorIconsRegular.textB,
                 active: password.withUppercase,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeUppercase(),
@@ -88,7 +88,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: context.loc.passwordGeneratorNumbersTitle,
                 description: context.loc.passwordGeneratorNumbersDescription,
-                icon: PhosphorIcons.numberSquareOne(),
+                icon: PhosphorIconsRegular.numberSquareOne,
                 active: password.withNumbers,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeNumbers(),
@@ -97,7 +97,7 @@ class PasswordView extends ConsumerWidget {
               OptionButton(
                 title: context.loc.passwordGeneratorSpecialTitle,
                 description: context.loc.passwordGeneratorSpecialDescription,
-                icon: PhosphorIcons.star(),
+                icon: PhosphorIconsRegular.star,
                 active: password.withSpecial,
                 callback: () =>
                     ref.read(passwordProvider.notifier).changeSpecial(),
@@ -115,7 +115,7 @@ class PasswordView extends ConsumerWidget {
               flex: 3,
               child: ActionButton(
                 text: context.loc.buttonGenerateLabel,
-                icon: PhosphorIcons.arrowsClockwise(),
+                icon: PhosphorIconsRegular.arrowsClockwise,
                 isMain: true,
                 callback: () =>
                     ref.read(passwordProvider.notifier).updatePassword(),
@@ -126,7 +126,7 @@ class PasswordView extends ConsumerWidget {
               flex: 2,
               child: ActionButton(
                 text: context.loc.buttonCopyLabel,
-                icon: PhosphorIcons.copy(),
+                icon: PhosphorIconsRegular.copy,
                 isMain: false,
                 callback: () => _copyToClipboard(password.password, context),
               ),

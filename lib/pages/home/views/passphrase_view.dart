@@ -121,7 +121,7 @@ class PassphraseView extends ConsumerWidget {
               flex: 3,
               child: ActionButton(
                 text: context.loc.buttonGenerateLabel,
-                icon: PhosphorIcons.arrowsClockwise(),
+                icon: PhosphorIconsRegular.arrowsClockwise,
                 isMain: true,
                 callback: () =>
                     ref.read(passphraseProvider.notifier).updatePassphrase(),
@@ -132,7 +132,7 @@ class PassphraseView extends ConsumerWidget {
               flex: 2,
               child: ActionButton(
                 text: context.loc.buttonCopyLabel,
-                icon: PhosphorIcons.copy(),
+                icon: PhosphorIconsRegular.copy,
                 isMain: false,
                 callback: () =>
                     _copyToClipboard(passphrase.passphrase, context),
