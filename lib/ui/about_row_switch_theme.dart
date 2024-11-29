@@ -4,8 +4,12 @@ import 'package:wassword/provider/brightness_provider.dart';
 import 'package:wassword/styles/dimens.dart';
 
 class AboutRowSwitchTheme extends ConsumerWidget {
-  const AboutRowSwitchTheme(
-      {super.key, required this.title, required this.icon, this.isDark = true});
+  const AboutRowSwitchTheme({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.isDark = true,
+  });
 
   final String title;
   final IconData icon;

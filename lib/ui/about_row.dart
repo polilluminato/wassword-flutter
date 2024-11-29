@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:wassword/styles/dimens.dart';
 
 class AboutRow extends StatelessWidget {
-  const AboutRow(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.callback});
+  const AboutRow({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.callback,
+  });
 
   final String title;
   final IconData icon;
