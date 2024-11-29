@@ -7,6 +7,7 @@ import 'package:wassword/l10n/l10n.dart';
 import 'package:wassword/styles/dimens.dart';
 import 'package:wassword/ui/about_row.dart';
 import 'package:wassword/ui/about_row_switch_theme.dart';
+import 'package:wassword/ui/section_about_row.dart';
 import 'package:wassword/utils/utils.dart';
 import 'package:wassword/provider/appinfo_provider.dart';
 
@@ -33,39 +34,15 @@ class AboutPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Container(
-            padding: const EdgeInsets.only(
-              left: kMainPadding,
-              bottom: kSmallPadding,
-              top: kMainPadding,
-            ),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              context.loc.settingsPageThemeSection.toUpperCase(),
-              style: TextStyle(
-                fontSize: 14,
-                color: colorScheme.onSurface,
-              ),
-            ),
+          SectionAboutRow(
+            title: context.loc.settingsPageThemeSection.toUpperCase(),
           ),
           AboutRowSwitchTheme(
             icon: PhosphorIconsRegular.moon,
             title: context.loc.settingsPageDarkModeTitle,
           ),
-          Container(
-            padding: const EdgeInsets.only(
-              left: kMainPadding,
-              bottom: kSmallPadding,
-              top: kSmallPadding,
-            ),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              context.loc.settingsPageAppSection.toUpperCase(),
-              style: TextStyle(
-                fontSize: 14,
-                color: colorScheme.onSurface,
-              ),
-            ),
+          SectionAboutRow(
+            title: context.loc.settingsPageAppSection.toUpperCase(),
           ),
           AboutRow(
             icon: PhosphorIconsRegular.globe,
@@ -105,20 +82,8 @@ class AboutPage extends StatelessWidget {
               launchURL(context.loc.settingsPageSponsorLink);
             },
           ),
-          Container(
-            padding: const EdgeInsets.only(
-              left: kMainPadding,
-              bottom: kSmallPadding,
-              top: kSmallPadding,
-            ),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              context.loc.settingsPageDeveloperSection.toUpperCase(),
-              style: TextStyle(
-                fontSize: 14,
-                color: colorScheme.onSurface,
-              ),
-            ),
+          SectionAboutRow(
+            title: context.loc.settingsPageDeveloperSection.toUpperCase(),
           ),
           AboutRow(
             icon: PhosphorIconsRegular.userCircle,
