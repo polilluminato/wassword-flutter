@@ -43,6 +43,13 @@
       }
    },
 
+   "supportedLanguageEN": "English",
+   "supportedLanguageIT": "Italian",
+   "supportedLanguageES": "Spanish",
+   "supportedLanguageDE": "German",
+   "supportedLanguageFR": "French",
+   "supportedLanguagePT": "Portuguese",
+
    "passwordGeneratorLowercaseTitle": "Lowercase",
    "passwordGeneratorLowercaseDescription": "abc",
    "passwordGeneratorUppercaseTitle": "Uppercase",
