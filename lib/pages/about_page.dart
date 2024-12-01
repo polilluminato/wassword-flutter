@@ -24,7 +24,6 @@ class AboutPage extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(PhosphorIconsRegular.arrowLeft),
@@ -35,11 +34,16 @@ class AboutPage extends StatelessWidget {
       body: ListView(
         children: [
           SectionAboutRow(
-            title: context.loc.settingsPageThemeSection.toUpperCase(),
+            title: context.loc.settingsPagePersonalizationSection.toUpperCase(),
           ),
           AboutRowSwitchTheme(
             icon: PhosphorIconsRegular.moon,
             title: context.loc.settingsPageDarkModeTitle,
+          ),
+          AboutRow(
+            icon: PhosphorIconsRegular.translate,
+            title: context.loc.settingsPageLanguageTitle,
+            callback: () => context.router.pushNamed('/language-selection'),
           ),
           SectionAboutRow(
             title: context.loc.settingsPageAppSection.toUpperCase(),

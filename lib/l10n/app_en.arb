@@ -5,13 +5,14 @@
    "appTitle": "Wassword",
 
    "settingsPageTitle": "Settings",
-   "settingsPageThemeSection": "Theme",
+   "settingsPagePersonalizationSection": "Personalization",
    "settingsPageDarkModeTitle": "Dark Mode",
 
    "passwordTabLabel": "Password",
    "passphraseTabLabel": "Passphrase",
 
    "settingsPageAppSection": "App",
+   "settingsPageLanguageTitle": "Languages",
    "settingsPageWebsiteTitle": "Website",
    "settingsPageWebsiteLink": "https://wassword.app",
    "settingsPageLicensesTitle": "Licenses",
@@ -53,6 +54,8 @@
 
    "passphraseGeneratorWordlistSelect": "Wordlist",
    "passphraseGeneratorDividerSelect": "Divider",
+
+   "languagePageTitle": "Language Selection",
 
    "buttonGenerateLabel": "Generate",
    "buttonCopyLabel": "Copy",

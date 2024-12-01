@@ -72,3 +72,4 @@ flutter:
   assets:
     - assets/
     - assets/icon/
+    - assets/flags/

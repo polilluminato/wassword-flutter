@@ -32,6 +32,10 @@ Everything works offline and nothing is shared, your safety comes first.
 |---------------------------------------------------------------|-------------------------------------------------|-----------------------------------------------------------------|
 | <img width="250" src=".github/images/screenshot/screenshot_password.png"> | <img width="250" src=".github/images/screenshot/screenshot_passphrase.png"> | <img width="250" src=".github/images/screenshot/screenshot_light_mode.png"> |
 
+## Credits 
+
+* <a href="https://www.flaticon.com/authors/freepik" title="flaticon.com Freepik">Flag icons created by Freepik - Flaticon</a>
+
 ## 💎 Contributing
 
 If you have any idea, feel free to fork it and submit your changes back to me.

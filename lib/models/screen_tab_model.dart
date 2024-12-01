@@ -5,5 +5,9 @@ class ScreenTab {
   final IconData icon;
   final Widget content;
 
-  ScreenTab({required this.label, required this.icon, required this.content});
+  ScreenTab({
+    required this.label,
+    required this.icon,
+    required this.content,
+  });
 }
