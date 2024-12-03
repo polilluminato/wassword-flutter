@@ -130,7 +130,8 @@ class AboutPage extends StatelessWidget {
               final packageInfo = ref.watch(packageInfoProvider);
               return switch (packageInfo) {
                 AsyncData(:final value) => Text(
-                    context.loc.settingsFooter(value.version),
+                    context.loc.settingsFooter
+                        .replaceAll("@@version@@", value.version),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 12,

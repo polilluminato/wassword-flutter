@@ -32,16 +32,7 @@
    "settingsPageFollowMastodonLink": "hhttps://fluttercommunity.social/@polilluminato",
    "settingsPageConnectLinkedInTitle": "Connect on LinkedIn",
    "settingsPageConnectLinkedInLink": "https://www.linkedin.com/in/bonacinaalberto",
-
-   "settingsFooter": "Wassword {version}\nMade with ☕ and \uD83D\uDC99 by Alberto Bonacina",
-   "@settingsFooter" : {
-      "placeholders": {
-         "version": {
-            "type": "String",
-            "example": "1"
-         }
-      }
-   },
+   "settingsFooter": "Wassword @@version@@\nMade with ☕ and \uD83D\uDC99 by Alberto Bonacina",
 
    "supportedLanguageEN": "English",
    "supportedLanguageIT": "Italian",
