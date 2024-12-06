@@ -36,11 +36,19 @@ Everything works offline and nothing is shared, your safety comes first.
 
 * <a href="https://www.flaticon.com/authors/freepik" title="flaticon.com Freepik">Flag icons created by Freepik - Flaticon</a>
 
-## 💎 Contributing
+## 💎 Contributions
 
-If you have any idea, feel free to fork it and submit your changes back to me.
+Feel free to contribute to this project.
 
-<img alt="Get it on Google Play" src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" />
+If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue](https://github.com/polilluminato/wassword-flutter/issues).<br>
+If you fixed a bug or implemented a feature, please send a [pull request](https://github.com/polilluminato/wassword-flutter/pulls).
+
+<a href="https://github.com/polilluminato/wassword-flutter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=polilluminato/wassword-flutter" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 
 ## 📋 License
 
