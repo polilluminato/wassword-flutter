@@ -20,8 +20,8 @@ for ((i=1; i<${#languages[@]}; i++)); do
     echo "{" > "$output_file"
 done
 
-# Process each line of the CSV file
-while IFS=',' read -r -a fields; do
+# Process each line of the CSV file (skipping the header)
+tail -n +2 "$CSV_FILE" | while IFS=',' read -r -a fields || [ -n "$fields" ]; do
     # Get the key (first column)
     key=$(echo "${fields[0]}" | tr -d '"' | tr -d '[:space:]\r')
     
@@ -45,7 +45,7 @@ while IFS=',' read -r -a fields; do
             echo "   \"$key\": \"$value\"," >> "$output_file"
         fi
     done
-done < "$CSV_FILE"
+done
 
 # Finalize each file
 for ((i=1; i<${#languages[@]}; i++)); do
