@@ -16,7 +16,7 @@ class PasswordView extends ConsumerWidget {
 
   void _copyToClipboard(String newPassword, BuildContext context) {
     Clipboard.setData(ClipboardData(text: newPassword));
-    showMyToast(context.loc.toastLabelPasswordCopied, context);
+    showMyToast(context, context.loc.toastLabelPasswordCopied);
   }
 
   @override

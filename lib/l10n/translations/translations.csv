@@ -1,51 +1,52 @@
-"-","en"
-"@@locale","en"
-"@@author","Alberto Bonacina"
-"appName","Wassword"
-"appTitle","Wassword"
-"settingsPageTitle","Settings"
-"settingsPagePersonalizationSection","Personalization"
-"settingsPageDarkModeTitle","Dark Mode"
-"passwordTabLabel","Password"
-"passphraseTabLabel","Passphrase"
-"settingsPageAppSection","App"
-"settingsPageLanguageTitle","Languages"
-"settingsPageWebsiteTitle","Website"
-"settingsPageWebsiteLink","https://wassword.app"
-"settingsPageLicensesTitle","Licenses"
-"settingsPagePrivacyPolicyTitle","Privacy Policy"
-"settingsPagePrivacyPolicyLink","https://github.com/polilluminato/wassword-flutter"
-"settingsPageSponsorTitle","Sponsor"
-"settingsPageSponsorLink","https://github.com/sponsors/polilluminato"
-"settingsPageDeveloperSection","Developer"
-"settingsPagePersonalWebsiteTitle","Personal Website"
-"settingsPagePersonalWebsiteLink","https://www.albertobonacina.com/"
-"settingsPageFollowGitHubTitle","Follow on GitHub"
-"settingsPageFollowGitHubLink","https://www.github.com/polilluminato"
-"settingsPageFollowXTitle","Follow on X"
-"settingsPageFollowXLink","https://www.twitter.com/polilluminato"
-"settingsPageFollowMastodonTitle","Follow on Mastodon"
-"settingsPageFollowMastodonLink","hhttps://fluttercommunity.social/@polilluminato"
-"settingsPageConnectLinkedInTitle","Connect on LinkedIn"
-"settingsPageConnectLinkedInLink","https://www.linkedin.com/in/bonacinaalberto"
-"settingsFooter","Wassword @@version@@\nMade with ☕ and \uD83D\uDC99 by Alberto Bonacina"
-"supportedLanguageEN","English"
-"supportedLanguageIT","Italian"
-"supportedLanguageES","Spanish"
-"supportedLanguageDE","German"
-"supportedLanguageFR","French"
-"supportedLanguagePT","Portuguese"
-"passwordGeneratorLowercaseTitle","Lowercase"
-"passwordGeneratorLowercaseDescription","abc"
-"passwordGeneratorUppercaseTitle","Uppercase"
-"passwordGeneratorUppercaseDescription","ABC"
-"passwordGeneratorNumbersTitle","Numbers"
-"passwordGeneratorNumbersDescription","123"
-"passwordGeneratorSpecialTitle","Special"
-"passwordGeneratorSpecialDescription","@£*"
-"passphraseGeneratorWordlistSelect","Wordlist"
-"passphraseGeneratorDividerSelect","Divider"
-"languagePageTitle","Language Selection"
-"buttonGenerateLabel","Generate"
-"buttonCopyLabel","Copy"
-"toastLabelPasswordCopied","Password copied to clipboard"
+-,en,it,de,es,fr,pt
+@@locale,en,it,de,es,fr,pt
+@@author,Alberto Bonacina,Alberto Bonacina,Alberto Bonacina,Alberto Bonacina,Alberto Bonacina,Alberto Bonacina
+appName,Wassword,Wassword,Wassword,Wassword,Wassword,Wassword
+appTitle,Wassword,Wassword,Wassword,Wassword,Wassword,Wassword
+settingsPageTitle,Settings,Impostazioni,Einstellungen,Ajustes,Paramètres,Configurações
+settingsPagePersonalizationSection,Personalization,Personalizzazione,Personalisierung,Personalización,Personnalisation,Personalização
+settingsPageDarkModeTitle,Dark Mode,Modalità scura,Dunkler Modus,Modo oscuro,Mode sombre,Modo escuro
+passwordTabLabel,Password,Password,Passwort,Contraseña,Mot de passe,Senha
+passphraseTabLabel,Passphrase,Passphrase,Passphrase,frase de contraseña,Phrase secrète,Senha
+settingsPageAppSection,App,App,App,Aplicación,Application,Aplicativo
+settingsPageLanguageTitle,Languages,Lingue,Sprachen,Idiomas,Langues,Idiomas
+settingsPageWebsiteTitle,Website,Sito web,Webseite,Sitio web,Site web,Site
+settingsPageWebsiteLink,https://wassword.app,https://wassword.app,https://wassword.app,https://wassword.app,https://wassword.app,https://wassword.app
+settingsPageLicensesTitle,Licenses,Licenze,Lizenzen,Licencias,Licences,Licenças
+settingsPagePrivacyPolicyTitle,Privacy Policy,Politica sulla riservatezza,Datenschutzrichtlinie,Política de privacidad,Politique de confidentialité,Política de Privacidade
+settingsPagePrivacyPolicyLink,https://github.com/polilluminato/wassword-flutter,https://github.com/polilluminato/wassword-flutter,https://github.com/polilluminato/wassword-flutter,https://github.com/polilluminato/wassword-flutter,https://github.com/polilluminato/wassword-flutter,https://github.com/polilluminato/wassword-flutter
+settingsPageSponsorTitle,Sponsor,Sponsor,Sponsor,Patrocinador,Parrainer,Patrocinador
+settingsPageSponsorLink,https://github.com/sponsors/polilluminato,https://github.com/sponsors/polilluminato,https://github.com/sponsors/polilluminato,https://github.com/sponsors/polilluminato,https://github.com/sponsors/polilluminato,https://github.com/sponsors/polilluminato
+settingsPageDeveloperSection,Developer,Sviluppatore,Entwickler,Revelador,Promoteur,Desenvolvedor
+settingsPagePersonalWebsiteTitle,Personal Website,Sito personale,Persönliche Website,Sitio web personal,Site Web personnel,Site pessoal
+settingsPagePersonalWebsiteLink,https://www.albertobonacina.com/,https://www.albertobonacina.com/,https://www.albertobonacina.com/,https://www.albertobonacina.com/,https://www.albertobonacina.com/,https://www.albertobonacina.com/
+settingsPageFollowGitHubTitle,Follow on GitHub,Segui su GitHub,Folgen Sie auf GitHub,Seguir en GitHub,Suivez sur GitHub,Siga no GitHub
+settingsPageFollowGitHubLink,https://www.github.com/polilluminato,https://www.github.com/polilluminato,https://www.github.com/polilluminato,https://www.github.com/poliluminato,https://www.github.com/polilluminato,https://www.github.com/polilluminato
+settingsPageFollowXTitle,Follow on X,Segui su X,Folgen Sie X,Sigue en X,Suivre sur X,Siga no X
+settingsPageFollowXLink,https://www.twitter.com/polilluminato,https://www.twitter.com/polilluminato,https://www.twitter.com/polilluminato,https://www.twitter.com/poliluminato,https://www.twitter.com/polilluminato,https://www.twitter.com/polilluminato
+settingsPageFollowMastodonTitle,Follow on Mastodon,Segui su Mastodonte,Folgen Sie Mastodon,Sigue en Mastodonte,Suivez Mastodon,Siga no Mastodonte
+settingsPageFollowMastodonLink,https://fluttercommunity.social/@polilluminato,https://fluttercommunity.social/@polilluminato,https://fluttercommunity.social/@polilluminato,https://fluttercommunity.social/@polilluminato,https://fluttercommunity.social/@polilluminato,https://fluttercommunity.social/@polilluminato
+settingsPageConnectLinkedInTitle,Connect on LinkedIn,Connettiti su LinkedIn,Vernetzen Sie sich auf LinkedIn,Conéctate en LinkedIn,Connectez-vous sur LinkedIn,Conecte-se no LinkedIn
+settingsPageConnectLinkedInLink,https://www.linkedin.com/in/bonacinaalberto,https://www.linkedin.com/in/bonacinaalberto,https://www.linkedin.com/in/bonacinaalberto,https://www.linkedin.com/in/bonacinaalberto,https://www.linkedin.com/in/bonacinaalberto,https://www.linkedin.com/in/bonacinaalberto
+settingsFooter,Wassword @@version@@\nMade with ☕ and \uD83D\uDC99 by Alberto Bonacina,Wassword @@version@@\nMade with ☕ e \uD83D\uDC99 by Alberto Bonacina,Wassword @@version@@\nErstellt mit ☕ und \uD83D\uDC99 von Alberto Bonacina,Wassword @@version@@\nHecho con ☕ y \uD83D\uDC99 por Alberto Bonacina,Wassword @@version@@\nRéalisé avec ☕ et \uD83D\uDC99 par Alberto Bonacina,Wassword @@version@@\nFeito com ☕ e \uD83D\uDC99 por Alberto Bonacina
+supportedLanguageEN,English,Inglese,Englisch,Inglés,Anglais,Inglês
+supportedLanguageIT,Italian,Italiano,Italienisch,Italiano,Italien,Italiano
+supportedLanguageES,Spanish,Spagnolo,Spanisch,Español,Espagnol,Espanhol
+supportedLanguageDE,German,Tedesco,Deutsch,Alemán,Allemand,Alemão
+supportedLanguageFR,French,Francese,Französisch,Francés,Français,Francês
+supportedLanguagePT,Portuguese,Portoghese,Portugiesisch,Portugués,Portugais,Português
+passwordGeneratorLowercaseTitle,Lowercase,Minuscolo,Kleinbuchstaben,Minúsculas,Minuscule,Minúsculas
+passwordGeneratorLowercaseDescription,abc,abc,abc,acb,abc,abc
+passwordGeneratorUppercaseTitle,Uppercase,Maiuscolo,Großbuchstaben,Mayúsculas,Majuscule,Maiúsculas
+passwordGeneratorUppercaseDescription,ABC,ABC,ABC,ABC,ABC,ABC
+passwordGeneratorNumbersTitle,Numbers,Numeri,Zahlen,Números,Nombres,Números
+passwordGeneratorNumbersDescription,123,123,123,123,123,123
+passwordGeneratorSpecialTitle,Special,Speciale,Besonders,Especial,Spécial,Especial
+passwordGeneratorSpecialDescription,@£*,@£*,@£*,@£*,@£*,@£*
+passphraseGeneratorWordlistSelect,Wordlist,Elenco di parole,Wortliste,Lista de palabras,Liste de mots,Lista de palavras
+passphraseGeneratorDividerSelect,Divider,Divisore,Teiler,Divisor,Diviseur,Divisor
+languagePageTitle,Language Selection,Selezione della lingua,Sprachauswahl,Selección de idioma,Sélection de la langue,Seleção de idioma
+buttonGenerateLabel,Generate,Genera,Erzeugen,Generar,Générer,Gerar
+buttonCopyLabel,Copy,Copia,Kopie,Copiar,Copie,Cópia
+toastLabelPasswordCopied,Password copied to clipboard,Password copiata negli appunti,Passwort in die Zwischenablage kopiert,Contraseña copiada al portapapeles,Mot de passe copié dans le presse-papiers,Senha copiada para a área de transferência
+toastLabelPassphraseCopied, Passphrase copied to clipboard,Passphrase copiata negli appunti,Passephrase in Zwischenablage kopiert,Frase de contraseña copiada al portapapeles,Phrase secrète copiée dans le presse-papiers,Senha copiada para a área de transferência

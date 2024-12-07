@@ -25,7 +25,7 @@
    "settingsPageFollowXTitle": "Follow on X",
    "settingsPageFollowXLink": "https://www.twitter.com/polilluminato",
    "settingsPageFollowMastodonTitle": "Follow on Mastodon",
-   "settingsPageFollowMastodonLink": "hhttps://fluttercommunity.social/@polilluminato",
+   "settingsPageFollowMastodonLink": "https://fluttercommunity.social/@polilluminato",
    "settingsPageConnectLinkedInTitle": "Connect on LinkedIn",
    "settingsPageConnectLinkedInLink": "https://www.linkedin.com/in/bonacinaalberto",
    "settingsFooter": "Wassword @@version@@\nMade with ☕ and \uD83D\uDC99 by Alberto Bonacina",
@@ -48,5 +48,6 @@
    "languagePageTitle": "Language Selection",
    "buttonGenerateLabel": "Generate",
    "buttonCopyLabel": "Copy",
-   "toastLabelPasswordCopied": "Password copied to clipboard"
+   "toastLabelPasswordCopied": "Password copied to clipboard",
+   "toastLabelPassphraseCopied": " Passphrase copied to clipboard"
 }

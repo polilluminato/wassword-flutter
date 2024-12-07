@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void showMyToast(String message, BuildContext context) {
+void showMyToast(BuildContext context, String message) {
   showToast(
     message,
     context: context,

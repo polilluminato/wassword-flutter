@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/l10n/l10n.dart';
 import 'package:wassword/models/language_choice.dart';
+import 'package:wassword/provider/common_provider.dart';
 import 'package:wassword/ui/language_choice_row.dart';
 
 @RoutePage()
@@ -14,14 +15,14 @@ class LanguagePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // List of supported languages
     final List<LanguageChoice> languages = [
-      LanguageChoice(iso2Code: 'DE', name: context.loc.supportedLanguageDE),
-      LanguageChoice(iso2Code: 'EN', name: context.loc.supportedLanguageEN),
-      LanguageChoice(iso2Code: 'IT', name: context.loc.supportedLanguageIT),
-      LanguageChoice(iso2Code: 'ES', name: context.loc.supportedLanguageES),
-      LanguageChoice(iso2Code: 'FR', name: context.loc.supportedLanguageFR),
-      LanguageChoice(iso2Code: 'PT', name: context.loc.supportedLanguagePT),
+      LanguageChoice(iso2Code: 'de', name: context.loc.supportedLanguageDE),
+      LanguageChoice(iso2Code: 'en', name: context.loc.supportedLanguageEN),
+      LanguageChoice(iso2Code: 'it', name: context.loc.supportedLanguageIT),
+      LanguageChoice(iso2Code: 'es', name: context.loc.supportedLanguageES),
+      LanguageChoice(iso2Code: 'fr', name: context.loc.supportedLanguageFR),
+      LanguageChoice(iso2Code: 'pt', name: context.loc.supportedLanguagePT),
     ];
-    // Sort languages alphabetically by name
+    // Sort languages by iso2Code
     languages.sort((a, b) => a.name.compareTo(b.name));
 
     return Scaffold(
@@ -37,10 +38,7 @@ class LanguagePage extends ConsumerWidget {
         itemBuilder: (context, index) {
           return LanguageChoiceRow(
             language: languages[index],
-            callback: () {
-              // Handle language selection here
-              // You might want to use a provider to manage the selected language
-            },
+            provider: languageChoiceProvider,
           );
         },
       ),

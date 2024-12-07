@@ -19,7 +19,7 @@ class PassphraseView extends ConsumerWidget {
 
   void _copyToClipboard(String newPassphrase, BuildContext context) {
     Clipboard.setData(ClipboardData(text: newPassphrase));
-    showMyToast("Passphrase copied to clipboard", context);
+    showMyToast(context, context.loc.toastLabelPassphraseCopied);
   }
 
   @override

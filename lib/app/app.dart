@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wassword/app/app_router.dart';
 import 'package:wassword/provider/brightness_provider.dart';
+import 'package:wassword/provider/common_provider.dart';
 import 'package:wassword/styles/theme/theme.dart';
 import 'package:wassword/styles/theme/theme_util.dart';
 
@@ -17,9 +19,10 @@ class App extends ConsumerWidget {
     MaterialTheme theme = MaterialTheme(textTheme);
 
     return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: kDebugMode,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(ref.watch(languageChoiceProvider)),
       routerConfig: _appRouter.config(),
       theme: ref.watch(brightnessProvider) == Brightness.dark
           ? theme.dark()
