@@ -97,7 +97,7 @@ class AboutPage extends StatelessWidget {
             },
           ),
           AboutRow(
-            icon: PhosphorIconsRegular.code,
+            icon: PhosphorIconsRegular.githubLogo,
             title: context.loc.settingsPageFollowGitHubTitle,
             callback: () {
               launchURL(context.loc.settingsPageFollowGitHubLink);
