@@ -1,0 +1,7 @@
+- Removed unused permissions
+- Added page with list of licences for packages used
+
+🤓 Nerd stuff
+
+- Upgrade Flutter to 3.27.1
+- Upgrade libraries
