@@ -121,7 +121,7 @@ class PassphraseView extends ConsumerWidget {
               flex: 3,
               child: ActionButton(
                 text: context.loc.buttonGenerateLabel,
-                icon: PhosphorIconsRegular.arrowsClockwise,
+                icon: PhosphorIconsRegular.cpu,
                 isMain: true,
                 callback: () =>
                     ref.read(passphraseProvider.notifier).updatePassphrase(),

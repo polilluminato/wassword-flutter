@@ -73,19 +73,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'https://www.github.com/polilluminato';
 
   @override
-  String get settingsPageFollowXTitle => 'Follow on X';
-
-  @override
-  String get settingsPageFollowXLink => 'https://www.twitter.com/polilluminato';
-
-  @override
-  String get settingsPageFollowMastodonTitle => 'Follow on Mastodon';
-
-  @override
-  String get settingsPageFollowMastodonLink =>
-      'hhttps://fluttercommunity.social/@polilluminato';
-
-  @override
   String get settingsPageConnectLinkedInTitle => 'Connect on LinkedIn';
 
   @override

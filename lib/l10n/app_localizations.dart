@@ -214,30 +214,6 @@ abstract class AppLocalizations {
   /// **'https://www.github.com/polilluminato'**
   String get settingsPageFollowGitHubLink;
 
-  /// No description provided for @settingsPageFollowXTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Follow on X'**
-  String get settingsPageFollowXTitle;
-
-  /// No description provided for @settingsPageFollowXLink.
-  ///
-  /// In en, this message translates to:
-  /// **'https://www.twitter.com/polilluminato'**
-  String get settingsPageFollowXLink;
-
-  /// No description provided for @settingsPageFollowMastodonTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Follow on Mastodon'**
-  String get settingsPageFollowMastodonTitle;
-
-  /// No description provided for @settingsPageFollowMastodonLink.
-  ///
-  /// In en, this message translates to:
-  /// **'hhttps://fluttercommunity.social/@polilluminato'**
-  String get settingsPageFollowMastodonLink;
-
   /// No description provided for @settingsPageConnectLinkedInTitle.
   ///
   /// In en, this message translates to:

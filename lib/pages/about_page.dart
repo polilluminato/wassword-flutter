@@ -93,24 +93,10 @@ class AboutPage extends StatelessWidget {
             },
           ),
           AboutRow(
-            icon: PhosphorIconsRegular.code,
+            icon: PhosphorIconsRegular.githubLogo,
             title: context.loc.settingsPageFollowGitHubTitle,
             callback: () {
               launchURL(context.loc.settingsPageFollowGitHubLink);
-            },
-          ),
-          AboutRow(
-            icon: PhosphorIconsRegular.xLogo,
-            title: context.loc.settingsPageFollowXTitle,
-            callback: () {
-              launchURL(context.loc.settingsPageFollowXLink);
-            },
-          ),
-          AboutRow(
-            icon: PhosphorIconsRegular.mastodonLogo,
-            title: context.loc.settingsPageFollowMastodonTitle,
-            callback: () {
-              launchURL(context.loc.settingsPageFollowMastodonLink);
             },
           ),
           AboutRow(
