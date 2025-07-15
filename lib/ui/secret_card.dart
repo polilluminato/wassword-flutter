@@ -29,7 +29,7 @@ class SecretCard extends StatelessWidget {
           width: 1,
         ),
         borderRadius: const BorderRadius.all(
-          Radius.circular(kHugeRoundedCorner),
+          Radius.circular(kMainRoundedCorner),
         ),
       ),
       padding: const EdgeInsets.symmetric(
