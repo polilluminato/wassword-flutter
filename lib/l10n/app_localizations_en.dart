@@ -46,7 +46,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsPagePrivacyPolicyLink =>
-      'https://github.com/polilluminato/wassword-flutter';
+      'https://github.com/polilluminato/wassword-flutter/blob/main/privacy_policy.md';
 
   @override
   String get settingsPageSponsorTitle => 'Sponsor';

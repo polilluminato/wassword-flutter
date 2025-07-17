@@ -169,7 +169,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsPagePrivacyPolicyLink.
   ///
   /// In en, this message translates to:
-  /// **'https://github.com/polilluminato/wassword-flutter'**
+  /// **'https://github.com/polilluminato/wassword-flutter/blob/main/privacy_policy.md'**
   String get settingsPagePrivacyPolicyLink;
 
   /// No description provided for @settingsPageSponsorTitle.
