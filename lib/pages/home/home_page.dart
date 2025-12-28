@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:wassword/app/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wassword/enums/windowsize_enum.dart';
 import 'package:wassword/l10n/l10n.dart';
@@ -9,7 +11,17 @@ import 'package:wassword/pages/home/views/passphrase_view.dart';
 import 'package:wassword/pages/home/views/password_view.dart';
 import 'package:wassword/utils/utils.dart';
 
-final tabProvider = StateProvider<int>((ref) => 0);
+part 'home_page.g.dart';
+
+@Riverpod(keepAlive: true)
+class Tab extends _$Tab {
+  @override
+  int build() => 0;
+
+  void set(int value) {
+    state = value;
+  }
+}
 
 @RoutePage()
 class HomePage extends ConsumerWidget {
@@ -39,7 +51,7 @@ class HomePage extends ConsumerWidget {
         leading: IconButton(
           iconSize: 24,
           icon: Icon(PhosphorIconsRegular.gear),
-          onPressed: () => context.router.pushNamed('/about'),
+          onPressed: () => context.router.push(const AboutRoute()),
         ),
       ),
       body: Row(
@@ -51,7 +63,7 @@ class HomePage extends ConsumerWidget {
               selectedIndex: ref.watch(tabProvider),
               // Called when one tab is selected
               onDestinationSelected: (int index) {
-                ref.read(tabProvider.notifier).update((state) => index);
+                ref.read(tabProvider.notifier).set(index);
               },
               // navigation rail items
               destinations: tabList
@@ -75,7 +87,7 @@ class HomePage extends ConsumerWidget {
       bottomNavigationBar: screenSizeWidth < WindowSizeEnum.tabletPortrait.width
           ? NavigationBar(
               onDestinationSelected: (int index) {
-                ref.read(tabProvider.notifier).update((state) => index);
+                ref.read(tabProvider.notifier).set(index);
               },
               selectedIndex: ref.watch(tabProvider),
               destinations: tabList

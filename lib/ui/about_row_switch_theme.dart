@@ -31,7 +31,7 @@ class AboutRowSwitchTheme extends ConsumerWidget {
           value: bProvider == Brightness.dark,
           onChanged: (value) => ref
               .read(brightnessProvider.notifier)
-              .update((state) => value ? Brightness.dark : Brightness.light),
+              .set(value ? Brightness.dark : Brightness.light),
         ),
       ),
     );

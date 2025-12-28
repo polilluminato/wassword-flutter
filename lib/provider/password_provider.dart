@@ -6,7 +6,7 @@ part 'password_provider.freezed.dart';
 part 'password_provider.g.dart';
 
 @freezed
-class MyPassword with _$MyPassword {
+abstract class MyPassword with _$MyPassword {
   factory MyPassword({
     required bool withLowercase,
     required bool withUppercase,

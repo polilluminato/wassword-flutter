@@ -13,7 +13,8 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    TextTheme textTheme = createTextTheme(context, "Nunito", "Nunito");
+    TextTheme textTheme =
+        createTextTheme(context, "GoogleSansFlex", "GoogleSansFlex");
     MaterialTheme theme = MaterialTheme(textTheme);
 
     return MaterialApp.router(

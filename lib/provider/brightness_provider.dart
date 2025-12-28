@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final brightnessProvider = StateProvider<Brightness>((ref) => Brightness.dark);
+part 'brightness_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class BrightnessNotifier extends _$BrightnessNotifier {
+  @override
+  Brightness build() => Brightness.dark;
+
+  void set(Brightness value) {
+    state = value;
+  }
+}

@@ -6,20 +6,51 @@ part of 'password_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$passwordHash() => r'af08782c1ca4e6245078e399d396a7d3d55187ba';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [Password].
 @ProviderFor(Password)
-final passwordProvider =
-    AutoDisposeNotifierProvider<Password, MyPassword>.internal(
-  Password.new,
-  name: r'passwordProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$passwordHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const passwordProvider = PasswordProvider._();
 
-typedef _$Password = AutoDisposeNotifier<MyPassword>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class PasswordProvider extends $NotifierProvider<Password, MyPassword> {
+  const PasswordProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'passwordProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$passwordHash();
+
+  @$internal
+  @override
+  Password create() => Password();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(MyPassword value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<MyPassword>(value),
+    );
+  }
+}
+
+String _$passwordHash() => r'3857eb64ab716d21bd75169c02a288300245113b';
+
+abstract class _$Password extends $Notifier<MyPassword> {
+  MyPassword build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<MyPassword, MyPassword>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<MyPassword, MyPassword>, MyPassword, Object?, Object?>;
+    element.handleValue(ref, created);
+  }
+}

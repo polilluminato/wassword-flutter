@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -13,10 +14,7 @@ part of 'app_router.dart';
 /// [AboutPage]
 class AboutRoute extends PageRouteInfo<void> {
   const AboutRoute({List<PageRouteInfo>? children})
-      : super(
-          AboutRoute.name,
-          initialChildren: children,
-        );
+      : super(AboutRoute.name, initialChildren: children);
 
   static const String name = 'AboutRoute';
 
@@ -32,10 +30,7 @@ class AboutRoute extends PageRouteInfo<void> {
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
+      : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 

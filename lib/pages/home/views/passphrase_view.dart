@@ -65,9 +65,9 @@ class PassphraseView extends ConsumerWidget {
               colorScheme.secondaryContainer,
               context.loc.passphraseGeneratorWordlistSelect,
             ),
-            value: wordlistSelected,
+            initialValue: wordlistSelected,
             onChanged: (value) {
-              ref.read(wordlistSelectProvider.notifier).state = value!;
+              ref.read(wordlistSelectProvider.notifier).set(value!);
               ref.read(passphraseProvider.notifier).changeWordlist(value);
             },
             items: WordlistEnum.values
@@ -93,9 +93,9 @@ class PassphraseView extends ConsumerWidget {
               colorScheme.secondaryContainer,
               context.loc.passphraseGeneratorDividerSelect,
             ),
-            value: dividerSelected,
+            initialValue: dividerSelected,
             onChanged: (value) {
-              ref.read(dividerSelectProvider.notifier).state = value!;
+              ref.read(dividerSelectProvider.notifier).set(value!);
               ref.read(passphraseProvider.notifier).changeDivider(value);
             },
             items: DividerEnum.values

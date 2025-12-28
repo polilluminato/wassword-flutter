@@ -4,42 +4,38 @@ description: Wassword - Wonderful Password Generator
 version: 3.2.0+29
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
-  auto_route: ^10.1.0
+  auto_route: ^11.1.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_riverpod: ^2.6.1
-  flutter_styled_toast: ^2.2.1
-  freezed_annotation: ^2.4.4
-  google_fonts: ^6.2.1
-  package_info_plus: ^8.1.2
+  flutter_riverpod: ^3.0.3
+  flutter_styled_toast: ^2.3.0
+  freezed_annotation: ^3.1.0
+  package_info_plus: ^9.0.0
   phosphor_flutter: ^2.1.0
-  riverpod_annotation: ^2.6.1
-  share_plus: ^11.0.0
+  riverpod_annotation: ^3.0.3
+  share_plus: ^12.0.1
   universal_platform: ^1.1.0
-  url_launcher: ^6.3.1
+  url_launcher: ^6.3.2
   window_manager: ^0.5.1
 
 dev_dependencies:
-  auto_route_generator: ^10.2.3
-  build_runner: ^2.4.14
-  custom_lint: ^0.7.0
-  flutter_launcher_icons: ^0.14.2
-  flutter_lints: ^5.0.0
-  flutter_native_splash: ^2.4.4
+  auto_route_generator: ^10.4.0
+  build_runner: ^2.10.4
+  flutter_launcher_icons: ^0.14.4
+  flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.7
   flutter_test:
     sdk: flutter
-  freezed: ^2.5.8
-  riverpod_generator: ^2.6.3
-  riverpod_lint: ^2.6.3
+  freezed: ^3.2.3
+  riverpod_generator: ^3.0.3
 
 # Launcher Icons
 flutter_launcher_icons:
-  android: true
   ios: true
   remove_alpha_ios: true
   image_path: "assets/icon/icon.png"
@@ -52,7 +48,6 @@ flutter_launcher_icons:
 
 # Splash Screen
 flutter_native_splash:
-  #Android
   android: true
   android_gravity: center
   color_android: "#A700B6"
@@ -72,3 +67,7 @@ flutter:
   assets:
     - assets/
     - assets/icon/
+  fonts:
+    - family: GoogleSansFlex
+      fonts:
+        - asset: assets/fonts/GoogleSansFlex.ttf

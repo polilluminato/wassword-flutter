@@ -8,7 +8,7 @@ part 'passphrase_provider.freezed.dart';
 part 'passphrase_provider.g.dart';
 
 @freezed
-class MyPassphrase with _$MyPassphrase {
+abstract class MyPassphrase with _$MyPassphrase {
   factory MyPassphrase({
     required WordlistEnum wordlist,
     required DividerEnum divider,
